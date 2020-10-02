@@ -5,6 +5,8 @@
 \usepackage{siunitx} % the \si environment for units
 \usepackage{mathtools} % The dcases environment, prettier than just cases
 \usepackage{tikz} % For drawing picures
+\usepackage{wrapfig} % Wrapping text around figures
+
 
 \title{Exercise x - TFY4345 Classical Mechanics}
 \date{2020}
@@ -14,5 +16,10 @@
 
     \section{exercise name}
     text
+
+    % Including figure with text wrapped around, to the right
+    \begin{wrapfigure}{2}{0.4\textwidth}
+        \tikz \draw (0, 0) -- (1, 0);
+    \end{wrapfigure}
 
 \end{document}
