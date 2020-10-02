@@ -1,0 +1,37 @@
+\documentclass{article}
+
+\usepackage{physics} % Handy shortcuts like \pdv, \dd and much more
+\usepackage{geometry} % smaller margins, can be adjusted if given arguments
+\usepackage{siunitx} % the \si environment for units
+\usepackage{mathtools} % The dcases environment, prettier than just cases
+\usepackage{tikz} % For drawing picures
+\usepackage{wrapfig} % Wrapping text around figures
+
+
+\title{Exercise 7 solutions - TFY4345 Classical Mechanics}
+\date{2020}
+
+\begin{document}
+    \maketitle
+    \section{Inertia tensor}
+    (SIDEREFFERANSE)\\
+    The inertia tensor of a solid object $V$ with the mass density $\rho(\vec r)$ is defined as
+    \begin{equation}
+        I_{ij} = \int_V \rho(\vec{r}) \big(\delta_{i, j} r^2 - x_ix_j) \dd V.
+    \end{equation}
+    We assume the slab is so thin that the $z$-direction can be neglected, and that it has a constant mass density $\rho = M / ab$. The integral then becomes.
+    \begin{equation}
+        I_{ij} = \frac{M}{ab} \int_0^a \dd x \int_0^b \dd y r^2 - x_ix_j).
+    \end{equation}
+    The tensor is symmetric, so the integrals we need to evaluate are
+    \begin{equation}
+        \begin{dcases}
+            I_{1 1} = \frac{M}{ab} \int_0^a \dd x \int_0^b \dd y \\
+            I_{1 2} = \frac{M}{ab} \int_0^a \dd x \int_0^b \dd y \\
+            I_{1 3} = \frac{M}{ab} \int_0^a \dd x \int_0^b \dd y \\
+            I_{2 2} = \frac{M}{ab} \int_0^a \dd x \int_0^b \dd y \\
+            I_{1 3} = \frac{M}{ab} \int_0^a \dd x \int_0^b \dd y \\
+            I_{1 3} = \frac{M}{ab} \int_0^a \dd x \int_0^b \dd y \\
+        \end{dcases}    
+    \end{equation}
+\end{document}
