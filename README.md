@@ -1,2 +1,2 @@
 # exercises_classical_mechanics
-Exercises in TFY4345 - Classical Mechanics at NTNU
+Exercises in [TFY4345 - Classical Mechanics](https://www.ntnu.edu/studies/courses/TFY4345#tab=omEmnet) at NTNU. Exercises by [Jaakko Akola](https://www.ntnu.edu/employees/jaakkoa), typset by Martin Johnsrud.
