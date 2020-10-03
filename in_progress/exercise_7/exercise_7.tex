@@ -31,7 +31,7 @@
         \end{wrapfigure}
 
         (Exam Aug. 2018)\\
-        A very thin rectangular slab (see figure) rotates with an angular velocity vector $\boldsymbol\omega$ parallel to its diagonal. The principal axes $1$ and $2$ are parallel to the slab edges, as indicated in the figure,while axis $3$ is perpendicular to the slab, and goes through its center. The side lengths of the slab are $a$ and $b$, with the principal moments of inertia
+        Consider the same thin slab. However, now it rotates around an axis parallel to its diagonal, with an angular velocity vector $\boldsymbol\omega$. As the axis of rotation has change, so has its principal axis. The principal axes $x_1$ and $x_2$ are parallel to the slab edges, as indicated in the figure, while the axis $x_3$ is perpendicular to the slab, and goes through its center. The side lengths of the slab are $a$ and $b$, with the principal moments of inertia
 
         \begin{equation*}
             I = 
@@ -54,32 +54,36 @@
         \end{enumerate}
 
     \section{Cone rolling on a plane}
-    (Exam Dec. 2016) \\ \\
-    We shall consider the motion of a solid cone that is rolling on the surface ($xy$-plane), without slipping. The center of mass of the cone is situated on the symmetry axis $x_3$, which goes through the center of the bottom of the cone. It is at a distance $\ell$ from the origin $O$. The height of the cone is $H$, and the radius of the bottom of the cone is $R$.
-    \begin{enumerate}[label=(\alph*)]
-        \item Calculate the velocity of the center of mass, $V_{CM}$ as a function of $\ell, \alpha$ and $\dv{t} \phi =\dot \phi$.
-        \item Explain why the angular velocity vector $\boldsymbol \omega$ of the rolling cone is directed along the line $OA$, the line of contact between the cone and the $xy$-plane. Show that 
-        \begin{equation*}
-            \omega = |\boldsymbol \omega | = \frac{\cos(\alpha)}{\tan(\alpha)} \dot \phi
-        \end{equation*}
-        \item find the component of $\boldsymbol \omega $ along the principal axes (symmetry axes) of the cone, $\mathbf{x}_i$.
-        \item The principal moment of inertia of the cone, for rotation around the point $O$ is
+        \begin{figure*}
+            \centering
+            \includegraphics[width=0.7\textwidth]{figures/exercise_7_3_cone.pdf}
+        \end{figure*} 
+        (Exam Dec. 2016) \\ \\
+        We shall consider the motion of a solid cone that is rolling on the surface ($xy$-plane), without slipping. The center of mass of the cone is situated on the symmetry axis $x_3$, which goes through the center of the bottom of the cone. It is at a distance $\ell$ from the origin $O$. The height of the cone is $H$, and the radius of the bottom of the cone is $R$, and the cone half angle is $\alpha$. These are related by $R\cos(\alpha) = \sin(\alpha)  H$. The momentary line of contact between the cone and the $xy$-plane is the line $OA$, which is at an angle $\pi$ relative to the $x$-axis.
+        \begin{enumerate}[label=(\alph*)]
+            \item Calculate the velocity of the center of mass, $V_{CM}$ as a function of $\ell, \alpha$ and $\dv{t} \phi =\dot \phi$.
+            \item Explain why the angular velocity vector $\boldsymbol \omega$ of the rolling cone is directed along the line $OA$, the line of contact between the cone and the $xy$-plane. Show that 
             \begin{equation*}
-                I = 
-                \begin{pmatrix}
-                    I_{1} & 0 & 0 \\
-                    0 & I_{2} & 0 \\
-                    0 & 0 & I_{3} \\
-                \end{pmatrix}
-                = \frac{3}{10} M 
-                \begin{pmatrix}
-                    \frac{1}{2}(R^2 + 4H^2)& 0 & 0 \\
-                    0 & \frac{1}{2}(R^2 + 4H^2)& 0 \\
-                    0 & 0 & R^2\\
-                \end{pmatrix}
-                ,
+                \omega = |\boldsymbol \omega | = \frac{1}{\tan(\alpha)} \dot \phi
             \end{equation*}
-            where $M$ is the mass of the cone. Calculate the kinetic energy of the cone as a function of $M, H, \alpha$ and $\dot \phi$.
-    \end{enumerate}
+            \item $x_3$ is one of the principal axis of rotations, what are the other? Remember that the coordinate transformation that takes $xyz$ into the principal axis $x_1x_2x_3$ is a rotation. Due to the symmetry of the cone, we have some freedom in choosing  the other two axis. Choose $x_1$ to be in the plane spanned by $\boldsymbol \omega$ and $x_3$, and find the components of $\boldsymbol \omega $ along the principal axes.
+            \item The principal moment of inertia of the cone, for rotation around the point $O$ is
+                \begin{equation*}
+                    I = 
+                    \begin{pmatrix}
+                        I_{1} & 0 & 0 \\
+                        0 & I_{2} & 0 \\
+                        0 & 0 & I_{3} \\
+                    \end{pmatrix}
+                    = \frac{3}{20} M 
+                    \begin{pmatrix}
+                        R^2 + 4H^2& 0 & 0 \\
+                        0 & R^2 + 4H^2& 0 \\
+                        0 & 0 & 2R^2\\
+                    \end{pmatrix}
+                    ,
+                \end{equation*}
+                where $M$ is the mass of the cone. Calculate the kinetic energy of the cone as a function of $M, H, \alpha$ and $\dot \phi$.
+        \end{enumerate}
 
 \end{document}

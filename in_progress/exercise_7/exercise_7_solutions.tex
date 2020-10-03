@@ -175,65 +175,113 @@
         \end{equation*}
     
     \section{Rotated tilted slab}
-    a) \\ \\  
-    Given the moment of inertia around the principal axes
-    \begin{equation*}
-        I = M
-        \begin{pmatrix}
-            \frac{1}{12} a^2& 0 & 0 \\
-            0 & \frac{1}{12} b^2 & 0 \\
-            0 & 0 & \frac{1}{12} (a^2 + b^2)\\
-        \end{pmatrix}
-    \end{equation*}
-    the angular momentum is given by
-    \begin{equation*}
-        \mathbf{L} = I \mathbf{\omega} = \sum_i  I_i \omega_i  \mathbf{e}_i.
-    \end{equation*}
-    By looking at the illustration, we can express
-    \begin{equation*}
-        \sin(\theta) = \frac{b}{\sqrt{a^2 + b^2}}, \quad \sin(\theta) = \frac{a}{\sqrt{a^2 + b^2}},
-    \end{equation*}
-    The the angular velocity vector in the principal axis system is then
-    \begin{equation*}
-        \boldsymbol{\omega} = \sum_i \omega_i \mathbf{e}_i = \omega (-\sin(\theta) \mathbf{e}_1 + \cos(\theta) \mathbf{e}_2) = \frac{1}{12}\frac{\omega}{\sqrt{a^2 + b^2}}(-b \mathbf{e}_1 + a \mathbf{e}_2)
-    \end{equation*} 
-    The angular momentum vector is therefore
-    \begin{equation*}
-        \mathbf{L} = \frac{1}{12} M \omega(-a^2\sin(\theta) \mathbf{e}_1 + b^2\cos(\theta) \mathbf{e}_2)
-    \end{equation*}
-    Thus, in general, the angular momentum and velocity vector are not parallel. 
-    which gives
-    \begin{equation*}
-        \mathbf{L} = \frac{1}{12}\frac{M \omega}{\sqrt{a^2 + b^2}}(-a^2b \mathbf{e}_1 + b^2a \mathbf{e}_2)
-    \end{equation*} 
-    \\ \\
-    b) \\ \\
-    The angle between two vectors is given by the dot product,
-    \begin{equation*}
-        \boldsymbol \omega \cdot \mathbf{L} = \omega L \cos(\alpha) \implies \alpha = \arccos\bigg( \frac{\boldsymbol \omega \cdot \mathbf{L}}{\omega L}\bigg).
-    \end{equation*}
-    These quantities are given by
-    \begin{align*}
-        &\boldsymbol \omega \cdot \mathbf{L}  = \frac{1}{12} M \bigg( \frac{\omega}{\sqrt{a^2 + b^2}}\bigg)^2 (a^2b^2 + a^2b^2) = \frac{1}{12}\frac{2M}{a^2+ b^2} ( ab\omega)^2 \\
-        &L^2 = \mathbf{L} \cdot \mathbf{L} = \bigg(\frac{M \omega}{\sqrt{a^2 + b^2}}\bigg)^2 ((a^2b)^2 + (b^2a)^2) = \bigg( \frac{1}{12}M \omega\bigg)^2 \bigg( a^2b^2\frac{a^2 + b^2}{a^2 + b^2}\bigg) = \bigg( \frac{1}{12} abM\omega \bigg)^2 \\
-    \implies & \alpha = \arccos \bigg( 
-        \frac{1}{12}\frac{2M}{a^2+ b^2} ( ab\omega)^2 \bigg/ \frac{1}{12} abM\omega^2 \bigg)
-        = \arccos\bigg(\frac{2ab}{a^2 + b^2}\bigg).
-    \end{align*}
-    For example, with $b=1, a=2$, we get $\alpha = 36.9^\circ, \theta = 26.6^\circ$.
-    \\ \\
-    c) 
-    \\ \\
-    The rotational kinetic energy is given by 
-    \begin{equation*}
-        T_{rot} = \frac{1}{2} \boldsymbol \omega \cdot \mathbf{L} = \frac{1}{12}\frac{( ab)^2}{a^2+ b^2} M \omega^2.
+        a) \\ \\  
+        Given the moment of inertia around the principal axes
+        \begin{equation*}
+            I = M
+            \begin{pmatrix}
+                \frac{1}{12} a^2& 0 & 0 \\
+                0 & \frac{1}{12} b^2 & 0 \\
+                0 & 0 & \frac{1}{12} (a^2 + b^2)\\
+            \end{pmatrix}
+        \end{equation*}
+        the angular momentum is given by
+        \begin{equation*}
+            \mathbf{L} = I \mathbf{\omega} = \sum_i  I_i \omega_i  \mathbf{e}_i.
+        \end{equation*}
+        By looking at the illustration, we can express
+        \begin{equation*}
+            \sin(\theta) = \frac{b}{\sqrt{a^2 + b^2}}, \quad \sin(\theta) = \frac{a}{\sqrt{a^2 + b^2}},
+        \end{equation*}
+        The the angular velocity vector in the principal axis system is then
+        \begin{equation*}
+            \boldsymbol{\omega} = \sum_i \omega_i \mathbf{e}_i = \omega (-\sin(\theta) \mathbf{e}_1 + \cos(\theta) \mathbf{e}_2) = \frac{1}{12}\frac{\omega}{\sqrt{a^2 + b^2}}(-b \mathbf{e}_1 + a \mathbf{e}_2)
+        \end{equation*} 
+        The angular momentum vector is therefore
+        \begin{equation*}
+            \mathbf{L} = \frac{1}{12} M \omega(-a^2\sin(\theta) \mathbf{e}_1 + b^2\cos(\theta) \mathbf{e}_2)
+        \end{equation*}
+        Thus, in general, the angular momentum and velocity vector are not parallel. 
+        which gives
+        \begin{equation*}
+            \mathbf{L} = \frac{1}{12}\frac{M \omega}{\sqrt{a^2 + b^2}}(-a^2b \mathbf{e}_1 + b^2a \mathbf{e}_2)
+        \end{equation*} 
+        \\ \\
+        b) \\ \\
+        The angle between two vectors is given by the dot product,
+        \begin{equation*}
+            \boldsymbol \omega \cdot \mathbf{L} = \omega L \cos(\alpha) \implies \alpha = \arccos\bigg( \frac{\boldsymbol \omega \cdot \mathbf{L}}{\omega L}\bigg).
+        \end{equation*}
+        These quantities are given by
+        \begin{align*}
+            &\boldsymbol \omega \cdot \mathbf{L}  = \frac{1}{12} M \bigg( \frac{\omega}{\sqrt{a^2 + b^2}}\bigg)^2 (a^2b^2 + a^2b^2) = \frac{1}{12}\frac{2M}{a^2+ b^2} ( ab\omega)^2 \\
+            &L^2 = \mathbf{L} \cdot \mathbf{L} = \bigg(\frac{M \omega}{\sqrt{a^2 + b^2}}\bigg)^2 ((a^2b)^2 + (b^2a)^2) = \bigg( \frac{1}{12}M \omega\bigg)^2 \bigg( a^2b^2\frac{a^2 + b^2}{a^2 + b^2}\bigg) = \bigg( \frac{1}{12} abM\omega \bigg)^2 \\
+        \implies & \alpha = \arccos \bigg( 
+            \frac{1}{12}\frac{2M}{a^2+ b^2} ( ab\omega)^2 \bigg/ \frac{1}{12} abM\omega^2 \bigg)
+            = \arccos\bigg(\frac{2ab}{a^2 + b^2}\bigg).
+        \end{align*}
+        For example, with $b=1, a=2$, we get $\alpha = 36.9^\circ, \theta = 26.6^\circ$.
+        \\ \\
+        c) 
+        \\ \\
+        The rotational kinetic energy is given by 
+        \begin{equation*}
+            T_{rot} = \frac{1}{2} \boldsymbol \omega \cdot \mathbf{L} = \frac{1}{12}\frac{( ab)^2}{a^2+ b^2} M \omega^2.
     \end{equation*}
 
     \section{Cone rolling on a plane}
-    \\ \\
-    a)
-    \\ \\
-    
-    
+        a) \\ \\
+        The axis $x_3$ is always straight above the line $OA$, and has therefore the same angular velocity, $\dot \phi$. Observing the figure, we see that the center of mass is at a distance $\ell \cos(\alpha)$ from the $z$-axis, so the center of mass velocity is
+        \begin{equation*}
+            V_{CM} = \ell \cos(\alpha) \dot \phi
+        \end{equation*} 
+        \begin{wrapfigure}{r}{0.35\textwidth}
+            \includegraphics[width=0.35\textwidth]{figures/exercise_7_3_cone2.pdf}
+        \end{wrapfigure}
+        b) \\ \\
+        The fact that the contact point of the cone and the plane is just a line, and that it rotates without slipping, means that at every instant it rotates just as it would have if were just rotating around a line. However, in the next instant, the line of contact has moved, so it has an instantaneous axis of rotation parallel to the line $OA$. We can find the angular velocity using how the center-of-mass moves with respect to $OA$. The point on the line $OA$ below the center-of-mass is at a length $\ell \sin(\alpha)$ from the $z$-axis, so the angular velocity of the cone is
+        \begin{equation*}
+            \omega = \frac{V_{cm}}{\ell \sin(\alpha)} = \frac{1}{\tan(\alpha)} \dot \phi
+        \end{equation*}
+        \begin{wrapfigure}{r}{0.4\textwidth}
+            \includegraphics[width=0.4\textwidth]{figures/exercise_7_3_cone3.pdf}
+        \end{wrapfigure}
+        c) \\ \\
+        (MÅ PLASSERE FIGUR RIKTIG) \\
+        The figure shows two of the principal axis, the third one is into the page, perpendicular to $x_1$ and $x_2$. The moment of inertia tensor in this can be expressed in this system as 
+        \begin{equation*}
+            \boldsymbol{\omega} = \sum_i \omega_i \mathbf{e}_i,
+        \end{equation*}
+        and due to our choice of $x_2$, $\omega_2 = 0$. The two other components are then
+        \begin{align*}
+            &\omega_1 = \omega \sin(\alpha) =  \sin(\alpha)\cos(\alpha) \dot \phi, \\
+            &\omega_3 = \omega \cos(\alpha) =  \frac{\cos(\alpha)}{\tan(\alpha)} \dot \phi
+        \end{align*}
+        d) \\ \\
+        The kinetic energy of a rotating object is
+        \begin{align*}
+            &\frac{1}{2} \boldsymbol{\omega} I \boldsymbol{\omega} = \frac{3}{20} M
+            \begin{pmatrix*}
+                \omega_1 \\
+                \omega_2 \\
+                \omega_3
+            \end{pmatrix*}
+            \begin{pmatrix}
+                R^2 + 4H^2& 0 & 0 \\
+                0 & R^2 + 4H^2& 0 \\
+                0 & 0 & 2R^2\\
+            \end{pmatrix}
+            \begin{pmatrix*}
+                \omega_1 \\
+                \omega_2 \\
+                \omega_3
+            \end{pmatrix*}
+            = \frac{3}{20} M \bigg(\omega_1^2 (R^2 + 4H^2) + 2\omega_3^2R^2\bigg) \\
+            = &\frac{3}{40} M \dot \phi^2 \bigg(\sin^2(\alpha)\cos^2(\alpha)(R^2 + 4H^2) + 2R^2 \frac{\cos^2(\alpha)}{\tan^2(\alpha)}\bigg) \\
+            = &\frac{3}{40} M \dot \phi^2 \bigg(\sin^4(\alpha)H^2 + 4\sin^2(\alpha)\cos^2(\alpha)H^2 + 2H^2 \cos^2(\alpha)\bigg) \\ 
+            = &\frac{3}{40} M \dot \phi^2 H^2 \bigg(\sin^2(\alpha)(\sin^2 + 4\cos^2(\alpha)) + 2\cos^2(\alpha)\bigg) = \frac{3}{40} M \dot \phi^2 H^2 \bigg(\sin^2(\alpha)(1 + 3\cos^2(\alpha)) + 2\cos^2(\alpha)\bigg) \\
+            = & \frac{3}{40} M \dot \phi^2 H^2 \bigg(1 + 4\cos^2(\alpha))\bigg)
+        \end{align*}
+        where we use that $R\cos(\alpha) =  H \sin(\alpha)$. (HER ER DET EN FEIL)
 
 \end{document}
