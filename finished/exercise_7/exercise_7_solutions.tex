@@ -8,19 +8,17 @@
 \usepackage{wrapfig} % Wrapping text around figures
 \usepackage{bbold}
 
-
 \title{Exercise 7 solutions - TFY4345 Classical Mechanics}
 \date{2020}
 
 \begin{document}
     \maketitle
     \section{Inertia tensor}
-        (SIDEREFFERANSE)\\
         The inertia tensor of a solid object $V$ with the mass density $\rho(\vec r)$ is defined as
         \begin{equation*}
             I_{ij} = \int_V \rho(\vec{r}) \big(\delta_{ij} r^2 - x_ix_j) \dd V.
         \end{equation*}
-        We assume the slab is so thin that the $z$-direction can be neglected, and that it has a constant mass density $\rho = M / ab$. The integral then becomes.
+        We assume the slab is so thin that the $z$-direction can be neglected so the integral then becomes.
         \begin{equation*}
             I_{ij} = \frac{M}{ab} \int_0^a \dd x \int_0^b \dd y ( r^2 - x_ix_j).
         \end{equation*}
@@ -28,7 +26,7 @@
         \begin{equation*}
             \begin{dcases}
                 I_{1 1} = \frac{M}{ab} \int_0^a \dd x \int_0^b \dd y (y^2 + z^2) = \frac{1}{3}Mb^2\\
-                I_{1 2} = \frac{M}{ab} \int_0^a \dd x \int_0^b \dd y (-xy) -\frac{1}{4}M ab\\
+                I_{1 2} = \frac{M}{ab} \int_0^a \dd x \int_0^b \dd y (-xy) = -\frac{1}{4}M ab\\
                 I_{1 3} = \frac{M}{ab} \int_0^a \dd x \int_0^b \dd y (-xz) = 0\\
                 I_{2 2} = \frac{M}{ab} \int_0^a \dd x \int_0^b \dd y (x^2 + z^2) = \frac{1}{3}Ma^2\\
                 I_{2 3} = \frac{M}{ab} \int_0^a \dd x \int_0^b \dd y (-yz) = 0\\
@@ -101,7 +99,7 @@
                 0 & 0 & \frac{2}{3} \\
             \end{pmatrix}
         \end{equation*}
-        This inertia tensor corresponds to rotation around a different set axes, the principal axes $\boldsymbol{\omega}^{(1)}, \boldsymbol{\omega}^{(2)}, \boldsymbol{\omega}^{(2)}$, than the original, which corresponds to rotation around the $xyz$-axes. The defining feature of the principal axis is that
+        This inertia tensor corresponds to rotation around a different set axes, the principal axes $\boldsymbol{\omega}^{(1)}, \boldsymbol{\omega}^{(2)}, \boldsymbol{\omega}^{(2)}$, than the original, which corresponds to rotation around the $xyz$-axes. The defining feature of the principal axes is that
         \begin{equation*}
             I \boldsymbol{\omega^{(i)}} = I_i' \boldsymbol{\omega^{(i)}},
         \end{equation*}
@@ -176,7 +174,7 @@
     
     \section{Rotated tilted slab}
         a) \\ \\  
-        Given the moment of inertia around the principal axes
+        We are given the moment of inertia around the principal axes
         \begin{equation*}
             I = M
             \begin{pmatrix}
@@ -185,27 +183,27 @@
                 0 & 0 & \frac{1}{12} (a^2 + b^2)\\
             \end{pmatrix}
         \end{equation*}
-        the angular momentum is given by
+        and the angular momentum is given by
         \begin{equation*}
             \mathbf{L} = I \mathbf{\omega} = \sum_i  I_i \omega_i  \mathbf{e}_i.
         \end{equation*}
         By looking at the illustration, we can express
         \begin{equation*}
-            \sin(\theta) = \frac{b}{\sqrt{a^2 + b^2}}, \quad \sin(\theta) = \frac{a}{\sqrt{a^2 + b^2}},
+            \sin(\theta) = \frac{b}{\sqrt{a^2 + b^2}}, \quad \cos(\theta) = \frac{a}{\sqrt{a^2 + b^2}},
         \end{equation*}
         The the angular velocity vector in the principal axis system is then
         \begin{equation*}
             \boldsymbol{\omega} = \sum_i \omega_i \mathbf{e}_i = \omega (-\sin(\theta) \mathbf{e}_1 + \cos(\theta) \mathbf{e}_2) = \frac{1}{12}\frac{\omega}{\sqrt{a^2 + b^2}}(-b \mathbf{e}_1 + a \mathbf{e}_2)
-        \end{equation*} 
+        \end{equation*}
         The angular momentum vector is therefore
         \begin{equation*}
             \mathbf{L} = \frac{1}{12} M \omega(-a^2\sin(\theta) \mathbf{e}_1 + b^2\cos(\theta) \mathbf{e}_2)
         \end{equation*}
-        Thus, in general, the angular momentum and velocity vector are not parallel. 
-        which gives
+        or
         \begin{equation*}
             \mathbf{L} = \frac{1}{12}\frac{M \omega}{\sqrt{a^2 + b^2}}(-a^2b \mathbf{e}_1 + b^2a \mathbf{e}_2)
         \end{equation*} 
+        We see that in general, the angular momentum and velocity vector are not parallel. 
         \\ \\
         b) \\ \\
         The angle between two vectors is given by the dot product,
@@ -226,7 +224,7 @@
         \\ \\
         The rotational kinetic energy is given by 
         \begin{equation*}
-            T_{rot} = \frac{1}{2} \boldsymbol \omega \cdot \mathbf{L} = \frac{1}{12}\frac{( ab)^2}{a^2+ b^2} M \omega^2.
+            T = \frac{1}{2} \boldsymbol \omega \cdot \mathbf{L} = \frac{1}{12}\frac{( ab)^2}{a^2+ b^2} M \omega^2.
     \end{equation*}
 
     \section{Cone rolling on a plane}
@@ -234,19 +232,17 @@
             \includegraphics[width=0.35\textwidth]{figures/exercise_7_3_cone2.pdf}
         \end{wrapfigure}
         a) \\ \\
-        The axis $x_3$ is always straight above the line $OA$, and has therefore the same angular velocity, $\dot \phi$. Observing the figure, we see that the center of mass is at a distance $\ell \cos(\alpha)$ from the $z$-axis, so the center of mass velocity is
+        The axis $x_3$ is always straight above the line $OA$, and has therefore the same angular velocity around the $z$- axis, $\dot \phi$. Observing the figure, we see that the center of mass is at a distance $\ell \cos(\alpha)$ from the $z$-axis, so the center of mass velocity is
         \begin{equation*}
             V_{CM} = \ell \cos(\alpha) \dot \phi
-        \end{equation*} 
-
+        \end{equation*}
         b) \\ \\
-        The fact that the contact point of the cone and the plane is just a line, and that it rotates without slipping, means that at every instant it rotates just as it would have if were just rotating around a line. However, in the next instant, the line of contact has moved, so it has an instantaneous axis of rotation parallel to the line $OA$. We can find the angular velocity using how the center-of-mass moves with respect to $OA$. The point on the line $OA$ below the center-of-mass is at a length $\ell \sin(\alpha)$ from the $z$-axis, so the angular velocity of the cone is
-
-        c) \\ \\        
+        The fact that the contact point of the cone and the plane is just a line, and that it rotates without slipping, means that at every instant all points in the cone rotates just as they would have if the cone were just rotating around a line. However, in the next instant, the line of contact has moved, so it has an instantaneous axis of rotation parallel to the line $OA$. We can find the angular velocity using how the center-of-mass moves with respect to $OA$. The  center-of-mass is at a length $\ell \sin(\alpha)$ from the $xy$-plane, so the angular velocity of the cone is        
         \begin{equation*}
             \omega = \frac{V_{cm}}{\ell \sin(\alpha)} = \frac{\cos(\alpha)}{\sin(\alpha)} \dot \phi
-        \end{equation*}  
-        The figure shows two of the principal axis, the third one is into the page, perpendicular to $x_1$ and $x_2$. The moment of inertia tensor in this can be expressed in this system as 
+        \end{equation*}
+        c) \\ \\
+        The figure shows two of the principal axis, the third one is into the page and not shown, perpendicular to $x_1$ and $x_3$. $z, x_1, x_3$ and $\boldsymbol{\omega}$ are all in the same plane. The moment of inertia tensor in this can be expressed in this system as 
         \newpage % Figure must be placed on the page where it appears
         \begin{wrapfigure}{R}{0.3\textwidth}         
             \includegraphics[width=0.3\textwidth]{figures/exercise_7_3_cone3.pdf}
