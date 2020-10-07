@@ -24,7 +24,7 @@
         \item The slab is two dimensional, and laying in the $xy$-plane. If we look at the definition of the off-diagonal entries in moment of inertia tensor,
         \begin{equation*}
             I_{ij} = - \int_V \dd V x_ix_j,
-        \end{equation*} $I_{zx} = I_{xz} = I_{zy} = I_{yz} = 0$, as  z = 0. This also implies that $I_{xx} + I_{yy} = I_{zz}$, so all we need to calculate is $I_{xx}, I_{yy}$ and $I_{xy} ) I_{yx}$.
+        \end{equation*} $I_{zx} = I_{xz} = I_{zy} = I_{yz} = 0$, as  z = 0. This also implies that $I_{xx} + I_{yy} = I_{zz}$, so all we need to calculate is $I_{xx}, I_{yy}$ and $I_{xy}$.
         \begin{align*}
             I_{xy} =& -\rho \int_0^a \dd x \int_0^{v(1 - x/a)} \dd y yx = - \frac{\rho b^2}{2}\int_0^a \dd x x \left( 1 - \frac{x}{a} \right)^2 = - \frac{\rho b^2}{2} \int_0^a \dd x \left( x - \frac{2}{a}x^2 + \frac{1}{a^2} x^3\right) \\
             &= -\frac{\rho b^2 a^2}{2}\left( \frac{1}{2} - \frac{2}{3} + \frac{1}{4} \right) = \frac{M a b}{12} \\
@@ -33,7 +33,7 @@
         \end{align*} 
         Lastly, $I_{yy}$ can a gain be found just by the exchange $a \leftrightarrow b$. In matrix form,
         \begin{equation*}
-            I = \frac{M}{6} = 
+            I = \frac{M}{6}
             \begin{pmatrix*}
                 b^2 & -\frac{1}{2} ab & 0 \\
                 -\frac{1}{2} ab & a^2 & 0 \\
@@ -44,9 +44,87 @@
         \begin{equation*}
             A = \frac{1}{2}(a^2 + b^2), \quad B = \frac{1}{2}\sqrt{(b^2 - a^2) +a^2b^2}, \quad \vartheta = \tan^{-1}\left( \frac{ab}{b^2 - a^2} \right).
         \end{equation*}
-        (FIGUR) The last equation describes a traingle with side lengths $b^2 - a^2, \, ab$ and $\sqrt{(b^2 - a^2) +a^2b^2}$, and an angle $\vartheta$ opposite the side of length $ab.$ 
+        (FIGUR)\\
+        The last equation describes a triangle with side lengths $b^2 - a^2, \, ab$ and $\sqrt{(b^2 - a^2) +a^2b^2} = 2B$, and an angle $\vartheta$ opposite the side of length $ab$. This gives us the relations $ab=2 B \cos(\vartheta)$ and $b^2 - a^2 = 2B \cos(\vartheta)$. (HER ER DET NOE FEIL) It follows that
+        \begin{align*}
+            a^2 &= \frac{1}{2}(b^2 + a^2)  - \frac{1}{2}(b^2 - a^2) = A - B \cos(\vartheta) \\
+        b^2 &= \frac{1}{2}(b^2 + a^2)  + \frac{1}{2}(b^2 - a^2) = A + B \cos(\vartheta)
+        \end{align*}
+        Putting all this together, we get 
+        \begin{equation*}
+            I = \frac{M}{18}
+            \begin{pmatrix*}
+                A + B\cos(\vartheta) & B \sin(\vartheta) & 0 \\
+                B \sin(\vartheta) & A - B\cos(\vartheta) & 0 \\
+                0 & 0 & 2A
+            \end{pmatrix*}
+        \end{equation*}
+
+        To find the principal moments of inertia, we must find solve the characteristic equation for the principal moments of inertia $\omega$
+        \begin{align*}
+             \det(I - \omega) = 0& \implies
+            \begin{vmatrix*}
+                A + B\cos(\vartheta) - \omega & B \sin(\vartheta) & 0 \\
+                B \sin(\vartheta) & A - B\cos(\vartheta) - \omega & 0 \\
+                0 & 0 & 2A - \omega
+            \end{vmatrix*} \\
+            &= (2A - \omega) \big[(A + B\cos(\vartheta) - \omega) (A - B\cos(\vartheta) - \omega)  - B \sin(\vartheta) \big]  \\
+            &= (2A - \omega)[A^2 - B^2 + \omega^2 - 2\omega A] \\
+            &= (2A - \omega)[(A - \omega)^2 - B^2] = 0,
+        \end{align*}
+        which has the solutions $\omega_1 = 2A, \, \omega_2 = A+B$ and $\omega_3 = A-B$. By inspection, the first eigenvector is $\mathbf{v} = (0, 0, 1)$. We can then only look at the relevant part of the matrix to find the others
+        \begin{align*}
+            \omega = A + B \implies& 
+            \begin{pmatrix*}
+                2A + B(1 + \cos(\vartheta)) & B \sin(\vartheta)  \\
+                B \sin(\vartheta) & 2A + B(1-\cos(\vartheta))  \\
+            \end{pmatrix*} 
+            \mathbf{v}\\
+            =& 
+            \begin{pmatrix*}
+                2[A + B \cos^2(\vartheta / 2)] & B \sin(\vartheta)  \\
+                B \sin(\vartheta) & 2[A + B\sin^2(\vartheta/2)]  \\
+            \end{pmatrix*} 
+            \mathbf{v} = 0 \\
+            &\implies 0 = 
+            \begin{cases}
+                2[A + B \cos^2(\vartheta / 2)] v_1 + B \sin(\vartheta) v_2 \\
+                B \sin(\vartheta) v_1   + 2[A + B\sin^2(\vartheta/2)] v_2
+            \end{cases}
+        \end{align*}
+
+    (TBD)
+    \begin{equation*}
+        \mathbf{v}_1 = (\cos(\vartheta/2), \sin(\vartheta/2), 0), \quad \mathbf{v}_1 = (-\sin(\vartheta/2), \cos(\vartheta/2), 0)
+    \end{equation*}
 
     \end{enumerate}
     \section{Precession of a frisbee}
+
+    \begin{enumerate}[label=(\alph*)]
+    \item The Euler equation for the motion of a spinning free body (no torque) is 
+        \begin{equation*}
+            \left(\dv{\mathbf{L}}[t]\right)_b + \boldsymbol \omega \cross \mathbf{L} = 0
+        \end{equation*}
+        Writing this out in component form gives
+        \begin{align*}
+            & I_1 \dot \omega_{x'} + \omega_{y'}\omega_{z'}(I_3 - I_2) = 0, \\
+            & I_2 \dot \omega_{y'} + \omega_{z'}\omega_{x'}(I_1 - I_3) = 0, \\
+            & I_3 \dot \omega_{z'} + \omega_{x'}\omega_{y'}(I_2 - I_1) = 0 .\\
+        \end{align*}
+        As shown in the compendium (5.G), the components of the angular velocity in the body frame is 
+        \begin{align*}
+            \omega_{x'} & = \dot \phi \sin(\theta) \sin(\psi) + \dot\theta \cos(\psi) \\
+            \omega_{y'} & = \dot \phi \sin(\theta)\cos(\psi) - \dot \theta  \sin(\psi)\\
+            \omega_{z'} & = \dot \phi \cos(\theta) + \dot \psi.
+        \end{align*}
+
+    \item From the component form of the equations of motion, we see that 
+        \begin{equation*}
+            I_1 = I_2 \implies I_3 \dot \omega_{z'} = 0 \implies \omega_{z'} = \mathrm{const.}
+        \end{equation*}
+
+    \end{enumerate}
+
     \section{Precession of a heavy spinning top}
 \end{document}
