@@ -17,7 +17,7 @@
 \begin{document}
     \maketitle
     \section{Principal moments of inertia of a triangular slab}
-        (a) Since the mas has uniform density, we can write the mass area density as $M =   1/2 ab\rho$. Let $x_{CM}$ denote the $x$-component of the center of mass. Using the definition of $CM$, we find
+        (a) Since the mas has uniform density, we can write the mass area density as $M =   \rho \, ab/2$. Let $x_{CM}$ denote the $x$-component of the center of mass. Using the definition of $CM$, we find
         \begin{equation*}
             x_{CM} = \frac{1}{M} \int_0^a \dd x \int_0^{b(1 - x / a)} \dd y \rho x = \frac{\rho b}{M} \int_0^a \dd x \left( 1 - \frac{x}{a}\right) = \frac{a^2 b \rho}{M} \int_0^1 \dd u (1 - u)u = \frac{\rho a^2 b}{6M} = \frac{a}{3}. 
         \end{equation*}
@@ -28,10 +28,12 @@
             I_{ij} = - \int_V \dd V x_ix_j,
         \end{equation*} $I_{zx} = I_{xz} = I_{zy} = I_{yz} = 0$, as  z = 0. This also implies that $I_{xx} + I_{yy} = I_{zz}$, so all we need to calculate is $I_{xx}, I_{yy}$ and $I_{xy}$.
         \begin{align*}
-            I_{xy} =& -\rho \int_0^a \dd x \int_0^{v(1 - x/a)} \dd y yx = - \frac{\rho b^2}{2}\int_0^a \dd x x \left( 1 - \frac{x}{a} \right)^2 = - \frac{\rho b^2}{2} \int_0^a \dd x \left( x - \frac{2}{a}x^2 + \frac{1}{a^2} x^3\right) \\
+            I_{xy} =& -\rho \int_0^a \dd x \int_0^{v(1 - x/a)} \dd y \, yx 
+            = - \frac{\rho b^2}{2}\int_0^a \dd x\, x \left( 1 - \frac{x}{a} \right)^2 
+            = - \frac{\rho b^2}{2} \int_0^a \dd x \left( x - \frac{2}{a}x^2 + \frac{1}{a^2} x^3\right) \\
             &= -\frac{\rho b^2 a^2}{2}\left( \frac{1}{2} - \frac{2}{3} + \frac{1}{4} \right) = \frac{M a b}{12} \\
-            I_{xy} = & -\rho \int_0^a \dd x \int_0^{v(1 - x/a)} \dd y y^2 = \frac{\rho b^3}{3}
-            \left(1 - \frac{x}{a}\right)^3 = \frac{\rho a b^3}{3} \int_0^1 \dd u u^3 = \frac{M b^2}{6}.
+            I_{xy} = & -\rho \int_0^a \dd x \int_0^{v(1 - x/a)} \dd y \,y^2 
+            = \frac{\rho b^3}{3} \left(1 - \frac{x}{a}\right)^3 = \frac{\rho a b^3}{3} \int_0^1 \dd u \,u^3 = \frac{M b^2}{6}.
         \end{align*} 
         Lastly, $I_{yy}$ can a gain be found just by the exchange $a \leftrightarrow b$. In matrix form,
         \begin{equation*}
@@ -46,11 +48,11 @@
         \begin{wrapfigure}{2}{0.4\textwidth}
             \includegraphics[width=0.4\textwidth]{figures/exercise_1_triangle2.pdf}
         \end{wrapfigure}
-        (c) We can remove the common factor $M/6$, so insert our values into the new variables, we get
+        (c)Insert our values into the new variables (neglecting the common factor), we get
         \begin{equation*}
             A = \frac{1}{2}(a^2 + b^2), \quad B = \frac{1}{2}\sqrt{(b^2 - a^2) +a^2b^2}, \quad \vartheta = \tan^{-1}\left( \frac{ab}{b^2 - a^2} \right).
         \end{equation*} 
-        \newpage
+        \newpage % Hack to place the figure right
         The last equation describes a triangle with side lengths $b^2 - a^2, \, ab$ and $\sqrt{(b^2 - a^2) +a^2b^2} = 2B$, and an angle $\vartheta$ opposite the side of length $ab$. This gives us the relations $ab=2 B \sin(\vartheta)$ and $b^2 - a^2 = 2B \cos(\vartheta)$. It follows that
         \begin{align*}
             a^2 &= \frac{1}{2}(b^2 + a^2)  - \frac{1}{2}(b^2 - a^2) = A - B \cos(\vartheta) \\
@@ -58,7 +60,7 @@
         \end{align*}
         Putting all this together, we get 
         \begin{equation*}
-            I = \frac{M}{18}
+            I =
             \begin{pmatrix*}
                 A + B\cos(\vartheta) & B \sin(\vartheta) & 0 \\
                 B \sin(\vartheta) & A - B\cos(\vartheta) & 0 \\
@@ -107,9 +109,7 @@
         \end{equation*}
 
     \section{Precession of a frisbee}
-
-    \begin{enumerate}[label=(\alph*)]
-    \item The Euler equation for the motion of a spinning free body (no torque) is 
+        (a) The Euler equation for the motion of a spinning free body (no torque) is 
         \begin{equation*}
             \left(\dv{\mathbf{L}}{t}\right)_b + \boldsymbol \omega \cross \mathbf{L} = 0
         \end{equation*}
@@ -125,35 +125,47 @@
             \omega_{y'} & = \dot \phi \sin(\theta)\cos(\psi) - \dot \theta  \sin(\psi)\\
             \omega_{z'} & = \dot \phi \cos(\theta) + \dot \psi.
         \end{align*}
-
-    \item From the component form of the equations of motion, we see that 
+        \\ \\
+        (b) From the component form of the equations of motion, we see that 
         \begin{equation*}
             I_1 = I_2 \implies I_3 \dot \omega_{z'} = 0 \implies \omega_{z'} = \mathrm{const.}
         \end{equation*}
         From the figure in the exercise, we can see that $L_{z'} = L \cos(\theta)$. The body axes are the principal axes of the frisbee, so $L_{z'} = I_3 \omega_{z'} = \mathrm{const.} \implies \theta = \mathrm{const.}$, i.e. $\dot \theta = 0$. Using the Euler equation, we then get
         \begin{equation*}
-            \dot \omega_{x'} = -\Omega \omega_{y'}, \quad \dot \omega_{y'} = \Omega \omega_{y}, \quad \Omega = \frac{I_3 - I_1}{I_1} \omega_{z'}.
+            \dot \omega_{x'} = -\Omega \omega_{y'}, \quad \dot \omega_{y'} = \Omega \omega_{y}, \quad \Omega = \frac{I_3 - I_1}{I_1} \omega_{z'} = \left(\frac{1}{I_1} - \frac{1}{I_3}\right) L \cos(\theta).
         \end{equation*}
         This is the equation of two sinusoidal functions, $90^\circ$ out of phase. (An example of a solution is $\omega_{x'} = \cos(\Omega), \omega_{y'} = \sin(\Omega t)$). This implies\footnote{A more general proof for this is that $\dv t (\omega_{x'}^2 + \omega_{y'}^2) = 2\omega_{x'} \dot \omega_{x'} + 2 \omega_{y'} \dot \omega_{y'} = -2\Omega \dot \omega_{y'} \dot \omega_{x'} + 2\Omega \dot \omega_{y'} \dot \omega_{x'} = 0$ }
         \begin{equation*}
             \omega_{x'}^2 + \omega_{y'}^2 = \left( \dot \phi \sin(\theta) \sin(\psi) \right)^2 + \left( \dot \phi \sin(\theta)\cos(\psi) \right)^2 = \dot \phi^2 \sin(\theta) = \mathrm{const.},
         \end{equation*}
-        i.e. that $\phi = \mathrm{const.}$.
+        i.e. that $\phi = \mathrm{const.}$. Using this to differentiate the expressions of the angular momentum in Euler angles, we get
+        \begin{align*}
+            \dot \phi \dot \psi \sin(\theta)\cos(\phi) = -\Omega \dot \phi \sin(\theta)\cos(\psi) \\
+            -\dot \phi \dot \psi \sin(\theta)\sin(\phi) = \Omega \dot \phi \sin(\theta)\sin(\psi) \\
+            \implies \dot \psi = -\Omega = \left(\frac{1}{I_3} - \frac{1}{I_1}\right) L \cos(\theta), \quad \dot \omega_{z'},
+        \end{align*}
+        while the last equation of motion gives
+        \begin{equation*}
+            \dot \phi = \frac{L}{I_3} + \left(\frac{1}{I_1} - \frac{1}{I_3}\right) L = \frac{L}{I_1}
+        \end{equation*}
+        \\ \\
+        (c)
+        \begin{equation*}
+            \frac{\dot \phi}{\omega_{z'}} = \frac{I_3}{I_1 \cos(\theta)} \approx 2.
+        \end{equation*}
 
-    \end{enumerate}
-
-    \begin{wrapfigure}{2}{0.35\textwidth}
-        \includegraphics[width=0.35\textwidth]{figures/exercise_3_plot.pdf}
-        \vspace{-2cm}
-    \end{wrapfigure}
+        \begin{wrapfigure}{2}{0.35\textwidth}
+            \includegraphics[width=0.35\textwidth]{figures/exercise_3_plot.pdf}
+            \vspace{-2cm}
+        \end{wrapfigure}
     \section{Precession of a heavy spinning top}
         The effective potential of the spinning top is
         \begin{equation*}
-            V(\theta) = \frac{\left(p_{\phi} - p_{\psi}\cos(\theta)\right)^2}{2 I_1 \sin(\theta)^2}.
+            V(\theta) = \frac{\left(p_{\phi} - p_{\psi}\cos(\theta)\right)^2}{2 I_1 \sin^2(\theta)} + Mgh\cos(\theta).
         \end{equation*}
         The shape is shown in the plot. This case is similar to that of orbiting planets. In that case, the centrifugal force creates an effective potential as a function of $r$, with a minimum. If the planet has an energy corresponding to that minimum, it is in a circular orbit, with constant radius. In this case, the effective potential is a function of the angle. Thus, the stable configuration with constant $\theta = \theta_0$ corresponds to the minimum of the potential. This is found by differentiating $V(\theta)$ and setting it equal to zero:
         \begin{equation*}
-            \pdv{V}{\theta} \bigg |_{\theta = \theta_0} = \frac{-\cos(\theta_0)(p_\phi - p_\psi \cos(\theta_0)^2 + p_psi \sin^2(\theta_0)(p_\phi - p_\psi \cos(\theta_0)))}{I_1 \sin^3(\theta_0)} - Mgh \sin(\theta_0) = 0.
+            \pdv{V}{\theta} \bigg |_{\theta = \theta_0} = \frac{-\cos(\theta_0)(p_\phi - p_\psi \cos(\theta_0))^2 + p_\psi \sin^2(\theta_0)(p_\phi - p_\psi \cos(\theta_0)))}{I_1 \sin^3(\theta_0)} - Mgh \sin(\theta_0) = 0.
         \end{equation*}
         Defining $\beta = p_\phi - p_\psi \cos(\theta_0)$, we can simplify this to
         \begin{equation*}
@@ -184,6 +196,6 @@
         \end{align*}
         The two stable configurations thus precess with the angular velocities
         \begin{equation*}
-            \dot \phi_{0(+)} = \frac{I_3 \omega_3}{I_1 \cos(\theta_0)}, \quad \dot \phi_{0(-)} = \frac{Mgh}{I_3 \omega_3}
+            \dot \phi_{0(+)} = \frac{I_3 \omega_3}{I_1 \cos(\theta_0)}, \quad \dot \phi_{0(-)} = \frac{Mgh}{I_3 \omega_3}.
         \end{equation*}
 \end{document}
