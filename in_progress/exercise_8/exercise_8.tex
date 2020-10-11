@@ -66,17 +66,19 @@
     \begin{equation*}
         E' = \frac{1}{2}I_1 \dot \theta^2 + V(\theta), \quad V(\theta) = \frac{(p_\phi - p_\psi \cos(\theta)^2)}{2I_1\sin(\theta)^2} + Mgh\cos(\theta),
     \end{equation*}
-    which is a constant of motion. We also defined $\theta_0$ to be the constant angle of inclination of spinning top with regular precession, e.g. that the symmetry axis rotates around the $z$ at a fixed angle. Consider the shape of the effective potential $V(\theta)$ for $\theta_0$. \emph{What is the condition in this case?} The following change of variables will come in handy for the result:
+    which is a constant of motion. We also found the constants of motion 
     \begin{equation*}
-        \beta = p_\phi - p_\psi \cos(\theta_0).
+        p_\psi =  I_3(\dot \phi \cos(\theta) + \dot \psi) = I_3 \omega_3, \quad
+        p_\phi = (I_1 \sin^2(\theta) + I_3 \cos^2(\theta)) \dot \phi + I_3 \dot \psi \cos(\theta)
+    \end{equation*}. 
+    $\theta_0$ was defined to be the constant angle of inclination of spinning top with regular precession, e.g. that the symmetry axis rotates around the $z$ at a fixed angle. Consider the shape of the effective potential $V(\theta)$ for $\theta_0$. \emph{What is the condition in this case?} The following change of variables will come in handy for the result:
+    \begin{equation*}
+        \beta = p_\phi - p_\psi \cos(\theta_0) = I_1 \sin^2(\theta) \dot \phi_0
     \end{equation*}
     You will encounter a quadratic equation for $\beta$. Show that for the equilibrium precession inclination angle $\theta_0$, the following must hold true:
     \begin{equation*}
-        \omega_3 \le \frac{2}{I_3}\sqrt{MghI_1 \cos(\theta_0) }.
+        \omega_3 \ge \frac{2}{I_3}\sqrt{MghI_1 \cos(\theta_0) }.
     \end{equation*}
-    What can you say about the corresponding precession angular velocity $\dot \phi_0$?
-
-
-
+    What can you say about the corresponding precession angular velocity $\dot \phi_0$? Express $\dot \phi_0$ when $\omega_3 \gg \frac{2}{I_3}\sqrt{MghI_1 \cos(\theta_0) }$
 
 \end{document}
