@@ -21,12 +21,13 @@
         \begin{equation*}
             x_{CM} = \frac{1}{M} \int_0^a \dd x \int_0^{b(1 - x / a)} \dd y \rho x = \frac{\rho b}{M} \int_0^a \dd x \left( 1 - \frac{x}{a}\right) = \frac{a^2 b \rho}{M} \int_0^1 \dd u (1 - u)u = \frac{\rho a^2 b}{6M} = \frac{a}{3}. 
         \end{equation*}
-        We used the substitution $u = 1 - x/a$ which implies a $ \dd x = - a \dd u $. Because of the symmetry in the problem (the slab is a triangle), the calculation of $y_{CM}$ is the same, only exchanging $ a \leftrightarrow b $, so the result is $y_{CM}$ = b/3. 
+        We used the substitution $u = 1 - x/a$ which implies $ \dd x = - a \dd u $. Because of the symmetry in the problem (the slab is a triangle), the calculation of $y_{CM}$ is the same, only exchanging $ a \leftrightarrow b $, so the result is $y_{CM}$ = b/3. 
         \\ \\
         (b) The slab is two dimensional, and laying in the $xy$-plane. If we look at the definition of the off-diagonal entries in moment of inertia tensor,
         \begin{equation*}
             I_{ij} = - \int_V \dd V x_ix_j,
-        \end{equation*} $I_{zx} = I_{xz} = I_{zy} = I_{yz} = 0$, as  z = 0. This also implies that $I_{xx} + I_{yy} = I_{zz}$, so all we need to calculate is $I_{xx}, I_{yy}$ and $I_{xy}$.
+        \end{equation*} 
+        we can see that $I_{zx} = I_{xz} = I_{zy} = I_{yz} = 0$, as  z = 0. This also implies that $I_{xx} + I_{yy} = I_{zz}$, so all we need to calculate is $I_{xx}, I_{yy}$ and $I_{xy}$.
         \begin{align*}
             I_{xy} =& -\rho \int_0^a \dd x \int_0^{v(1 - x/a)} \dd y \, yx 
             = - \frac{\rho b^2}{2}\int_0^a \dd x\, x \left( 1 - \frac{x}{a} \right)^2 
@@ -48,7 +49,7 @@
         \begin{wrapfigure}{2}{0.4\textwidth}
             \includegraphics[width=0.4\textwidth]{figures/exercise_1_triangle2.pdf}
         \end{wrapfigure}
-        (c)Insert our values into the new variables (neglecting the common factor), we get
+        (c) Inserting our values into the new variables (neglecting the common factor), we get
         \begin{equation*}
             A = \frac{1}{2}(a^2 + b^2), \quad B = \frac{1}{2}\sqrt{(b^2 - a^2) +a^2b^2}, \quad \vartheta = \tan^{-1}\left( \frac{ab}{b^2 - a^2} \right).
         \end{equation*} 
@@ -96,28 +97,29 @@
         \begin{align*}
             \mathbf{v} &= \frac{1}{\sqrt{1 + \frac{\sin^2(\vartheta)}{(1 - \cos(\vartheta))^2}}} \left( \frac{\sin(\vartheta)}{1 - \cos(\vartheta)}, 1, 0 \right)
             = \frac{1 - \cos(\vartheta)}{\sqrt{1 - 2 \cos(\theta) + \cos^2(\vartheta)  + \sin^2(\vartheta)}}\left( \frac{\sin(\vartheta)}{1 - \cos(\vartheta)}, 1, 0 \right) \\
-            = &\frac{1 - \cos(\vartheta)}{\sqrt{1 - \cos(\vartheta) } }\left( \frac{\sin(\vartheta)}{1 - \cos(\vartheta)}, 1, 0 \right) 
-            = \frac{1}{\sqrt 2 \sin(\vartheta/2) }\left( \sin(\vartheta), 2\sin^2(\vartheta / 2), 0 \right) 
+            = &\frac{1 - \cos(\vartheta)}{\sqrt 2 \sqrt{1 - \cos(\vartheta) } }\left( \frac{\sin(\vartheta)}{1 - \cos(\vartheta)}, 1, 0 \right) 
+            = \frac{1}{2  \sin(\vartheta/2) }\left( \sin(\vartheta), 2\sin^2(\vartheta / 2), 0 \right) 
         \end{align*}
-        Using $2\sin(\vartheta/2) \cos(\vartheta/2) = \sin(\vartheta)$, this gives (HVOR KOMMER $\sqrt 2$ FRA????!?!?!)
+        Using $2\sin(\vartheta/2) \cos(\vartheta/2) = \sin(\vartheta)$, this gives
         \begin{equation*}
-            \mathbf{v} = \left( \sqrt 2 \cos(\vartheta/2), -\sqrt 2 \sin(\vartheta / 2), 0 \right)
+            \mathbf{v} = \left(\cos(\vartheta/2), \sin(\vartheta / 2), 0 \right)
         \end{equation*}
         The last eigenvector is then found in a similar manner by setting $\omega = A - B$, yielding
         \begin{equation*}
             \mathbf{v} = \left(-\sin(\vartheta/2), \cos(\vartheta/2), 0\right)
         \end{equation*}
+        This is a general solution for any right triangle. Note that the first vector points out of the $xy$-plane, while the two others rotate as a function of $a$ and $b$.
 
     \section{Precession of a frisbee}
         (a) The Euler equation for the motion of a spinning free body (no torque) is 
         \begin{equation*}
-            \left(\dv{\mathbf{L}}{t}\right)_b + \boldsymbol \omega \cross \mathbf{L} = 0
+            \left(\dv{\mathbf{L}}{t}\right)_{body} + \boldsymbol \omega \cross \mathbf{L} = 0
         \end{equation*}
         Writing this out in component form gives
         \begin{align*}
             & I_1 \dot \omega_{x'} + \omega_{y'}\omega_{z'}(I_3 - I_2) = 0, \\
             & I_2 \dot \omega_{y'} + \omega_{z'}\omega_{x'}(I_1 - I_3) = 0, \\
-            & I_3 \dot \omega_{z'} + \omega_{x'}\omega_{y'}(I_2 - I_1) = 0 .\\
+            & I_3 \dot \omega_{z'} + \omega_{x'}\omega_{y'}(I_2 - I_1) = 0 .
         \end{align*}
         As shown in the compendium (5.G), the components of the angular velocity in the body frame is 
         \begin{align*}
@@ -125,7 +127,6 @@
             \omega_{y'} & = \dot \phi \sin(\theta)\cos(\psi) - \dot \theta  \sin(\psi)\\
             \omega_{z'} & = \dot \phi \cos(\theta) + \dot \psi.
         \end{align*}
-        \\ \\
         (b) From the component form of the equations of motion, we see that 
         \begin{equation*}
             I_1 = I_2 \implies I_3 \dot \omega_{z'} = 0 \implies \omega_{z'} = \mathrm{const.}
@@ -134,7 +135,7 @@
         \begin{equation*}
             \dot \omega_{x'} = -\Omega \omega_{y'}, \quad \dot \omega_{y'} = \Omega \omega_{y}, \quad \Omega = \frac{I_3 - I_1}{I_1} \omega_{z'} = \left(\frac{1}{I_1} - \frac{1}{I_3}\right) L \cos(\theta).
         \end{equation*}
-        This is the equation of two sinusoidal functions, $90^\circ$ out of phase. (An example of a solution is $\omega_{x'} = \cos(\Omega), \omega_{y'} = \sin(\Omega t)$). This implies\footnote{A more general proof for this is that $\dv t (\omega_{x'}^2 + \omega_{y'}^2) = 2\omega_{x'} \dot \omega_{x'} + 2 \omega_{y'} \dot \omega_{y'} = -2\Omega \dot \omega_{y'} \dot \omega_{x'} + 2\Omega \dot \omega_{y'} \dot \omega_{x'} = 0$ }
+        This is the equation of two sinusoidal functions, $90^\circ$ out of phase. (An example of a solution is $\omega_{x'} = \cos(\Omega t),\, \omega_{y'} = \sin(\Omega t)$). This implies\footnote{A more general proof for this is that $\dv t (\omega_{x'}^2 + \omega_{y'}^2) = 2\omega_{x'} \dot \omega_{x'} + 2 \omega_{y'} \dot \omega_{y'} = -2\Omega \dot \omega_{y'} \dot \omega_{x'} + 2\Omega \dot \omega_{y'} \dot \omega_{x'} = 0$ }
         \begin{equation*}
             \omega_{x'}^2 + \omega_{y'}^2 = \left( \dot \phi \sin(\theta) \sin(\psi) \right)^2 + \left( \dot \phi \sin(\theta)\cos(\psi) \right)^2 = \dot \phi^2 \sin(\theta) = \mathrm{const.},
         \end{equation*}
@@ -142,7 +143,7 @@
         \begin{align*}
             \dot \phi \dot \psi \sin(\theta)\cos(\phi) = -\Omega \dot \phi \sin(\theta)\cos(\psi) \\
             -\dot \phi \dot \psi \sin(\theta)\sin(\phi) = \Omega \dot \phi \sin(\theta)\sin(\psi) \\
-            \implies \dot \psi = -\Omega = \left(\frac{1}{I_3} - \frac{1}{I_1}\right) L \cos(\theta), \quad \dot \omega_{z'},
+            \implies \dot \psi = -\Omega = \left(\frac{1}{I_3} - \frac{1}{I_1}\right) L \cos(\theta),
         \end{align*}
         while the last equation of motion gives
         \begin{equation*}
@@ -163,7 +164,7 @@
         \begin{equation*}
             V(\theta) = \frac{\left(p_{\phi} - p_{\psi}\cos(\theta)\right)^2}{2 I_1 \sin^2(\theta)} + Mgh\cos(\theta).
         \end{equation*}
-        The shape is shown in the plot. This case is similar to that of orbiting planets. In that case, the centrifugal force creates an effective potential as a function of $r$, with a minimum. If the planet has an energy corresponding to that minimum, it is in a circular orbit, with constant radius. In this case, the effective potential is a function of the angle. Thus, the stable configuration with constant $\theta = \theta_0$ corresponds to the minimum of the potential. This is found by differentiating $V(\theta)$ and setting it equal to zero:
+        The shape is shown in the plot, but it will depend on the parameters. This case is similar to that of orbiting planets. In that case, the centrifugal force creates an effective potential as a function of $r$, with a minimum. If the planet has an energy corresponding to that minimum, it is in a circular orbit with constant radius. In this case, the effective potential is a function of the angle. Thus, the stable configuration with constant $\theta = \theta_0$ corresponds to the minimum of the potential. This is found by differentiating $V(\theta)$ and setting it equal to zero:
         \begin{equation*}
             \pdv{V}{\theta} \bigg |_{\theta = \theta_0} = \frac{-\cos(\theta_0)(p_\phi - p_\psi \cos(\theta_0))^2 + p_\psi \sin^2(\theta_0)(p_\phi - p_\psi \cos(\theta_0)))}{I_1 \sin^3(\theta_0)} - Mgh \sin(\theta_0) = 0.
         \end{equation*}
