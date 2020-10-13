@@ -34,14 +34,14 @@
             \end{pmatrix*}
              =\frac{M}{18} 
             \begin{pmatrix*}
-                a^2 & \frac{1}{2}ab & 0 \\
-                \frac{1}{2}ab & b^2 & 0 \\
+                b^2 & \frac{1}{2}ab & 0 \\
+                \frac{1}{2}ab & a^2 & 0 \\
                 0 & 0 & a^2 + b^2 \\
             \end{pmatrix*}
         \end{equation*}
         where $I_{xy} = I_{yx}$ and $I_{xx} + I_{yy} = I_{zz}$ in the general form show first. Define next
         \begin{equation*}
-            A = \frac{1}{2}(I_{xx} + I_{yy}), \quad B = \sqrt{\frac{1}{2}(I_{xx} - I_{yy})^2 + I_{xy}^2}, \quad \vartheta = \tan^{-1}\bigg( \frac{2I_{xy}}{I_{xx} - I_{yy}}\bigg).
+            A = \frac{1}{2}(I_{xx} + I_{yy}), \quad B = \sqrt{\frac{1}{4}(I_{xx} - I_{yy})^2 + I_{xy}^2}, \quad \vartheta = \tan^{-1}\bigg( \frac{2I_{xy}}{I_{xx} - I_{yy}}\bigg).
         \end{equation*}
         Derive the principal moments of inertia and the principal axes by using the general form of the inertia tensor, and these new variables. [Hint] The last equations comprises a relationship that can be described by a right triangle.
     \section{Precession of a frisbee}
@@ -56,7 +56,7 @@
         \\ \\
         (b) Find the expression for the Euler angles $\dot \theta, \dot \psi, \dot \phi$ as a function of $I_i, L, \theta$.
         \\ \\
-        (b) Assume $I_3 = 2I_1$. The precession (wobble) of the frisbee is given by $\dot \phi$. Show that the precession is twice as fast as the rotation frequency of the frisbee, assuming that $\theta$ is small (i.e. that $\cos(\theta) \approx 1$).
+        (c) Assume $I_3 = 2I_1$. The precession (wobble) of the frisbee is given by $\dot \phi$. Show that the precession is twice as fast as the rotation frequency of the frisbee, assuming that $\theta$ is small (i.e. that $\cos(\theta) \approx 1$).
 
     \section{Precession of a heavy spinning top}
         (Based on example p. 208-223 in Goldstein 3rd. ed., p. 70-74 in the compendium)\\
@@ -71,7 +71,7 @@
         \end{equation*}
         $\theta_0$ was defined to be the constant angle of inclination of spinning top with regular precession. This means that the symmetry axis rotates around the $z$ at a fixed angle $\theta_0$. Consider the shape of the effective potential $V(\theta)$ at $\theta_0$. \emph{What is the condition for the spinning top to stay at a constant angle $\theta_0$?} Think back to our treatment of orbits. The following change of variables will come in handy for the result:
         \begin{equation*}
-            \beta = p_\phi - p_\psi \cos(\theta_0) = I_1 \sin^2(\theta) \dot \phi_0
+            \beta = p_\phi - p_\psi \cos(\theta_0) = I_1 \sin^2(\theta_0) \dot \phi_0
         \end{equation*}
         You will encounter a quadratic equation for $\beta$. Show that for the equilibrium precession inclination angle $\theta_0$, the following must hold true:
         \begin{equation*}

@@ -51,10 +51,10 @@
         \end{wrapfigure}
         (c) Inserting our values into the new variables (neglecting the common factor), we get
         \begin{equation*}
-            A = \frac{1}{2}(a^2 + b^2), \quad B = \frac{1}{2}\sqrt{(b^2 - a^2) +a^2b^2}, \quad \vartheta = \tan^{-1}\left( \frac{ab}{b^2 - a^2} \right).
+            A = \frac{1}{2}(a^2 + b^2), \quad B = \frac{1}{2}\sqrt{(b^2 - a^2)^2 +a^2b^2}, \quad \vartheta = \tan^{-1}\left( \frac{ab}{b^2 - a^2} \right).
         \end{equation*} 
         \newpage % Hack to place the figure right
-        The last equation describes a triangle with side lengths $b^2 - a^2, \, ab$ and $\sqrt{(b^2 - a^2) +a^2b^2} = 2B$, and an angle $\vartheta$ opposite the side of length $ab$. This gives us the relations $ab=2 B \sin(\vartheta)$ and $b^2 - a^2 = 2B \cos(\vartheta)$. It follows that
+        The last equation describes a triangle with side lengths $b^2 - a^2, \, ab$ and $\sqrt{(b^2 - a^2)^2 +a^2b^2} = 2B$, and an angle $\vartheta$ opposite the side of length $ab$. This gives us the relations $ab=2 B \sin(\vartheta)$ and $b^2 - a^2 = 2B \cos(\vartheta)$. It follows that
         \begin{align*}
             a^2 &= \frac{1}{2}(b^2 + a^2)  - \frac{1}{2}(b^2 - a^2) = A - B \cos(\vartheta) \\
         b^2 &= \frac{1}{2}(b^2 + a^2)  + \frac{1}{2}(b^2 - a^2) = A + B \cos(\vartheta)
@@ -77,7 +77,7 @@
                 B \sin(\vartheta) & A - B\cos(\vartheta) - \omega & 0 \\
                 0 & 0 & 2A - \omega
             \end{vmatrix*} \\
-            &= (2A - \omega) \big[(A + B\cos(\vartheta) - \omega) (A - B\cos(\vartheta) - \omega)  - B \sin(\vartheta) \big]  \\
+            &= (2A - \omega) \big[(A + B\cos(\vartheta) - \omega) (A - B\cos(\vartheta) - \omega)  - B^2 \sin^2(\vartheta) \big]  \\
             &= (2A - \omega)[A^2 - B^2 + \omega^2 - 2\omega A] \\
             &= (2A - \omega)[(A - \omega)^2 - B^2] = 0,
         \end{align*}
@@ -139,10 +139,10 @@
         \begin{equation*}
             \omega_{x'}^2 + \omega_{y'}^2 = \left( \dot \phi \sin(\theta) \sin(\psi) \right)^2 + \left( \dot \phi \sin(\theta)\cos(\psi) \right)^2 = \dot \phi^2 \sin(\theta) = \mathrm{const.},
         \end{equation*}
-        i.e. that $\phi = \mathrm{const.}$. Using this to differentiate the expressions of the angular momentum in Euler angles, we get
+        i.e. that $\dot \phi = \mathrm{const.}$. Using this to differentiate the expressions of the angular momentum in Euler angles, we get
         \begin{align*}
-            \dot \phi \dot \psi \sin(\theta)\cos(\phi) = -\Omega \dot \phi \sin(\theta)\cos(\psi) \\
-            -\dot \phi \dot \psi \sin(\theta)\sin(\phi) = \Omega \dot \phi \sin(\theta)\sin(\psi) \\
+            \dot \phi \dot \psi \sin(\theta)\cos(\psi) = -\Omega \dot \phi \sin(\theta)\cos(\psi) \\
+            -\dot \phi \dot \psi \sin(\theta)\sin(\psi) = \Omega \dot \phi \sin(\theta)\sin(\psi) \\
             \implies \dot \psi = -\Omega = \left(\frac{1}{I_3} - \frac{1}{I_1}\right) L \cos(\theta),
         \end{align*}
         while the last equation of motion gives
@@ -189,7 +189,7 @@
         \begin{equation*}
             \dot \phi_{0(\pm)} = \frac{\beta_\pm}{I_1 \sin^2(\theta_0)}.
         \end{equation*}
-        This means we have to different configurations with stable precession, given by the two roots $\beta_\pm$. $\dot \phi_{0(+)}$ gives fast precession, while $\dot \phi_{0(+)}$ gives slow precession. if $\omega_3 \gg \frac{2}{I_3}\sqrt{MghI_1 \cos(\theta_0) }$, then $p_\psi^2 \gg 4 M g h I_1 \cos(\theta_0)$. We can us $\sqrt{1 + x} = 1 - \frac{1}{2} x + \mathcal{O}(x^2)$ then expand the root in equation for $\beta$ as
+        This means we have to different configurations with stable precession, given by the two roots $\beta_\pm$. $\dot \phi_{0(+)}$ gives fast precession, while $\dot \phi_{0(-)}$ gives slow precession. if $\omega_3 \gg \frac{2}{I_3}\sqrt{MghI_1 \cos(\theta_0) }$, then $p_\psi^2 \gg 4 M g h I_1 \cos(\theta_0)$. We can us $\sqrt{1 + x} = 1 - \frac{1}{2} x + \mathcal{O}(x^2)$ then expand the root in equation for $\beta$ as
         \begin{align*}
             & \sqrt{1 - \frac{4 M g h I_1 \cos(\theta_0)}{p_\psi^2}} \approx 1 +\frac{2 M g h I_1 \cos(\theta_0)}{p_\psi^2}, \quad p_\psi = I_3 \omega_3  \\
             \implies &\beta_\pm \approx \frac{I_3 \omega_3 \sin^2(\theta_0)}{2 \cos(\theta_0)} \left(\frac{ (I_3 \omega_3 )^2 (1\pm 1) + 2 M g h I_1 \cos(\theta_0)}{(I_3 \omega_3)^2} \right) \\
