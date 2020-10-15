@@ -1,0 +1,41 @@
+\documentclass{article}
+
+\usepackage{physics} % Handy shortcuts like \pdv, \dd and much more
+\usepackage{geometry} % smaller margins, can be adjusted if given arguments
+\usepackage{siunitx} % the \si environment for units
+\usepackage{mathtools} % The dcases environment, prettier than just cases
+\usepackage{tikz} % For drawing picures
+\usepackage{wrapfig} % Wrapping text around figures
+\usepackage{enumitem} % Getting alphabetical enumerate
+
+
+\title{Exercise 9 solutions - TFY4345 Classical Mechanics}
+\date{2020}
+
+\begin{document}
+    \maketitle
+    \section{Coupled pendula}
+    (FIGUR) \\
+    The kinetic energy of the masses are 
+    \begin{equation*}
+        T = \frac{1}{2}m\left[(b \dot \theta_1)^2 + (b \dot \theta_2)^2\right].
+    \end{equation*}
+    The displacement of the masses in the vertical direction is given by $b(1 - \cos(\theta))$. As we are considering small oscillations, we only care about the stretching of the spring due to the horizontal movement of the pendula. This is given by $b (\sin(\theta_1) - \sin(\theta_2))$. Thus, the potential energy of the system is
+    \begin{equation*}
+        U = mgb\left[(1 - \cos(\theta_1)) + (1 - \cos(\theta_2))\right] + \frac{1}{2}kb^2\left[\sin(\theta_1) - \sin(\theta_2)\right]^2.
+    \end{equation*}
+    Using the small angle approximation, we get $\sin(\theta) \approx \theta$, $1 - \cos(\theta) \approx \frac{1}{2} \theta^2$, so the potential energy becomes
+    \begin{equation*}
+        \frac{1}{2} mgb (\theta_1^2 + \theta_2^2) - \frac{1}{2}kb^2(\theta_1 - \theta_2).
+    \end{equation*}
+
+    \section{Two coupled oscillators}
+    (FIGUR) \\
+
+    \section{Oscillating body with two attached pendula}
+    (FIGUR) \\
+
+    \section{Double pendulum}
+    (FIGUR) \\
+
+\end{document}
