@@ -16,6 +16,7 @@
     \maketitle
     \section{Coupled pendula}
     (FIGUR) \\
+    (DET SKAL VÆRE $\omega^2$) \\
     The kinetic energy of the masses are 
     \begin{equation*}
         T = \frac{1}{2}m\left[(b \dot \theta_1)^2 + (b \dot \theta_2)^2\right].
@@ -26,11 +27,112 @@
     \end{equation*}
     Using the small angle approximation, we get $\sin(\theta) \approx \theta$, $1 - \cos(\theta) \approx \frac{1}{2} \theta^2$, so the potential energy becomes
     \begin{equation*}
-        \frac{1}{2} mgb (\theta_1^2 + \theta_2^2) - \frac{1}{2}kb^2(\theta_1 - \theta_2).
+        \frac{1}{2} mgb (\theta_1^2 + \theta_2^2) - \frac{1}{2}kb^2(\theta_1 - \theta_2) = \frac{1}{2}\left((mgb + kb^2)(\theta_1^2 + \theta_2^2) - 2kb^2 \theta_1 \theta_2\right)
     \end{equation*}
-
+    The lagrangian is then
+    \begin{equation*}
+        L = \frac{1}{2}m\left[(b \dot \theta_1)^2 + (b \dot \theta_2)^2\right] + \frac{1}{2} mgb (\theta_1^2 + \theta_2^2) - \frac{1}{2}kb^2(\theta_1 - \theta_2)  = \frac{1}{2}\left(m_{ij}\theta_i \theta_i + A_{ij}\theta_i \theta_j\right),
+    \end{equation*}
+    where
+    \begin{equation*}
+        m = 
+        \begin{pmatrix*}
+            mb^2 & 0 \\
+            0 & mb^2
+        \end{pmatrix*}
+        , \quad A = 
+        \begin{pmatrix}
+            mgb + kb^2 & -kb^2 \\
+            kb^2 & mgb + kb^2
+        \end{pmatrix}.
+    \end{equation*}
+    The eigenfrequencies of the system is then given by the equation
+    \begin{equation*}
+        \det(A - \omega m) = 0.
+    \end{equation*}
+    Writing out the determinant, we get 
+    \begin{equation*}
+        \begin{vmatrix}
+            mgb + kb^2 - \omega mb^2 & -kb^2 \\
+            kb^2 & mgb + kb^2 - \omega mb^2
+        \end{vmatrix}
+         = (mgb + kb^2 - \omega mb^2)^2 - (mb^2)^2 = 0,
+    \end{equation*}
+    or
+    \begin{equation*}
+    mgb + kb^2 - \omega mb^2 = \pm mb^2 \implies \omega = \frac{g}{b} + (1 \mp 1)\frac{k}{m}.
+    \end{equation*}
+    This leaves us with the eigenfrequencies
+    \begin{equation*}
+        \omega_1 = \frac{g}{b}, \quad \omega_2 = \frac{g}{b} + 2 \frac{k}{m}
+    \end{equation*}
+    The equation for the eigenfrequencies $\mathbf{a_i} = (a_{1i}, a_{2i})$, corresponding to $\omega_i$, is
+    \begin{equation*}
+        (m - \omega_r A) \mathbf{a_r} = (mgb + kb^2 - \omega_r mb^2)a_{1r} -(kb^2)a_{2r} = 0
+    \end{equation*}
+    Inserting $\omega_1$, this gives 
+    \begin{equation*}
+        \left(mgb + kb^2 - \frac{g}{b} mb^2\right)a_{1q} -(kb^2)a_{21} = (kb^2)a_{11} -(kb^2)a_{21} = 0 \implies a_{11} = a_{21}.
+    \end{equation*}
+    $\omega_2$ gives 
+    \begin{equation*}
+        \left(mgb + kb^2 - \left(\frac{g}{b} +2\frac{k}{m}\right)mb^2\right)a_{12} -(kb^2)a_{22} = -(kb^2)a_{12} -(kb^2)a_{22} = 0 \implies a_{12} = a_{22}.
+    \end{equation*}
+    The solution, in our original coordinates $\theta_i$, in terms of the normal coordinates $\eta_r$, is then
+    \begin{equation*}
+        \begin{dcases}
+            \theta_1 = a_{11} \eta_1 + a_{12} \eta_2 = a_{11} \eta_1 + a_{22}\eta_2 \\
+            \theta_2 = a_{21} \eta_1 + a_{22} \eta_2 = a_{11} \eta_1 - a_{22} \eta_2) \\
+        \end{dcases}
+    \end{equation*}
+    To physically describe the normal coordinates, we need to express them in terms of our original coordinates. Adding the equations together, we get
+    \begin{equation*}
+        \begin{dcases}
+            \eta_1 = \frac{1}{2a_{11}}(\theta_1 + \theta_2) \\
+            \eta_2 = \frac{1}{2a_{22}}(\theta_1 - \theta_2).
+        \end{dcases}
+    \end{equation*}
+    $\theta_1$ corresponds to the pendula oscillating in sync, while $\theta_2$ corresponds to them oscillating in opposite direction. This explains why the frequency $\omega_2$ is higher than $\omega_1$: only this motion distorts the spring, leading to a greater restoring froce. (FIGUR)
     \section{Two coupled oscillators}
     (FIGUR) \\
+    Let $x_1$ and $x_2$denote the distance of the two block from  $A$. The kinetic and potential energy of the system is then
+    \begin{equation*}
+        T = \frac{1}{2}m(\dot x_1^2 + \dot x_2^2), \quad U = \frac{1}{2} k (\dot x_1^2 + (x_1 - x_2)^2).
+    \end{equation*}
+    Writing out the lagrangian in matrix form gives
+    \begin{equation*}
+        L = \frac{1}{2}m(\dot x_1^2 + \dot x_2^2) + \frac{1}{2}k (2 \dot x_1^2 - 2 \dot x_1 \dot x_2 + \dot x_2^2) = \frac{1}{2}\left(m_{ij}\dot x_i \dot x_j + A_{ij} x_i x_j\right),
+    \end{equation*}
+    where
+    \begin{equation*}
+        m_{ij} = m
+        \begin{pmatrix}
+            1 & 0 \\
+            0 & 1 
+        \end{pmatrix}
+        \quad A_{ij} = k
+        \begin{pmatrix*}
+            2 & -1 \\
+            -1 & 1
+        \end{pmatrix*}
+    \end{equation*}
+    If we introduce $\omega_0^2 = k/m$This means the equation for the eigenfrequencies is
+    \begin{align*} & \det(A - \omega^2m) = 
+        \begin{vmatrix}
+            2\omega_0^2 - \omega& -\omega_0^2 \\
+            -\omega_0^2 & \omega_0^2 - \omega^2
+        \end{vmatrix}
+        = (2\omega_0^2 - \omega^2)(\omega_0^2 - \omega^2) - \omega_0^4 = 2\omega_0^4 - 3 \omega_0^2\omega^2 + \omega^4 - \omega_0^4 \\
+        & = (\omega^2)^2 - 3\omega_0^2(\omega^2) + \omega_0^4 =0 \implies \omega^2 = \frac{1}{2} \left(3\omega_0^2 \pm \sqrt{(3\omega_0^2)^2 - 4\omega_0^4}\right) = \frac{3 \pm \sqrt{5}}{2}\omega_0^2 = \omega_0^2 \varphi_\pm
+    \end{align*}
+    The equations for the normal coordinates are
+    \begin{equation*}
+        \begin{dcases*}
+            a_{11} = \left(1 - \frac{3 + \sqrt{5}}{2}\right)a_{21} = \left(\frac{1 + \sqrt{5}}{2}\right)a_{21}\\
+            a_{12} = \left(1 - \frac{3 - \sqrt{5}}{2}\right)a_{22} = \left(\frac{1 - \sqrt{5}}{2}\right)a_{22}\\
+        \end{dcases*}
+    \end{equation*}
+    The golden ratio! Here, we picked out one of two possible equations. But as they are linearly dependent (we have inserted $\omega^2$ such that the determinant is zero), we could have chosen either one. This modes corresponds to vibration in the same and opposite direction. However, this system is not as symmetrical as the las one, so the amplitudes of the oscillations. 
 
     \section{Oscillating body with two attached pendula}
     (FIGUR) \\
