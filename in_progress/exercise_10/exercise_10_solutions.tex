@@ -1,0 +1,108 @@
+\documentclass{article}
+
+\usepackage{physics} % Handy shortcuts like \pdv, \dd and much more
+\usepackage{geometry} % smaller margins, can be adjusted if given arguments
+\usepackage{siunitx} % the \si environment for units
+\usepackage{mathtools} % The dcases environment, prettier than just cases
+\usepackage{tikz} % For drawing picures
+\usepackage{wrapfig} % Wrapping text around figures
+
+
+\title{Exercise 10 solutions - TFY4345 Classical Mechanics}
+\date{2020}
+
+\begin{document}
+    \maketitle
+    \section{Velocity addition and Lorentz transformation matrices}
+        The Lorentz transformations in index notation is
+        \begin{equation*}
+            x_\mu' = L_{\mu\nu}x_\mu, \quad x_\mu'' = L'_{\mu\nu}x'_\mu,
+        \end{equation*}
+        where
+        \begin{equation*}
+            L_{jk} = \delta_{jk} + (\gamma - 1) \beta_j\beta_k/\beta^2, \, L_{j4}=i\gamma \beta_j, \, L_{4k} = - i \gamma \beta_k, \, L_{44} = \gamma.
+        \end{equation*}
+        As both systems are moving only in the $x_1$ direction, we have $\beta_0 = \beta$ and $\beta_0' = \beta'$, while the other components are zero. This leads to the transformation matrices
+        \begin{equation*}
+            L = 
+            \begin{pmatrix*}
+                \gamma & 0 & 0 & i \beta \gamma \\
+                0 & 1 &  0 & 0 \\
+                0 & 0 & 1 & 0 \\
+                -i\beta \gamma & 0 & 0 & \gamma
+            \end{pmatrix*}
+            , \,
+            \begin{pmatrix*}
+                \gamma' & 0 & 0 & i \beta' \gamma' \\
+                0 & 1 &  0 & 0 \\
+                0 & 0 & 1 & 0 \\
+                -i\beta' \gamma' & 0 & 0 & \gamma'
+            \end{pmatrix*}
+        \end{equation*} 
+        The transformation matrix $L''$for $S \rightharpoondown S''$ is just the two matrices applied in succession, i.e. the matrix product
+        \begin{equation*}
+            L'' = L' L = 
+            \begin{pmatrix*}
+                \gamma \gamma'(1 + \beta \beta') & 0 & 0 & i \gamma' \gamma (\beta'+ \beta) \\
+                0 & 1 &  0 & 0 \\
+                0 & 0 & 1 & 0 \\
+                -i\gamma' \gamma(\beta' + \beta ) & 0 & 0 & \gamma \gamma' (1 + \beta \beta')               
+            \end{pmatrix*}
+             = 
+             \begin{pmatrix*}
+                \gamma'' & 0 & 0 & i \beta'' \gamma'' \\
+                0 & 1 &  0 & 0 \\
+                0 & 0 & 1 & 0 \\
+                -i\beta'' \gamma'' & 0 & 0 & \gamma''
+            \end{pmatrix*}
+        \end{equation*}
+        By comparing the expressions, we see that $\beta'' \gamma'' = \gamma \gamma'(\beta' + \beta ), \, \gamma'' = \gamma \gamma' (1 + \beta \beta')$. This gives
+        \begin{equation*}
+            \beta'' = \frac{\beta '' \gamma''}{\gamma''} = \frac{\beta  + \beta'}{1 + \beta \beta '} \implies v'' = \frac{v + v'}{1 + v v' / c^2}.
+        \end{equation*}
+        Which is Einstein's addition formula. Notice that $v<c,\, v'< c \implies v'' < c$. For $vv' \ll c^2$, we get regular Galilean velocity addition $v'' = v + v'$.
+
+    \section{Light from a fluorescent tube}
+        a) In the $S$ frame the tube light up at the point $z$, at time $t$. Inserting this into the equations for the Lorentz transformation, we get the coordinates in the system $S'$:
+        \begin{align*}
+            z' = \gamma(z - v t) \\
+            t' = \gamma\left(t - \frac{vz}{c^2}\right)
+        \end{align*}
+        In the $S$ frame, the second space time event is  the tube light up at the point $z + \Delta z$ at time $t$. Again, applying the Lorentz transformations, this event as seen from the $S'$ system is given By
+        \begin{align*}
+            z' + \Delta z' = \gamma (z + \Delta z - vt) \\
+            t' + \Delta t' = \gamma \left(t - \frac{v(z + \Delta z)}{c^2}\right).
+        \end{align*} \\ \\
+        b) Using this, we can find the difference in time and space of these two events in the $S'$ system
+        \begin{align*}
+            \Delta z' = \gamma \Delta z \\
+            \Delta t = \gamma \frac{v \Delta z}{c^2}.
+        \end{align*}
+        The apparent speed of the lighting up of the tube, in the $S'$ system, is then
+        \begin{equation*}
+            u = \frac{\Delta z}{\Delta t} = \frac{\gamma \Delta z}{\gamma (v \Delta z/c^2)} = \frac{c^2}{v}.
+        \end{equation*}
+
+    \section{Relativistic Doppler effect}
+    a) As the wave train has length $L = c \Delta t - v \Delta t$ in the $S$ frame, and is $n$ wavelengths, it has a wavelength of 
+    \begin{equation*}
+        \lambda = \frac{c \Delta t - v \Delta t}{n}.
+    \end{equation*}
+    The frequency of a wave is given by $f = v / \lambda$, and as this is light, $v = c$. The frequency is therefore
+    \begin{equation*}
+        f = \frac{c}{\lambda} = \frac{cn}{c \Delta t - v \Delta t}.
+    \end{equation*}
+    b) Both the source and the receiver agrees on the number of wavelengths of the light. In the frame of reference of the source $S$, the frequency and eigentime or proper time elapsed is related by $n = f_0 \Delta t'$. The relation between the proper time of the source and the time according to the receiver in $S$ is given by the time dilation formula, $\Delta t' = \Delta t / \gamma$. Putting this all together, we can relate the two frequencies:
+    \begin{align*}
+        f = \frac{c f_0 \Delta t'}{(c - v)\Delta t} = \frac{1}{\gamma(1 - v/c)} f_0 = \frac{\sqrt{1 - (v/c)^2}}{1 - v/c} f_0 = \frac{\sqrt{1 - v/c}\sqrt{1 + v/c}}{\sqrt{1 - v/c}\sqrt{1 - v/c}}f_0,
+    \end{align*} 
+    with $\beta = v/c$, we get the desired relation
+    \begin{equation*}
+        f = \frac{\sqrt{1 + \beta}}{\sqrt{1 - \beta}}f_0.
+    \end{equation*}
+    c) The only difference from our earlier analysis is that $L = c \Delta t - v \Delta t$, leading us to the relation
+    \begin{equation*}
+        f = \frac{\sqrt{1 - (v/c)^2}}{\sqrt{1 + v/c}}f_0 = \frac{\sqrt{1 - \beta}}{\sqrt{1 + \beta}}f_0.
+    \end{equation*}
+    This is part of the reason of the "red shift" in astronomy, as the Big Bang lead to all stars receding from us. However, this is not the sole reason. The expansion of the universe has an important contribution, the underlying theory is beyond this course.
+\end{document}
