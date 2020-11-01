@@ -8,7 +8,7 @@
 \usepackage{wrapfig} % Wrapping text around figures
 
 
-\title{Exercise x - TFY4345 Classical Mechanics}
+\title{Exercise 11 - TFY4345 Classical Mechanics}
 \date{2020}
 
 \begin{document}
@@ -32,35 +32,38 @@
     A radioactive $^{57}\mathrm{Co}$ element is situated on the periphery of a rotating disk. The peripheral velocity is $u$. The radiation from the cobalt is received by an observer located in the center of the disk. Let $f_0$ be the eigenfrequency of the radiation in the the inertial system where the element is momentarily at rest. Find the frequency $f$ of the radiation observed by the observer in the center.
     
     \section{Fast moving particle in two inertial frames}
+    \begin{wrapfigure}{2}{0.42\textwidth}
+        \includegraphics[width=0.42\textwidth]{figures/figure_2.pdf}
+    \end{wrapfigure}
     [Exam Dec. 2019] \\
-    We shall consider a particle with rest mass $m$ seen from two different inertial reference systems. In the reference system $s$, the particle has velocity
+    We shall consider a particle with rest mass $m$ seen from two different inertial reference systems. In the reference system $S$, the particle has velocity
     \begin{equation*}
         \mathbf{u} = (u_x, u_y, u_z).
     \end{equation*} 
     The reference system $S'$ is moving along the $z$ axis with a velocity $v$ relative to the system $S$. In this frame, the particle has the velocity
     \begin{equation*}
-        \mathbf{u'} = (u'_z, u'_y, u'_z).
+        \mathbf{u'} = (u'_z, u'_y, u'_z). \hspace{6.7cm} % Thsi should be done by wrapfigure, but i refuses to cooperate
     \end{equation*}
     Find the explicit relationship between $\mathbf{u}$ and $\mathbf{u'}$, i.e. derive the transformation that give $\mathbf{u'}$ from the components of $\mathbf{u}$. [Hint] Start with the relationship between the two frames, the Lorentz transformation. What is the definition of the components $u_i, \, u_j'$?
 
     \section{Lorentz transformation of energy and momentum}
-    We shall consider a particle with res mass $m$ seen from two inertial reference systems, as in the last exercise. The systems $S$ and $S'$ has a relative velocity $v$ along the $z$-axis, and the particle has the constant velocity $\mathbf{u} = (u_x, u_y, u_z)$ and $\mathbf{u'} = (u_x', u_y', u_z')$ in $S$ and $S'$ respectively. \\ \\
-    a) Einstein's velocity addition formulas are
+    We continue the analysis of the particle in the last exercise. The relations derived there are Einstein's velocity addition formulas,
     \begin{align*}
         u_x' = \frac{u_x}{\gamma(1 - v u_z/c^2)} \\
         u_y' = \frac{u_y}{\gamma(1 - v u_y/c^2)} \\
         u_z' = \frac{u_z - v}{1 - v u_z/c^2}
     \end{align*}
-    (The difference between these, and the ones derived in the last exercise, is that they do not assume the third reference system e.g. the particle moves along the $z$-axis). Use these to show that
+    (The difference between these, and the ones derived in the exercise 10, is that they do not assume the third reference system e.g. the particle moves along the $z$-axis). \\ \\
+    a) Use these to show that
     \begin{equation*}
         \frac{1}{\sqrt{1 - u'^2/c}} = \gamma \frac{1 - v u_z / c^2}{\sqrt{1 - u^2/c^2}}.
     \end{equation*}
     Here, $\gamma = 1 / \sqrt{1 - v/c^2}$, $u^2= |\mathbf{u}| = u_x^2 + u_y^2 + u_z^2$ and $u'^2= |\mathbf{u}'|= u_x'^2 + u_y'^2 + u_z'^2$. \\ \\
-    b) The energy E and 3-momentum $\mathbf{p}$ of the particle in the reference system $S$ is
+    b) The energy E and 3-momentum $\mathbf{p}$ of the particle in the reference system $S$ are
     \begin{equation*}
         E = \frac{mc^2}{\sqrt{1 - (u/c)^2}}, \quad \mathbf{p} =\frac{m\mathbf{u}}{\sqrt{1 - (u/c)^2}},
     \end{equation*}
-    while in the $S'$ system it is
+    while in the $S'$ system they are
     \begin{equation*}
         E' = \frac{mc^2}{\sqrt{1 - u'/c^2}}, \quad \mathbf{p'} =\frac{m\mathbf{u'}}{\sqrt{1 - u'/c^2}}.
     \end{equation*}
