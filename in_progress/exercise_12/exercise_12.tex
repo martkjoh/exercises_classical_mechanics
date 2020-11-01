@@ -1,0 +1,98 @@
+\documentclass{article}
+
+\usepackage{physics} % Handy shortcuts like \pdv, \dd and much more
+\usepackage{geometry} % smaller margins, can be adjusted if given arguments
+\usepackage{siunitx} % the \si environment for units
+\usepackage{mathtools} % The dcases environment, prettier than just cases
+\usepackage{tikz} % For drawing picures
+\usepackage{wrapfig} % Wrapping text around figures
+
+
+\title{Exercise 12 - TFY4345 Classical Mechanics}
+\date{2020}
+
+\begin{document}
+    \maketitle
+    \section{Generating function $F_4$}
+        A way of finding canonical transformations is to use the generating functions, as outlined in the compendium, section 9.A, and Goldstein section 9.1, 3rd. ed. Derive the transformation equations for the type 4 generating function of canonical transformation, 
+        \begin{equation*}
+            F = q_ip_i - Q_iP_i + F_4(p, P, t).
+        \end{equation*}
+        Remember that the description of the system in the old and new coordinates is linked by
+        \begin{equation*}
+            p_i \dot q_i - H(q, p, t) = P_i \dot Q_i - K(Q, P, t) + \dv{F}{t}.
+        \end{equation*}
+
+    \section{The Poisson bracket}
+        Using the harmonic oscillator as an example (compendium, Example 21, p. 103), show that the Poisson bracket $[q, H]$ remains the same upon the canonical transformation 
+        \begin{equation*}
+            q = \sqrt{\frac{2P}{m \omega}} \sin(Q), \quad p = \sqrt{2 P m \omega} \cos(Q), \quad H = \omega P.
+        \end{equation*}
+        That means, show that $[q, H]_{qp} = [q, H]_{QP}$. The Hamiltonian of the system is given by 
+        \begin{equation*}
+            H = \frac{1}{2m} \left(p^2 + m^2 \omega^2 q^2\right).
+        \end{equation*}
+
+    \section{The symplectic condition}
+        [Goldstein, Safko, Poole, problem 9.6, 3rd. ed.] \\
+        There is a appendix to this exercise which explains the symplectic condition. The last step of exercise (a) is very tedious, and it's recommended to use Mathematica, sympy or other cas-software. Look at the jupyer-notebook for an example of how the exercise can be done using sympy. \\ \\
+        The transformation equations between two sets of coordinates are
+        \begin{equation*}
+            Q = \log\left(1 + \sqrt{q} \cos(p)\right), \quad P = 2\left(1 + \sqrt{q}\cos(p)\right)\sqrt{q}\sin(p).
+        \end{equation*}
+        a) Show directly that $Q, P$ are canonical variables if $q, p$ are. Use the symplectic condition 
+        \begin{equation*}
+            M J M^T = J.
+        \end{equation*}
+        b) Show that the functio that generates this transformation is 
+        \begin{equation*}
+            F_3 = -(c^Q - 1)^2 \tan(p)
+        \end{equation*}
+
+    \section{Free particle}
+        Solve the equations of motion of a free particle, 
+        \begin{equation*}
+            H = \frac{p^2}{2m}
+        \end{equation*}
+        by using Hamilton-Jacobi theroy.
+
+    \section*{Appendix: The symplectic condition}
+        Reminder for the symplectic condition: (See also Goldstein section 9.4, 3rd. ed.) For a system with $2n$ degrees of freedom, we can write the original coordinates as $\boldsymbol{\eta} = (q_1, ..., q_n, p_1, ..., p_n)^T$, and the new coordinates as $\boldsymbol{\xi} = (Q_1, ..., Q_n, P_2, ..., P_n)^T$. 
+        The antisymmetric matrix
+        \begin{equation*}
+            J = \begin{pmatrix*}
+                0 & I_n \\
+                -I_n & 0 \\
+            \end{pmatrix*}
+        \end{equation*}
+        gives a compact way of writing Hamiltonians equation of motion, in both matrix and index notation
+        \begin{equation*}
+            \dot{\boldsymbol{\eta}} = J \pdv{H}{\boldsymbol{\eta}}, \quad
+            \dot \eta_i = J_{ij} \pdv{H}{\eta_j}
+        \end{equation*}
+        Then the Jacobian of the transformation between these two systems, $M$, has the elements
+        \begin{equation*}
+            M_{ij} = \pdv{\xi_i}{\eta_j}.
+        \end{equation*}
+        This means we can write 
+        \begin{equation*}
+            \dot \xi_i = \pdv{\xi_i}{\eta_j} \dot \eta_i = \pdv{\xi_i}{\eta_j} J_{jk} \pdv{H}{\eta_k} = M_{ij} J_{jk} \pdv{H}{\eta_k}.
+        \end{equation*}
+        Expanding the Hamiltonian in the new coordinates gives
+        \begin{equation*}
+            \pdv{H}{\eta_i} = \pdv{H}{\xi_j} \pdv{\xi_j}{\eta_i} = \pdv{H}{\xi_j} M_{ji}.
+        \end{equation*}
+        This all leaves
+        \begin{equation*}
+            \dot \xi_i = M_{ij} J_{jk} M_{\ell k} \pdv{H}{\xi_j}
+        \end{equation*}
+        If $\xi_i(\eta_j)$ are canonical coordinates, we have a the new Hamiltonian function $K(Q, P, t)$. Lets assume we have a restricted canonical transformation (no $t$ dependence), and that $K(Q, P) = H(q(Q, P), p(Q, O))$. Then the coordinates must obey
+        \begin{align*}
+            &\dot Q_i = \pdv{H}{P_i}, \, \dot P_i = -\pdv{H}{Q_i}, \quad \mathrm{or} \quad \dot \xi_i = J_{ij} \pdv{H}{\xi_j}.
+        \end{align*}
+        This gives the \emph{symplectic condition}, which is 
+        \begin{equation*}
+            J_{ij} =  M_{ik} J_{k\ell} M_{j \ell}, \quad \mathrm{or} \quad J = M J M^T.
+        \end{equation*}
+        If the transformation satisfies this condition, it is a canonical transformation.
+\end{document}
