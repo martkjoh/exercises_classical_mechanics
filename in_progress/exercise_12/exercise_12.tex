@@ -35,7 +35,7 @@
 
     \section{The symplectic condition}
         [Goldstein, Safko, Poole, problem 9.6, 3rd. ed.] \\
-        There is a appendix to this exercise which explains the symplectic condition. The last step of exercise (a) is very tedious, and it's recommended to use Mathematica, sympy or other cas-software. Look at the jupyer-notebook for an example of how the exercise can be done using sympy. \\ \\
+        There is a appendix to this exercise which explains the symplectic condition. The last step of exercise (a) is very tedious, and it's recommended to use Mathematica, sympy or other computer algebra software. Look at the jupyer-notebook for an example of how the exercise can be done using sympy. \\ \\
         The transformation equations between two sets of coordinates are
         \begin{equation*}
             Q = \log\left(1 + \sqrt{q} \cos(p)\right), \quad P = 2\left(1 + \sqrt{q}\cos(p)\right)\sqrt{q}\sin(p).
@@ -54,7 +54,7 @@
         \begin{equation*}
             H = \frac{p^2}{2m}
         \end{equation*}
-        by using Hamilton-Jacobi theroy.
+        by using Hamilton-Jacobi theory.
 
     \section*{Appendix: The symplectic condition}
         Reminder for the symplectic condition: (See also Goldstein section 9.4, 3rd. ed.) For a system with $2n$ degrees of freedom, we can write the original coordinates as $\boldsymbol{\eta} = (q_1, ..., q_n, p_1, ..., p_n)^T$, and the new coordinates as $\boldsymbol{\xi} = (Q_1, ..., Q_n, P_2, ..., P_n)^T$. 
@@ -94,5 +94,30 @@
         \begin{equation*}
             J_{ij} =  M_{ik} J_{k\ell} M_{j \ell}, \quad \mathrm{or} \quad J = M J M^T.
         \end{equation*}
-        If the transformation satisfies this condition, it is a canonical transformation.
+        If the transformation satisfies this condition, it is a canonical transformation. \\ \\
+        Notice the similarity with the formalism used in relativity. There, we had the metric tensor, $g_{\mu \nu}$, and the Lorentz transformation, $\Lambda_{\mu \nu}$. These are exactly the transformation which leaves the space time distance 
+        \begin{equation*}
+            ds = g_{\mu \nu} \dd x_\mu \dd x_\nu.
+        \end{equation*}
+        invariant. (And does not flip any of the axis) We can find how $g_{\mu \nu}$ transforms under a Lorentz transformation: as $\dd x_\mu \rightarrow \dd x'_\mu = \Lambda_{\mu \nu} \dd x_\nu$, and
+        \begin{equation*}
+            ds' = g'_{\mu \nu} \dd x'_\mu \dd x'_\nu = g'_{\mu \nu} \Lambda_{\mu \sigma} \Lambda_{\nu \rho}\dd x_\sigma \dd x_\rho = ds,
+        \end{equation*}
+        we must have
+        \begin{equation*}
+            g'_{\mu \nu} \Lambda_{\mu \sigma} \Lambda_{\nu \rho} = g_{\sigma \rho} \implies g'_{\mu \nu} = \Lambda_{\mu \sigma}^{-1} g_{\sigma \rho} \Lambda_{\nu \rho}^{-1}
+        \end{equation*}
+        In matrix notation,
+        \begin{equation*}
+            g' = \Lambda g \Lambda^T.
+        \end{equation*}
+        However, we can just write out the space time distance in both frames, 
+        \begin{equation*}
+            \dd x^2 + \dd y^2 + \dd z^2 - c \dd t^2 = ds = \dd x'^2 + \dd y'^2 + \dd z'^2 - c \dd t'^2,
+        \end{equation*}
+        i.e. $g' = g$. So the condition for Lorentz transformations is 
+        \begin{equation*}
+            g = \Lambda g \Lambda^T.
+        \end{equation*}
+        
 \end{document}
