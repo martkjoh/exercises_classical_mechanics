@@ -6,6 +6,7 @@
 \usepackage{mathtools} % The dcases environment, prettier than just cases
 \usepackage{tikz} % For drawing picures
 \usepackage{wrapfig} % Wrapping text around figures
+\usepackage{cancel} % Strikekethrough parts of equations
 
 
 \title{Exercise 12 - TFY4345 Classical Mechanics}
@@ -14,9 +15,64 @@
 \begin{document}
     \maketitle
     \section{Generating function $F_4$}
+    The generating function $F$ is given by
+    \begin{equation*}
+        F = q_ip_i - Q_iP_i + F_4(p, P, t).
+    \end{equation*}
+    This means the time derivative can be written as
+    \begin{equation*}
+        \dv{F}{t} = \dot p_i q_i + p_i \dot q_i - \dot P_i Q_i - P_i \dot Q_i + \dv{F(p, P, t)}{t}.
+    \end{equation*}
+    Inserting this into the relation between the original Hamiltonian $H$ and the new one, $K$
+    \begin{equation*}
+        p_i \dot q_i - H(q, p, t) = P_i \dot Q_i - K(Q, P, t) + \dv{F}{t}
+    \end{equation*}
+    gives
+    \begin{align*}
+        \cancel{p_i \dot q_i} - H(q, p, t) = \cancel{P_i \dot Q_i} - K(Q, P, t) + \dot p_i q_i + \cancel{p_i \dot q_i} - \dot P_i Q_i - \cancel{P_i \dot Q_i} + \dv{F(p, P, t)}{t} \\
+        \dot p_i q_i  + H(q, p, t) =  \dot P_i Q_i + K(Q, P, t) - \dv{F_4(p, P, t)}{t} 
+    \end{align*}
+    We can expand 
+    \begin{equation*}
+        \dv{F_4(p, P, t)}{t} = \pdv{F_4}{t} + \pdv{F_4}{p_i} \dot p_i +  \pdv{F_4}{P_i} \dot P_i,
+    \end{equation*}
+    which gives
+    \begin{equation*}
+        \dot p_i q_i  + H(q, p, t) =  \dot P_i Q_i + K(Q, P, t) - \left(\pdv{F_4}{t} + \pdv{F_4}{p_i} \dot p_i +  \pdv{F_4}{P_i} \dot P_i\right).
+    \end{equation*}
+    This only holds if
+    \begin{equation*}
+        K = H + \pdv{F_4}{t}, \quad q_i = - \pdv{F_4}{p_i}, \quad Q_i = \pdv{F_4}{P_i},
+    \end{equation*}
+    which is the equations we were looking
         
     \section{The Poisson bracket}
- 
+    The Hamiltonian for the harmonic oscillator is
+    \begin{equation*}
+        H = \frac{1}{2m} \left(p^2 + m^2 \omega^2 q^2\right),
+    \end{equation*}
+    and we have the canonical transformations
+    \begin{equation*}
+        q = \sqrt{\frac{2P}{m \omega}} \sin(Q), \quad p = \sqrt{2 P m \omega} \cos(Q), \quad H = \omega P.
+    \end{equation*}
+    The Poisson bracket in the original is
+    \begin{equation*}
+        [q, H]_{q, p} = \underbrace{\pdv{q}{q}}_{=1}\pdv{H}{p} - \underbrace{\pdv{q}{q}}_{=0}\pdv{H}{p} = \pdv{H}{p} = \frac{p}{m}.
+    \end{equation*} 
+    In the new coordinates the bracket is
+    \begin{equation*}
+        [q, H]_{Q, P} = \pdv{q}{Q}\pdv{H}{P} - \pdv{q}{P} \underbrace{\pdv{H}{Q}}_{= 0} = \pdv{q}{Q}\pdv{H}{P},
+    \end{equation*}
+    where
+    \begin{align*}
+        & \pdv{q}{Q} = \pdv{Q}\left(\sqrt{\frac{2P}{m \omega}} \sin(Q)\right) = \sqrt{\frac{2P}{m \omega}} \cos(Q) \cdot \frac{\sin(Q)}{\sin(Q)} = q \cot(Q), \\
+        & \pdv{H}{P} = \omega, \quad \cot(Q) = \frac{\cos(Q)}{\sin(Q)} = m \omega \frac{p}{q}.
+    \end{align*}
+    This gives 
+    \begin{equation*}
+        [q, H]_{Q, P} = \omega q \cot{Q} = \frac{p}{m} = [q, H]_{q, p}.
+    \end{equation*}
+    The fact that $[q, H] \neq 0$ means that $q$ is not a constant of motion.
     \section{The symplectic condition}
  
     \section{Free particle}
