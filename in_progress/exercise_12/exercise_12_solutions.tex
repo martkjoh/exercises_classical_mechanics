@@ -73,8 +73,62 @@
         [q, H]_{Q, P} = \omega q \cot{Q} = \frac{p}{m} = [q, H]_{q, p}.
     \end{equation*}
     The fact that $[q, H] \neq 0$ means that $q$ is not a constant of motion.
+
     \section{The symplectic condition}
- 
+    See the appendix at the bottom of the exercise or Goldstein 9.4, 3rd. ed. for explanation of the symplectic condition. The calculations can be done using computer software and will not be shown here. Look at the Jupyter notebook for an example of how this calculation can be done with Python and Sympy. \\ \\
+    a) The transformations are
+    \begin{equation*}
+        \begin{cases}
+            Q = \log(1 + \sqrt q \cos(p)) \\
+            P = 2(1 0 \sqrt q \cos(p)\sqrt q +sin(p)).
+        \end{cases}    
+    \end{equation*}
+    The Jacobian $M_{ij} = \pdv*{\xi_i}{\eta_j}$
+    \begin{equation*}
+        M =  \left(
+            \begin{matrix}
+                \frac{\cos{\left(p \right)}}{2 \left(\sqrt{q} + q \cos{\left(p \right)}\right)} 
+                & - \frac{\sqrt{q} \sin{\left(p \right)}}{\sqrt{q} \cos{\left(p \right)} + 1}\\
+                \sin{\left(2 p \right)} + \frac{\sin{\left(p \right)}}{\sqrt{q}} 
+                & 2 \sqrt{q} \cos{\left(p \right)} - 4 q \sin^{2}{\left(p \right)} + 2 q
+            \end{matrix}\right)
+    \end{equation*}
+    The symplectic condition is then 
+    \begin{equation*}
+        M J M^T = J,
+    \end{equation*}
+    where 
+    \begin{equation*}
+        J = 
+        \begin{pmatrix*}
+            0 & I_n \\
+            -I_n & 0
+        \end{pmatrix*}
+    \end{equation*}
+    As shown in the notebook, this condition is met by the transformation in question, which means it is a canonical transformation. If $q, p$ are canonical coordinates, then so are $Q, P$. \\ \\
+    b) Type 3 generating functions obey
+    \begin{equation*}
+        q = - \pdv{F_3(p, Q, t)}{p}, \quad P = - \pdv{F_3(p, Q, t)}{Q}.
+    \end{equation*}
+    We have
+    \begin{equation*}
+        F_3(p, Q, t) = -(e^Q - 1)^2 \tan(p).
+    \end{equation*}
+    This means
+    \begin{equation*}
+        \begin{dcases*}
+            q = - \pdv{F_3}{p} = (e^Q - 1)^2 \frac{1}{\cos^2(p)} \implies Q = \log(1 + \sqrt q \cos(p))\\
+            P = - \pdv{F_3}{Q} = 2 e^Q(e^Q - 1) \tan(p).
+        \end{dcases*}
+    \end{equation*}
+    Inserting the solution for $Q$ into P gives
+    \begin{align*}
+        P&= 2 \exp\left[\log(1 + \sqrt q \cos(p))\right]\Big(\exp\left[\log(1 + \sqrt q \cos(p))\right]  -1\Big)\tan(p)  \\
+        & = 2(1 + \sqrt{q} \cos(p))\Big( 1 + \sqrt q \cos(p) - 1\Big)\tan(p) \\
+        & = 2 \sqrt q (1 + \sqrt q) \sin(q),
+    \end{align*}
+    which is the transformation we were looking for.
+
     \section{Free particle}
  
 \end{document}
