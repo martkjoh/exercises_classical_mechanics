@@ -80,10 +80,10 @@
     \begin{equation*}
         \begin{cases}
             Q = \log(1 + \sqrt q \cos(p)) \\
-            P = 2(1 0 \sqrt q \cos(p)\sqrt q +sin(p)).
+            P = 2\sqrt q (1 + \sqrt q \cos(p)) \sin(p).
         \end{cases}    
     \end{equation*}
-    The Jacobian $M_{ij} = \pdv*{\xi_i}{\eta_j}$
+    The Jacobian $M_{ij} = \pdv*{\xi_i}{\eta_j}$ is
     \begin{equation*}
         M =  \left(
             \begin{matrix}
@@ -101,9 +101,9 @@
     \begin{equation*}
         J = 
         \begin{pmatrix*}
-            0 & I_n \\
-            -I_n & 0
-        \end{pmatrix*}
+            0 & I_2 \\
+            -I_2 & 0
+        \end{pmatrix*}.
     \end{equation*}
     As shown in the notebook, this condition is met by the transformation in question, which means it is a canonical transformation. If $q, p$ are canonical coordinates, then so are $Q, P$. \\ \\
     b) Type 3 generating functions obey
@@ -125,10 +125,55 @@
     \begin{align*}
         P&= 2 \exp\left[\log(1 + \sqrt q \cos(p))\right]\Big(\exp\left[\log(1 + \sqrt q \cos(p))\right]  -1\Big)\tan(p)  \\
         & = 2(1 + \sqrt{q} \cos(p))\Big( 1 + \sqrt q \cos(p) - 1\Big)\tan(p) \\
-        & = 2 \sqrt q (1 + \sqrt q) \sin(q),
+        & = 2 \sqrt q (1 + \sqrt q \cos(p)) \sin(q),
     \end{align*}
     which is the transformation we were looking for.
 
-    \section{Free particle}
- 
+    \section{Free particle and Hamilton Jacobi theory}
+    In Hamiltonian Jacobi theory, we seek that the new Hamiltonian we get from the canonical transformation is identically zero, i.e. that
+    \begin{equation*}
+        K = H(q, p, t) + \pdv{F_2}{t} = 0
+    \end{equation*} 
+    In the language of generating functions, we choose $S = F_2$, so that
+    \begin{equation*}
+        p_i = \pdv{F_2}{q_i} = \pdv{S}{q_i}. 
+    \end{equation*}
+    This, and the fact that the free particle is independent of $q$ means that the equation for the free particle becomes
+    \begin{equation*}
+        H(p) = H\left(\pdv{S}{q}\right) = \frac{1}{2m} \left(\pdv{S}{q}\right)^2 + \pdv{S}{t} = 0,
+    \end{equation*}
+    which is independent of time, as $H$ is independent of time. This means we can write Hamilton's principal function in the from
+    \begin{equation*}
+        S(q, E, t) = W(q, E) - Et,
+    \end{equation*}
+    where $W$ is Hamilton's characteristic function. This means the equation for $S$ becomes
+    \begin{equation*}
+        -\pdv{S}{t} = E = \frac{1}{2m} \left(\pdv{W}{q}\right)^2 \implies \pdv{W}{q} = \sqrt{2 m E} \implies W(q, E) = \sqrt{2mE} \, q + C,
+    \end{equation*}
+    so
+    \begin{equation*}
+        S(q, E, t) = \sqrt{2mE} \, q - Et + C.
+    \end{equation*}
+    The integration constant $C$ does not affect the dynamics, so we are free to set $C=0$. The transformed Hamiltonian becomes
+    \begin{equation*}
+        K(q, P) = H + \pdv{S}{t} = \frac{p^2}{2m} - E = 0 \, \implies p = \sqrt{2mE} = \mathrm{const.}
+    \end{equation*}
+    This means the transformation for the momentum coordinate becomes the trivial $P = \sqrt{2mE} = p$. This means
+    \begin{equation*}
+        S(q, P, t) = P q - \frac{P^2}{2m} t.
+    \end{equation*}
+    The new (constant) canonical variables are given 
+    \begin{equation*}
+        \begin{dcases}
+            P = p \\
+            Q = \pdv{S}{P} = q - \frac{P}{m}t,
+        \end{dcases}
+    \end{equation*}
+    (What does this look like in phase space?) The solution of equation of motion in the original coordinates is then
+    \begin{equation*}
+    \begin{dcases*}
+        q = Q + \frac{P}{m}t \\
+        p = P.
+    \end{dcases*}
+    \end{equation*}
 \end{document}

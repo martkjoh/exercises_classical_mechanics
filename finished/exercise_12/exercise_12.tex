@@ -57,7 +57,7 @@
             F_3 = -(c^Q - 1)^2 \tan(p)
         \end{equation*}
 
-    \section{Free particle}
+    \section{Free particle and Hamilton Jacobi theory}
         Solve the equations of motion of a free particle, 
         \begin{equation*}
             H = \frac{p^2}{2m}
@@ -94,16 +94,16 @@
         \begin{equation*}
             \dot \xi_i = M_{ij} J_{jk} M_{\ell k} \pdv{H}{\xi_j}
         \end{equation*}
-        If $\xi_i(\eta_j)$ are canonical coordinates, we have a the new Hamiltonian function $K(Q, P, t)$. Lets assume we have a restricted canonical transformation (no $t$ dependence), and that $K(Q, P) = H(q(Q, P), p(Q, O))$. Then the coordinates must obey
+        If $\xi_i(\eta_j)$ are canonical coordinates, we have a new Hamiltonian function $K(Q, P, t)$. Lets assume we have a restricted canonical transformation (no $t$ dependence), and that $K(Q, P) = H\Big(q(Q, P), p(Q, P)\Big)$. Then the coordinates must obey
         \begin{align*}
             &\dot Q_i = \pdv{H}{P_i}, \, \dot P_i = -\pdv{H}{Q_i}, \quad \mathrm{or} \quad \dot \xi_i = J_{ij} \pdv{H}{\xi_j}.
         \end{align*}
-        This gives the \emph{symplectic condition}, which is 
+        Comparing this to the relation we derived gives the \emph{symplectic condition}, which is 
         \begin{equation*}
             J_{ij} =  M_{ik} J_{k\ell} M_{j \ell}, \quad \mathrm{or} \quad J = M J M^T.
         \end{equation*}
         If the transformation satisfies this condition, it is a canonical transformation. \\ \\
-        Notice the similarity with the formalism used in relativity. There, we had the metric tensor, $g_{\mu \nu}$, and the Lorentz transformation, $\Lambda_{\mu \nu}$. These are exactly the transformation which leaves the space time distance 
+        For the extra interested: notice the similarity with the formalism used in relativity. There, we had the metric tensor, $g_{\mu \nu}$, and the Lorentz transformation, $\Lambda_{\mu \nu}$. These are exactly the transformation which leaves the space time distance 
         \begin{equation*}
             ds = g_{\mu \nu} \dd x_\mu \dd x_\nu.
         \end{equation*}
@@ -117,7 +117,7 @@
         \end{equation*}
         In matrix notation,
         \begin{equation*}
-            g' = \Lambda g \Lambda^T.
+            g' = \Lambda^{-1} g (\Lambda^{-1})^T.
         \end{equation*}
         However, we can just write out the space time distance in both frames, 
         \begin{equation*}
