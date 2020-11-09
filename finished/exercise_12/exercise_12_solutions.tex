@@ -21,7 +21,7 @@
     \end{equation*}
     This means the time derivative can be written as
     \begin{equation*}
-        \dv{F}{t} = \dot p_i q_i + p_i \dot q_i - \dot P_i Q_i - P_i \dot Q_i + \dv{F(p, P, t)}{t}.
+        \dv{F}{t} = \dot p_i q_i + p_i \dot q_i - \dot P_i Q_i - P_i \dot Q_i + \dv{F_4(p, P, t)}{t}.
     \end{equation*}
     Inserting this into the relation between the original Hamiltonian $H$ and the new one, $K$
     \begin{equation*}
@@ -29,7 +29,7 @@
     \end{equation*}
     gives
     \begin{align*}
-        \cancel{p_i \dot q_i} - H(q, p, t) = \cancel{P_i \dot Q_i} - K(Q, P, t) + \dot p_i q_i + \cancel{p_i \dot q_i} - \dot P_i Q_i - \cancel{P_i \dot Q_i} + \dv{F(p, P, t)}{t} \\
+        \cancel{p_i \dot q_i} - H(q, p, t) = \cancel{P_i \dot Q_i} - K(Q, P, t) + \dot p_i q_i + \cancel{p_i \dot q_i} - \dot P_i Q_i - \cancel{P_i \dot Q_i} + \dv{F_4(p, P, t)}{t} \\
         \dot p_i q_i  + H(q, p, t) =  \dot P_i Q_i + K(Q, P, t) - \dv{F_4(p, P, t)}{t} 
     \end{align*}
     We can expand 
@@ -44,7 +44,7 @@
     \begin{equation*}
         K = H + \pdv{F_4}{t}, \quad q_i = - \pdv{F_4}{p_i}, \quad Q_i = \pdv{F_4}{P_i},
     \end{equation*}
-    which is the equations we were looking
+    which are the equations we were looking for.
         
     \section{The Poisson bracket}
     The Hamiltonian for the harmonic oscillator is
@@ -57,7 +57,7 @@
     \end{equation*}
     The Poisson bracket in the original is
     \begin{equation*}
-        [q, H]_{q, p} = \underbrace{\pdv{q}{q}}_{=1}\pdv{H}{p} - \underbrace{\pdv{q}{q}}_{=0}\pdv{H}{p} = \pdv{H}{p} = \frac{p}{m}.
+        [q, H]_{q, p} = \underbrace{\pdv{q}{q}}_{=1}\pdv{H}{p} - \underbrace{\pdv{q}{p}}_{=0}\pdv{H}{q} = \pdv{H}{p} = \frac{p}{m}.
     \end{equation*} 
     In the new coordinates the bracket is
     \begin{equation*}
