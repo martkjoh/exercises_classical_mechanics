@@ -6,6 +6,7 @@
 \usepackage{mathtools} % The dcases environment, prettier than just cases
 \usepackage{tikz} % For drawing picures
 \usepackage{wrapfig} % Wrapping text around figures
+\usepackage{cancel} % Strikekethrough parts of equations
 
 
 \title{Exercise 1 solutions - TFY4345 Classical Mechanics}
@@ -13,7 +14,136 @@
 
 \begin{document}
     \maketitle
-    \section{exercise name}
+    \section{Halley's comet}
+        a) The gravitational force on the comet is
+        \begin{equation*}
+            \vec F = - \frac{GmM}{r^2} \vec e_r,
+        \end{equation*}
+        where $m$ is the mass of the comet, and $M$ is the mass of the sum. The torque on the comet is therefore
+        \begin{equation}
+            \vec N = \vec r \times \vec F = - r \vec e_r \times \frac{GmM}{r^2} \vec e_r = \frac{GmM}{r} \vec e_r \times \vec e_r = 0. 
+        \end{equation}
+         b) The angular momentum of the comet when the comet is closest to and farthest from the sun is, respectively $\vec L_e = \vec r_e \times \vec p_e$ and $\vec L_f = \vec r_f \times \vec p_f$. Conservation of angular momentum implies that $\vec L_e = \vec L_f$, and in turn that $\vec |L_e| = |\vec L_f|$. At both the point the comet is closest to and farthest from the sun, the position vector $\vec r$ and the momentum vector $\vec p$ are perpendicular. This means that
+        \begin{equation*}
+            \vec |L_e| = |\vec L_f| \implies |\vec r_e || \vec p_e| = |\vec r_f || \vec p_f| \implies r_e m v_e = r_f m v_f.
+        \end{equation*}
+        The velocity of the comet farthest from the sun is therefore
+        \begin{equation}
+            v_f = \frac{r_e}{r_f} v_e = \frac{\SI{0.6}{AU}}{\SI{35}{AU}} \, \SI{54}{km.\per.s} = \SI{0.9}{km.\per.s} 
+        \end{equation}
+
+    \section{Simple pendulum}
+        a) By a trigonometric consideration,
+        \begin{equation*}
+            \vec R = \ell \sin(\beta) \vec e_x - \ell \cos(\beta) \vec e_y
+        \end{equation*}
+
+        b) Potential energy for a mass $m$ in a uniform gravitational field is $V = mgh$, where $h$ is the height of the mass (in an arbitrary reference frame). In our case, $\ell \cos(\beta)$, and hence
+        \begin{equation*}
+            V = - m g \ell \cos(\beta).
+        \end{equation*}
+        A different choice of reference frame will only add a constant to $V$, which will not affect the equations of motion. \\ \\
+        c) The velocity of the mass $m$ is given by
+        \begin{equation*}
+            \vec v = \dv{\vec R}{t} = \ell \cos(\beta) \dot \beta \vec e_x + \ell \sin(\beta) \dot \beta \vec e_y.
+        \end{equation*}
+        The square of the velocity is then given by
+        \begin{equation*}
+            v^2 = \vec v \cdot \vec v = (\ell \dot \beta)^2 (\cos^2(\beta) \vec e_x \cdot \vec e_x + \sin^2(\beta) \vec e_y \cdot \vec e_y ) = (\ell \dot \beta)^2.
+        \end{equation*}
+        The kinetic energy is therefore 
+        \begin{equation*}
+            T = \frac{1}{2} m v^2 = \frac{1}{2}m (\ell \dot \beta)^2  
+        \end{equation*}
+        d) The Lagrangian of the pendulum is 
+        \begin{equation*}
+            L = T - V = \frac{1}{2}m (\ell \dot \beta)^2  + m g \ell \cos(\beta).
+        \end{equation*}
+        The Lagrange equations are in general
+        \begin{equation*}
+            \dv{t} \pdv{L}{\dot q_i} - \pdv{L}{q_i} = 0.
+        \end{equation*}
+        In this case, we have only one variable, $q_1 = \beta$. The resulting Lagrange equation is 
+        \begin{equation*}
+            \dv{t} \pdv{L}{\dot \beta} - \pdv{L}{\beta} = 0.
+        \end{equation*}
+        Inserting the Lagrangian we found, we get
+        \begin{align*}
+            \dv{t}\pdv{L}{\dot \beta} 
+            = \dv{t} \left( m \ell^2 \dot \beta \right) 
+            = m \ell^2 \ddot \beta, 
+            \quad \pdv{L}{\beta} = - m g \ell \sin(\beta)    
+        \end{align*}
+        so the equation of motion is
+        \begin{equation*}
+            \ddot \beta + \frac{g}{\ell} \cos(\beta) = 0
+        \end{equation*}
+
+    \section{Double pendulum}
+        (a) The position of mass $m_1$ is, just as in the single pendulum, 
+        \begin{equation*}
+            \vec R_1 = \ell_1 \sin(\beta_1) \vec e_x - \ell_1 \cos(\beta_1) \vec e_y.
+        \end{equation*}
+        The position of mass two is then, by the same considerations just using $\vec R_1$ as the point of reference,
+        \begin{align*}
+            \vec R_2 & = \vec R_1 + \ell_2 \sin(\beta_2) \vec e_x - \ell_2 \cos(\beta_2) \vec e_y \\
+            &= \left[\ell_1 \sin(\beta_1) + \ell_2 \sin(\beta_2)\right] \vec e_x - \left[\ell_1 \cos(\beta_1) + \ell_2 \cos(\beta_2)\right] \vec e_y.
+        \end{align*}
+        The velocity and square velocity of $m_1$ is also just as in exercise 2:
+        \begin{equation*}
+            \vec v_1 = \dv{R_1}{t}, \quad v_1^2 = (\ell_1 \dot \beta_1)^2.
+        \end{equation*}
+        The velocity  and velocity square of $m_2$ is
+        \begin{align*}
+            \vec v_2 &= \dv{\vec R_2}{t} = 
+            \left[\ell_1 \cos(\beta_1) \dot \beta_1 + \ell_2 \cos(\beta_2) \dot \beta_2 \right] \vec e_x + \left[\ell_1 \sin(\beta_1) \dot \beta_1 + \ell_2 \sin(\beta_2) \dot \beta_2\right] \vec e_y, \\
+            v_2^2 &= \left[\ell_1 \cos(\beta_1) \dot \beta_1 + \ell_2 \cos(\beta_2) \dot \beta_2 \right]^2 + \left[\ell_1 \sin(\beta_1) \dot \beta_1 + \ell_2 \sin(\beta_2) \dot \beta_2\right]^2 \\ 
+            &= (\ell_1 \dot \beta_1)^2 + (\ell_2 \dot \beta_2)^2 + 2 \ell_1 \ell_2 \cos(\beta_1)\cos(\beta_2) \dot \beta_1 \dot \beta_2 + 2 \ell_1 \ell_2 \sin(\beta_1)\sin(\beta_2) \dot \beta_1 \dot \beta_2 \\
+            &= (\ell_1 \dot \beta_1)^2 + (\ell_2 \dot \beta_2)^2 + 2 \ell_1 \ell_2 \dot \beta_1 \dot \beta_2 \cos(\beta_1 - \beta_2),
+        \end{align*}
+        where we have used the trigonometric addition law $\cos(\theta) \cos(\phi) + \sin(\theta) \sin(\phi) = \cos(\theta - \phi)$ in the last line. Total potential energy is 
+        \begin{equation*}
+            V = m_1 g h_1 + m_2 g h_2 = -m_1 g \ell_1 \cos(\beta_1) - m_2 g \left[\ell_1 \cos(\beta_1) + \ell_2 \cos(\beta_2)\right].
+        \end{equation*}
+        Total kinetic energy is
+        \begin{align*}            
+            T &= \frac{1}{2}m_1 v_1^2 + \frac{1}{2}m_2 v_2^2 = \frac{1}{2}m_1 (\ell_1 \dot \beta_1)^2 + \frac{1}{2}m_2 \left[ (\ell_1 \dot \beta_1)^2+  (\ell \dot \beta_2)^2 + \ell_1 \ell_2 \dot \beta_1 \dot \beta_2 \cos(\beta_1 - \beta_2)\right],
+        \end{align*}
+        so the Lagrangian is, after gathering some terms, 
+        \begin{align*}
+            L &= T - V  \\
+            &= (m_1 + m_2) \left[\frac{1}{2}(\ell_1 \dot \beta_1)^2 + g \ell_1 \cos(\beta_1)  \right] 
+            + m_2 \left[\frac{1}{2} (\ell \dot \beta_2)^2 + \ell_1 \ell_2 \dot \beta_1 \dot \beta_2 \cos(\beta_1 - \beta_2) + g \ell_2 \cos(\beta_2)\right].
+        \end{align*}
+        b) The Lagrange equations for this problem are
+        \begin{align*}
+            & \dv{t} \pdv{L}{\dot \beta_1} - \pdv{L}{\beta_1} = 0, \\
+            & \dv{t} \pdv{L}{\dot \beta_2} - \pdv{L}{\beta_2} = 0.
+        \end{align*}
+        Calculating the quantities needed:
+        \begin{align*}
+            & \pdv{L}{\beta_1} = -(m_1 + m_2) g \ell_1 \sin(\beta_1) - m_2 \ell_1 \ell_2 \dot \beta_1 \dot \beta_2 \sin(\beta_1 - \beta_2) \\
+            & \pdv{L}{\dot \beta_1} = (m_1 + m_2) \ell_1^2 \dot \beta_1 + m_2 \ell_1 \ell_2 \dot \beta_2 \cos(\beta_1 - \beta_2) \\
+            & \dv{t} \pdv{L}{\dot \beta_1} = (m_1 + m_2) \ell_1^2 \ddot \beta_1 + m_2 \ell_1 \ell_2 \left( \ddot \beta_2 \cos(\beta_1 - \beta_2) - \dot \beta_2 \sin(\beta_1 - \beta_2)(\dot \beta_1 - \dot \beta_2) \right)\\
+            & \pdv{L}{\beta_2} =  m_2 \left[ \ell_1 \ell_2 \dot \beta_1 \dot \beta_2 \sin(\beta_1 - \beta_2)  - g \ell_2 \sin(\beta_2)\right]\\
+            & \pdv{L}{\dot \beta_2} = m_2 \left[\ell_2^2 \dot \beta_2 + \ell_1 \ell_2 \dot \beta_1 \cos(\beta_1 - \beta_2)\right] \\
+            & \dv{t} \pdv{L}{\dot \beta_2} = m_2 \left[ \ell_2^2 \ddot \beta_2 + \ell_1 \ell_2 \left(\ddot \beta_1\cos(\beta_1 - \beta_2) - \dot \beta_1 \sin(\beta_1 - \beta_2) (\dot \beta_1 - \dot \beta_2)\right) \right].
+        \end{align*}
+        This gives us the equation of motion    
+        \begin{align*}
+              &(m_1 + m_2) \ell_1^2 \ddot \beta_1 + m_2 \ell_1 \ell_2 \left( \ddot \beta_2 \cos(\beta_1 - \beta_2) - \dot \beta_2 \sin(\beta_1 - \beta_2)(\dot \beta_1 - \dot \beta_2) \right) \\
+              &+ (m_1 + m_2) g \ell_1 \sin(\beta_1) + m_2 \ell_1 \ell_2 \dot \beta_1 \dot \beta_2 \sin(\beta_1 - \beta_2) = 0 \\
+        \end{align*}
+        and 
+        \begin{align*}
+            & m_2 \left[ \ell_2^2 \ddot \beta_2 + \ell_1 \ell_2 \left(\ddot \beta_1\cos(\beta_1 - \beta_2) - \dot \beta_1 \sin(\beta_1 - \beta_2) (\dot \beta_1 - \dot \beta_2)\right) \right]  \\
+            & - m_2 \left[ \ell_1 \ell_2 \dot \beta_1 \dot \beta_2 \sin(\beta_1 - \beta_2)  - g \ell_2 \sin(\beta_2)\right] = 0 \\
+        \end{align*}
+        Cleaning up some, we get the final result
+        \begin{align*}
+            (m_1 + m_2) \left[\ell_1 \ddot \beta_1 + g \sin(\beta_1)\right]+ m_2 \ell_2 \left[ \ddot \beta_2 \cos(\beta_1 - \beta_2) + \dot \beta_2^2 \sin(\beta_1 - \beta_2) \right] = 0& \\
+            \ell_2 \ddot \beta_2 + \ell_1 \ddot \beta_1 \cos(\beta_1 - \beta_2) - \ell_2 \dot \beta_1^2 \sin(\beta_1 - \beta_2) + g \sin(\beta_2) = 0&.
+        \end{align*}
 
 \end{document}
 
