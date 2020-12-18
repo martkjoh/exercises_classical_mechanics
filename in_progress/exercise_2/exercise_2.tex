@@ -13,7 +13,43 @@
 
 \begin{document}
     \maketitle
-    \section{exercise name}
+    \section{Damped oscillator}
+        A particle with mass $m$ moves with a low velocity $\dot x = v$. The particle is a damped oscillator with center in the origin and spring constant $k$. The frictional force is 
+        \begin{equation*}
+            F_f = - \pdv{\mathcal{F}}{v},
+        \end{equation*}
+        where $\mathcal{F}$ is Rayleigh's dissipation function. \\ \\
+        (a) Show that $\mathcal{F} \propto v^2$, and that the viscous energy loss per minute $\dot W_f$ can be written as $\dot W_f = 2 \mathcal{F}$. \\ \\
+        (b) Assume then that $\mathcal{F} = 3 \pi \mu a v^2$, where $\mu$ is the dynamic viscosity and $a$ the particle radius. Start from Lagrange's equation, and show that the equation for motion can be written as 
+        \begin{equation*}
+            \ddot x + 2 \lambda \dot x + \omega^2_0 x = 0.
+        \end{equation*}
+        Express $\lambda$ and $\omega_0$ in terms of the constants above. \\ \\
+        (c) Solve the equation $x(t)$ assuming $x(0) = x_0$ and $\dot x(0) = 0$ when $\lambda / \omega \ll 1$, and show that one approximately has 
+        \begin{equation*}
+            \overline{\dot W_f} = m \lambda \left(\omega_0 x_0\right)^2 e^{-2 \lambda t},
+        \end{equation*}
+        where the bar denotes time average.
+        
+
+    \section{Operator identities}
+        Use the Levi-Civita tensor to prove the following vector-operator relation:
+        \begin{equation*}
+            \nabla \times \left( \nabla \times \mathbf{A} \right) = \nabla \left(\nabla \cdot \mathbf{A}\right) - \nabla^2 \mathbf{A}.
+        \end{equation*}
+        (Note: There will be no such assignment in the exam where one has to play with this tensor.)
+
+    \section{Shortest path in polar coordinates}
+        Show using polar coordinates and the Euler equation that the shortest distance between two points is a straight line, $r = b / \sin(\phi), \, b = \mathrm{const.}$. In this case, the Euler equation is
+        \begin{equation*}
+            \pdv{f}{y} - \dv{x} \pdv{f}{y'} = 0.
+        \end{equation*}
+        (Hint: here, you have to choose which of the variables $r, \phi$ are the parametre. ($x$ in the above equation). Choose $r$.)
+
+    \section{Forces of constraint}
+        Consider a mathematical pendulum in two dimensions. Evaluate the equations of motion, and fin the tension force within the pendulum string by using the Euler equations and an undetermined multiplier $\lambda$. Interpret the resulting force of constraint. \\ \\ 
+        (Hint: Set the constraint such that the wire length $\ell$ is constant.)
+
 
 \end{document}
 

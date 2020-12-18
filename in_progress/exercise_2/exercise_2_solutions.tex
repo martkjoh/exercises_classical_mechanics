@@ -11,9 +11,48 @@
 \title{Exercise 2 solutions - TFY4345 Classical Mechanics}
 \date{2020}
 
+\newcommand{\Eff}{\mathcal{F}}
+
 \begin{document}
     \maketitle
-    \section{exercise name}
+    \section{Damped oscillator}
+        (a) The frictional force is 
+        \begin{equation*}
+            F_f = -\pdv{\mathcal{F}}{v}.
+        \end{equation*}
+        The work done by friction is force times distance, so the work per unit time is
+        \begin{equation*}
+            \dot W_f = - F_f v = \pdv{\mathcal{F}}{v} v \implies \mathcal{F} = C v^2.
+        \end{equation*}
+        (As $\mathcal{F}$ is a (velocity) potential, we can dismiss any constants, just as with regular potentials.) This means
+        \begin{equation*}
+            \dot W_f = 2 C v^2 = 2 \mathcal{F}. 
+        \end{equation*}
+        (b) The Lagrangian with a velocity-dependent potential is 
+        \begin{equation*}
+            \dv{t} \pdv{L}{\dot x} - \pdv{L}{x} + \pdv{\Eff}{\dot x} = 0.
+        \end{equation*}
+        Inserting the Lagrangian for a harmonic oscillator, 
+        \begin{equation*}
+            L = \frac{1}{2} m \dot x^2 - \frac{1}{2} k x^2,
+        \end{equation*}
+        and the given velocity potential $\Eff = 3 \pi \mu a \dot x^2$, we get
+        \begin{align*}
+            \dv{t} \pdv{L}{\dot x} = m \ddot x, \, \pdv{L}{x} = -k x, \, \pdv{\Eff}{\dot x} = 6 \pi \mu a \dot x, \\
+            \implies m \ddot x + 6 \pi \mu a + k x = 0,
+        \end{align*}
+        or
+        \begin{equation*}
+            \ddot x + 2 \lambda \dot x + \omega^2_0x = 0, \quad \lambda = \frac{3 \pi \mu a}{m}, \, \omega_0 = \sqrt{\frac{k}{m}}.
+        \end{equation*}
+        (c) 
+
+    \section{Operator identities}
+
+    \section{Shortest path in polar coordinates}
+
+    \section{Forces of constraint}
+
 
 \end{document}
 
