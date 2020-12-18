@@ -20,17 +20,17 @@
             \vec F = - \frac{GmM}{r^2} \vec e_r,
         \end{equation*}
         where $m$ is the mass of the comet, and $M$ is the mass of the sum. The torque on the comet is therefore
-        \begin{equation}
+        \begin{equation*}
             \vec N = \vec r \times \vec F = - r \vec e_r \times \frac{GmM}{r^2} \vec e_r = \frac{GmM}{r} \vec e_r \times \vec e_r = 0. 
-        \end{equation}
+        \end{equation*}
          b) The angular momentum of the comet when the comet is closest to and farthest from the sun is, respectively $\vec L_e = \vec r_e \times \vec p_e$ and $\vec L_f = \vec r_f \times \vec p_f$. Conservation of angular momentum implies that $\vec L_e = \vec L_f$, and in turn that $\vec |L_e| = |\vec L_f|$. At both the point the comet is closest to and farthest from the sun, the position vector $\vec r$ and the momentum vector $\vec p$ are perpendicular. This means that
         \begin{equation*}
             \vec |L_e| = |\vec L_f| \implies |\vec r_e || \vec p_e| = |\vec r_f || \vec p_f| \implies r_e m v_e = r_f m v_f.
         \end{equation*}
         The velocity of the comet farthest from the sun is therefore
-        \begin{equation}
+        \begin{equation*}
             v_f = \frac{r_e}{r_f} v_e = \frac{\SI{0.6}{AU}}{\SI{35}{AU}} \, \SI{54}{km.\per.s} = \SI{0.9}{km.\per.s} 
-        \end{equation}
+        \end{equation*}
 
     \section{Simple pendulum}
         a) By a trigonometric consideration,
@@ -145,5 +145,34 @@
             \ell_2 \ddot \beta_2 + \ell_1 \ddot \beta_1 \cos(\beta_1 - \beta_2) - \ell_2 \dot \beta_1^2 \sin(\beta_1 - \beta_2) + g \sin(\beta_2) = 0&.
         \end{align*}
 
+        \section{Lagrangian invariance}
+        The original Lagrangian, $L(q, \dot q, t)$, gives the equation of motion
+        \begin{equation*}
+            \dv{t} \pdv{L}{\dot q} - \pdv{L}{q} = 0,
+        \end{equation*}
+        while the new Lagrangian, $L'(q, \dot q, t)$ gives
+        \begin{align*}
+            &\dv{t} \pdv{L}{\dot q} - \pdv{L}{q} = 
+            \dv{t}\pdv{\dot q} \left( L(q, \dot q, t) + \dv{F(q, t)}{t} \right) - \pdv{q} \left( L(q, \dot q, t) + \dv{F(q, t)}{t} \right) = 0, \\
+            &\implies \dv{t} \pdv{L}{\dot q} - \pdv{L}{q} + \dv{t} \pdv{\dot q} \dv{F(q, t)}{t}  - \pdv{q} \dv{F(q, t)}{t} = 0,
+        \end{align*}
+        This means the new Lagrangian will give us the same equation of motion, if 
+        \begin{equation}
+            \dv{t} \pdv{\dot q} \dv{F(q, t)}{t}  - \pdv{q} \dv{F(q, t)}{t} = 0.
+            \label{eq1}
+        \end{equation}
+        We can use the chain rule to obtain
+        \begin{equation*}
+            \dv{F(q, t)}{t} = \pdv{F}{t} + \pdv{F}{q} \dot q.
+        \end{equation*}
+        This means that
+        \begin{align*}
+            \pdv{q} \dv{F}{t} = \pdv{F}{q}{t} + \pdv[2]{F}{q} \dot q, \\
+            \dv{t} \pdv{\dot q} \dv{F}{t} = \dv{t} \left(\pdv{F}{q}\right) = \pdv{F}{t}{q} + \pdv[2]{F}{q}\dot q.
+        \end{align*}
+        Inserting this into \eqref{eq1}, we get the desired result:
+        \begin{equation*}
+            \pdv{F}{t}{q} + \pdv[2]{F}{q}\dot q - \left(\pdv{F}{q}{t} + \pdv[2]{F}{q} \dot q \right) = 0.
+        \end{equation*} 
 \end{document}
 
