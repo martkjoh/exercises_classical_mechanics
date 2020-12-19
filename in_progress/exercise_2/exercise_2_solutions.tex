@@ -12,7 +12,7 @@
 \date{2020}
 
 \newcommand{\Eff}{\mathcal{F}}
-
+\newcommand{\Ce}{\mathcal{C}}
 \begin{document}
     \maketitle
     \section{Damped oscillator}
@@ -76,15 +76,85 @@
         \end{equation*}
 
     \section{Operator identities}
-        The Einstein summation convention is used throughout this exercise, so repeated indeces are summed over. The $i$'th component of the curl of the curl of $\mathbf{A}$ can be written
+        The Einstein summation convention is used throughout this exercise, so repeated indices are summed over. The $i$'th component of the curl of the curl of $\mathbf{A}$ can be written
         \begin{equation*}
-            
+            [\nabla \times (\nabla \times \mathbf{A})]_i = \varepsilon_{ijk} \partial_j[\nabla \times \mathbf{A}]_k = \varepsilon_{ijk} \partial_j \varepsilon_{klm} \partial_l A_m = \varepsilon_{ijk} \varepsilon_{klm} \partial_j \partial_l A_m.
+        \end{equation*}
+        Using the fact that $\varepsilon_{ijk} = \varepsilon_{kij}$, and the identity $\varepsilon_{ijk}\varepsilon_{imn} = \delta_{jm} \delta_{kn} - \delta_{jn}\delta_{km}$, this becomes
+        \begin{equation*}
+            [\nabla \times (\nabla \times \mathbf{A})]_i = (\delta_{il}\delta_{jm} - \delta_{im}\delta_{jl}) \partial_j \partial_l A_m = \partial_j \partial_i A_j - \partial_j \partial_j A_i = \nabla \cdot (\nabla_i \mathrm{A}) - (\nabla \cdot \nabla) A_i,
+        \end{equation*}
+        or
+        \begin{equation*}
+            \nabla \times (\nabla \times \mathbf{A}) = \nabla \cdot (\nabla \mathrm{A}) - \nabla^2 \mathrm{A}.
         \end{equation*}
 
     \section{Shortest path in polar coordinates}
+        (FIGUR) \\
+        A distance element in polar coordinates are given by
+        \begin{equation*}
+            \dd s = \sqrt{\dd r^2 + r^2 \dd \varphi ^2} = \sqrt{1 - r^2 \varphi'^2} \dd r.
+        \end{equation*}
+        This means the distance along a curve $\Ce$ is
+        \begin{equation*}
+            s = \int_\Ce \dd s = \int_\Ce \sqrt{1 - r^2 \varphi'^2} \dd r.
+        \end{equation*}
+        With $r$ as our parameter, the Euler equation reads
+        \begin{equation*}
+            \dv{r} \pdv{f}{\varphi'} - \pdv{f}{\varphi} = 0,
+        \end{equation*}
+        where $f(\varphi', r) = \sqrt{1 - r^2 \varphi'^2}$ is what we are trying to minimize. We see that
+        \begin{equation*}
+            \pdv{f}{\varphi} = 0 \implies \dv{r} \pdv{f}{\varphi'} = 0,
+        \end{equation*}
+        so 
+        \begin{align*}
+            &\pdv{\varphi'} \sqrt{1 - r^2 \varphi'^2} = \frac{- r^2 \varphi'}{\sqrt{1 - r^2 \varphi'^2} } = a \\
+            &\implies \frac{\varphi^2 r^2}{a} = \sqrt{1 - r^2 \varphi'^2} \\
+            &\implies \frac{\varphi^4 r^4}{a^2} = 1 - r^2 \varphi'^2 \\
+            &\implies \left( \frac{r^2}{a^2} - 1 \right)r^2 \varphi'^2 = 1.
+        \end{align*}
+        Defining $b^2 = 1 / a^2$, we get 
+        \begin{align*}
+            &\varphi'^2 = \frac{1}{r^2(b^2 r^2 - 1)} \\
+            & \implies \varphi' = \pm \frac{1}{r \sqrt{b^2 r^2 - 1}} \\
+            & \implies \varphi(r) = \pm \int_{r_0}^r \frac{\dd r}{r \sqrt{b^2 r^2 - 1}}.
+        \end{align*}
+        This integral can be found in a table, so we get
+        \begin{equation*}
+            \varphi(r) = \arcsin\left( \frac{-2}{r \sqrt{4b^2}}\right) + c.
+        \end{equation*}
+        Setting $c=0$, we get
+        \begin{equation*}
+            \sin(\varphi) = \pm \frac{1}{br} \implies r = \frac{a}{\sin(\varphi)}, \,r\geq 0.
+        \end{equation*}
 
     \section{Forces of constraint}
-
+        When using the method of undetermined multiplier, we do not assume $\dot r = 0$, but rather enforce this by a constraint. As we have found before, the kinetic energy is 
+        \begin{equation*}
+            T = \frac{1}{2}m \left(\dot r^2 + (r \dot \beta)^2\right),
+        \end{equation*}
+        and the potential energy is 
+        \begin{equation*}
+            V = -mgr \cos(\beta).
+        \end{equation*}
+        The constraint needed for a pendulum of length $\ell$ is $\ell - r = 0$, so the Lagrangian becomes
+        \begin{equation*}
+            L = \frac{1}{2}m \left(\dot r^2 + (r \dot \beta)^2\right) + mgr \cos(\beta) + \lambda \left( \ell - r\right).
+        \end{equation*}
+        This gives the equations of motion
+        \begin{align}
+            m \ddot r - m r \dot \beta^2 - m g \cos(\beta) + \lambda = 0, \\
+            m r^2 \dot \beta + mg r \sin(\beta) = 0,
+        \end{align}
+        as well as the constraint $\ell - r = 0$. This implies $\dot r = \ddot r = 0$. The second equation gives, as before,
+        \begin{equation*}
+            \dot \beta + \frac{g}{\ell} \sin(\beta) = 0,
+        \end{equation*}
+        while the first gives 
+        \begin{equation*}
+            \lambda = m(\ell \dot \beta + g \cos(\beta)).
+        \end{equation*}
+        The tension in a pendulum string is the sum of the component of the gravitational force parallel to the string ($mg \cos(\beta)$), and the centripetal force acing on the mass to keep it going in a circle ($m \ell \dot \beta^2$). Thus, we recognize $\lambda$ as the tension in the pendulum string.
 
 \end{document}
-
