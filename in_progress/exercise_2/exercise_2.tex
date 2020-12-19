@@ -14,13 +14,13 @@
 \begin{document}
     \maketitle
     \section{Damped oscillator}
-        A particle with mass $m$ moves with a low velocity $\dot x = v$. The particle is a damped oscillator with center in the origin and spring constant $k$. The frictional force is 
+        A particle with mass $m$ moves with a low velocity $\dot x$. The particle is a damped oscillator with center in the origin and spring constant $k$. The frictional force is 
         \begin{equation*}
-            F_f = - \pdv{\mathcal{F}}{v},
+            F_f = - \pdv{\mathcal{F}}{\dot x},
         \end{equation*}
         where $\mathcal{F}$ is Rayleigh's dissipation function. \\ \\
-        (a) Show that $\mathcal{F} \propto v^2$, and that the viscous energy loss per minute $\dot W_f$ can be written as $\dot W_f = 2 \mathcal{F}$. \\ \\
-        (b) Assume then that $\mathcal{F} = 3 \pi \mu a v^2$, where $\mu$ is the dynamic viscosity and $a$ the particle radius. Start from Lagrange's equation, and show that the equation for motion can be written as 
+        (a) Show that $\mathcal{F} \propto \dot x^2$, and that the viscous energy loss per minute $\dot W_f$ can be written as $\dot W_f = 2 \mathcal{F}$. \\ \\
+        (b) Assume then that $\mathcal{F} = 3 \pi \mu a \dot x^2$, where $\mu$ is the dynamic viscosity and $a$ the particle radius. Start from Lagrange's equation, and show that the equation for motion can be written as 
         \begin{equation*}
             \ddot x + 2 \lambda \dot x + \omega^2_0 x = 0.
         \end{equation*}

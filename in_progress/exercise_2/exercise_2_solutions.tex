@@ -18,15 +18,15 @@
     \section{Damped oscillator}
         (a) The frictional force is 
         \begin{equation*}
-            F_f = -\pdv{\mathcal{F}}{v}.
+            F_f = -\pdv{\mathcal{F}}{\dot x}.
         \end{equation*}
         The work done by friction is force times distance, so the work per unit time is
         \begin{equation*}
-            \dot W_f = - F_f v = \pdv{\mathcal{F}}{v} v \implies \mathcal{F} = C v^2.
+            \dot W_f = - F_f v = \pdv{\mathcal{F}}{\dot x} \dot x \implies \mathcal{F} = C \dot x ^2.
         \end{equation*}
         (As $\mathcal{F}$ is a (velocity) potential, we can dismiss any constants, just as with regular potentials.) This means
         \begin{equation*}
-            \dot W_f = 2 C v^2 = 2 \mathcal{F}. 
+            \dot W_f = 2 C \dot x^2 = 2 \mathcal{F}. 
         \end{equation*}
         (b) The Lagrangian with a velocity-dependent potential is 
         \begin{equation*}
@@ -46,8 +46,40 @@
             \ddot x + 2 \lambda \dot x + \omega^2_0x = 0, \quad \lambda = \frac{3 \pi \mu a}{m}, \, \omega_0 = \sqrt{\frac{k}{m}}.
         \end{equation*}
         (c) 
+        If we assume the solution to be of the from
+        \begin{equation*}
+            x(t) = A e^{\omega_a t} + B e^{\omega_b t},
+        \end{equation*}
+        we get
+        \begin{equation*}
+            A(\omega_0^2 + 2 \lambda \omega_a + \omega^2)e^{\omega_a t} + B(\omega_0^2 + 2 \lambda \omega_b + \omega_b^2)e^{\omega_b t} = 0,
+        \end{equation*}
+        so
+        \begin{equation*}
+            \omega_{a/b} = -\lambda \pm \sqrt{\lambda^2 - \omega_0^2}
+        \end{equation*}
+        this gives us
+        \begin{equation*}
+            x(t) = e^{-\lambda t} \left( A \exp \left[\omega t \sqrt{(\lambda / \omega)^2 - 1} \right] + B \exp \left[- \omega t \sqrt{(\lambda / \omega)^2 - 1} \right] \right).
+        \end{equation*}
+        Now, as $\lambda/\omega \ll 1$, we get that $\sqrt{(\lambda / \omega) - 1} \approx i$. This means that, after applying the initial conditions, we get the solution
+        \begin{equation*}
+            x(t) = x_0 e^{-\lambda t} \cos(\omega t).
+        \end{equation*}
+        The instantaneous energy dissipation is therefore 
+        \begin{equation*}
+            \dot W_f = F_f \dot x = 2 \lambda m \dot x^2 = 2 \lambda m x_0^2 e^{-\lambda t} \cos^2(\omega t).
+        \end{equation*}
+        If we then take the average over a period $2 \pi / \omega_0$, we can assume the exponential is more or less constant (as $\lambda << \omega_0$), so the time averaged dissipation is 
+        \begin{equation*}
+            \overline{\dot W_f} = m \lambda (\omega_0 \dot x)^2 e^{-\lambda t}.
+        \end{equation*}
 
     \section{Operator identities}
+        The Einstein summation convention is used throughout this exercise, so repeated indeces are summed over. The $i$'th component of the curl of the curl of $\mathbf{A}$ can be written
+        \begin{equation*}
+            
+        \end{equation*}
 
     \section{Shortest path in polar coordinates}
 
