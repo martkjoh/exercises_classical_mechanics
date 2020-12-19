@@ -13,7 +13,90 @@
 
 \begin{document}
     \maketitle
-    \section{exercise name}
+    \section{Pendulum on spinning a wheel}
+        With the origin of our coordinate system in the center of the rotating rim, the Cartesian components of the mass $m$ become
+        \begin{align*}
+            x = a \cos(\omega t) + b \sin(\theta) \\
+            y = a \sin(\omega t) - b \cos(\theta).
+        \end{align*}
+        The velocities are
+        \begin{align*}
+            \dot x = - a \omega \sin(\omega t) + b \dot \theta \cos(\theta) \\
+            \dot y = a \omega \cos(\omega t) + b \dot \theta \sin(\theta).
+        \end{align*}
+        Taking the time derivative once again gives the acceleration:
+        \begin{align*}
+            \ddot x = -a \omega^2 \cos(\omega t) + b(\ddot \theta \cos(\theta) - \dot \theta^2 \sin(\theta)) \\
+            \ddot y = - a \omega^2 \sin(\omega t) + b(\ddot \theta \sin(\theta) + \dot \theta^2 \cos(\theta)).
+        \end{align*}
+        It should be clear that the single generalize coordinate is $\theta$. The kinetic and potential energies are 
+        \begin{equation*}
+            T = \frac{1}{2}m (\dot x^2 + \dot y^2), \, V = mgy.
+        \end{equation*}
+        Inserting what we found earlier, the Lagrangian becomes
+        \begin{equation*}
+            L = \frac{1}{2}m[a^2 \omega^2 + b \dot \theta^2 + 2 b \theta^2 a \omega \sin(\theta - \omega t)] - mg[a \sin(\omega t) - b \cos(\theta)].
+        \end{equation*}
+        The derivatives needed for the equation of motion are
+        \begin{align*}
+            \dv{t}\pdv{L}{\dot \theta} = mb^2 \ddot \theta + m b a \omega (\dot \theta - \omega) \cos(\theta - \omega t), \\
+            \pdv{L}{\theta} = mba \dot \theta \omega \cos(\theta - \omega t) - m g b \sin(\theta).
+        \end{align*}
+        Inserting this into Euler's equation, and solving for $\ddot \theta$ gives
+        \begin{equation*}
+            \ddot \theta = \frac{\omega^2 a}{b}\cos(\theta-\omega t) - \frac{g}{b} \sin(\theta).
+        \end{equation*}
+        Notice that, for $\omega = 0$, this reduces to the equation for the simple pendulum.
+
+    \section{Bead on a ring}
+        (FIGUR) \\ \\
+        The potential energy is given by
+        \begin{equation*}
+            U = mgh = mgR(1 - \cos(\theta)),
+        \end{equation*}
+        while the kinteic energy is
+        \begin{equation*}
+            T = \frac{1}{2}m v^2 = \frac{1}{2}m \left((r \dot \varphi)^2 + (R \dot \theta)\right) = \frac{1}{2}m R^2\left(\sin^2(\theta) \dot \varphi^2 + \dot\theta^2\right).
+        \end{equation*}
+        The Euler equation for $\varphi$ is given by
+        \begin{equation*}
+            \pdv{L}{\varphi} = 0 \implies \dv{t}\pdv{L}{\dot \varphi} = \dv{t}\left(m \sin(\theta)R^2 \dot \varphi\right) = 0 \implies \dot \varphi = \omega = \mathrm{const.}
+        \end{equation*}
+        The equation for $\theta$ is given by
+        \begin{align*}
+            &\pdv{L}{\theta} = m R^2 \cos(\theta) \sin(\theta) \dot \varphi^2 - mgR \sin(\theta), \, \dv{t} \pdv{L}{\dot \theta} = m R^2 \ddot \theta, \\
+            & \implies \ddot \theta = R \cos(\theta) \sin(\theta) \dot \varphi^2  - g \sin(\theta)
+        \end{align*}
+        In the equilibrium position, we have that $\ddot \theta = 0$. This means
+        \begin{equation*}
+            \cos(\theta) = \frac{g }{R\dot \varphi^2} = \frac{g }{R\omega^2}.
+        \end{equation*}
+        Note: we could have set $\dot \varphi = 0$ right at the beginning, and treat $\theta$ as the sole generalized variable.
+
+    \section{Atwood's machine}
+        The angular velocity of the pulley is 
+        \begin{equation*}
+            \omega = \frac{\dot x_2}{a}.
+        \end{equation*}
+        This means the kinetic energy of the system is 
+        \begin{equation*}
+            T = \frac{1}{2}m_1\dot x_1^2+\frac{1}{2}m_2\dot x_2^2 + \frac{1}{2}I \omega^2
+        \end{equation*}
+        The length of the string is a constant, so 
+        \begin{equation*}
+            x_1 + x_2 = \ell = \mathrm{const.}
+        \end{equation*}
+        Inserting this into the kinetic energy gives 
+        \begin{equation*}
+            T = \frac{1}{2}(m_2-m_1)\dot x_1^2+\frac{1}{2}m_2\dot x_2^2 + \frac{1}{2}I \left(\frac{\dot x}{a}\right)^2.
+        \end{equation*}
+        The potential energy is
+        \begin{equation*}
+            U = - m_1 g x_1 - m_2 g x_2 = -m_1g(\ell -x_2) - m_2g(x_2).
+        \end{equation*}
+
+    \section{Particle on a moving wedge}
+
 
 \end{document}
 
