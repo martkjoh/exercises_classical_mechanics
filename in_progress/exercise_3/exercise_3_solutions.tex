@@ -119,7 +119,7 @@
 
     \section{Particle on a moving wedge}
         (FIGUR) \\ \\
-        The position of the mass $m$ in a coordinate system moving with the wedge is
+        (a) The position of the mass $m$ in a coordinate system moving with the wedge is
         \begin{equation*}
             \mathbf{r}' = r \cos(\theta) \hat e_x + r \sin(\theta) \hat e_y.
         \end{equation*}
@@ -148,8 +148,48 @@
         \end{equation*}
         The restriction of the little mass to stay on the wedge is given by $r - R = 0$, so the total Lagrangian, including the undetermined multiplier becomes
         \begin{equation*}
-            L = \frac{1}{2}m \left(\dot x^2 + \dot r^2 + (r \dot \theta)^2+ 2 \dot x \dot r \cos(\theta) - 2 \dot x r \dot \theta \sin(\theta) \right) + \frac{1}{2}M \dot x^2 + mgr^2\sin(\theta) + \lambda(r - R).
+            L = \frac{1}{2}m \left(\dot x^2 + \dot r^2 + (r \dot \theta)^2+ 2 \dot x \dot r \cos(\theta) - 2 \dot x r \dot \theta \sin(\theta) \right) + \frac{1}{2}M \dot x^2 + mgr\sin(\theta) + \lambda(r - R).
         \end{equation*}
+        The derivatives with respect to $x$ are:
+        \begin{align*}
+            &\pdv{L}{x} = 0, \, \pdv{L}{\dot x} = m (\dot x +  \dot r \cos(\theta) -  r \dot \theta \sin(\theta)) + M \dot x, \\
+            &\dv{t}\pdv{L}{\dot x} = m(\ddot x + \ddot r \cos(\theta) - \sin(\theta)(\dot r \dot \theta + r \ddot \theta) -  r \dot \theta^2 \cos(\theta)) + M \ddot x
+        \end{align*}
+        With respect to $\theta$:
+        \begin{align*}
+            & \pdv{L}{\theta} = - m \dot x \dot r \sin(\theta) - m \dot x r \dot \theta \cos(\theta) + m g r \cos(\theta), \quad  \pdv{L}{\dot \theta} = m r^2 \dot \theta -  \dot x r \sin(\theta), \\
+            &\dv{t} \pdv{L}{\dot \theta} = m r^2 \ddot \theta + m r \dot r \dot \theta - m \sin(\theta)( \ddot x r + \dot x \dot r) -  m \cos(\theta) \dot \theta \dot x r,
+        \end{align*}
+        And finally r:
+        \begin{align*}
+            & \pdv{L}{r} = m(r \dot \theta^2 - \dot x \dot \theta \sin(\theta)) + m g \sin(\theta) + \lambda, \quad 
+            \pdv{L}{\dot r} = m \dot r + m \dot x \cos(\theta)  \\
+            & \dv{t} \pdv{L}{\dot r} = m \ddot r + m \ddot x \cos(\theta) - m \dot x \dot \theta \sin(\theta).
+        \end{align*}
+        We can then use the restriction $r = R$, which implies $\dot r = \ddot r = 0$, so we get the equations of motion
+        \begin{align*}
+            & \ddot x(m + M) - m R \ddot \theta \sin(\theta) - m R \dot \theta^2 \cos(\theta) = 0 \\
+            & mR^2 \ddot \theta - mR (\ddot x \cos(\theta) + g\sin(\theta)) = 0 \\
+            & m \ddot x \cos(\theta) - m R \dot \theta^2 - m g \sin(\theta) - \lambda = 0.
+        \end{align*}
+        Cleaning up gives
+        \begin{align*}
+            &\ddot x = \frac{mR}{m + M} \left(\ddot \theta \sin(\theta) + \dot \theta^ 2 \cos(\theta)\right),\\
+            & \ddot \theta =\frac{\ddot x \cos(\theta) + g \sin(\theta)}{R}, \\
+            & \lambda = m\left(\ddot x \cos(\theta)- R \dot \theta^2 - g \sin(\theta)\right).
+        \end{align*}
+        (b) Exploiting a common factor, 
+        \begin{align*}
+            m R \theta^2 = \frac{1}{\cos(\theta)}\left[(m + M) \ddot x - m R \ddot \theta \sin(\theta) \right],
+        \end{align*}
+        we can insert this into the expression for $\lambda$:
+        \begin{align*}
+            & \lambda = \ddot x \cos(\theta) - g m \sin(\theta)
+            - \frac{1}{\cos(\theta)}\left[(m + M) \ddot x - m R \ddot \theta \sin(\theta) \right] \\
+            & = \ddot x \left[ m \cos(\theta) - \frac{m + M}{\cos(\theta)} \right] - g m \sin\theta - m R \ddot \theta \frac{\sin(\theta)}{\cos(\theta)} \\
+            & = \frac{mR}{m + M} \left(\ddot \theta \sin(\theta) + \dot \theta^ 2 \cos(\theta)\right)\left[ m \cos(\theta) - \frac{m + M}{\cos(\theta)} \right] - g m \sin\theta - m R \ddot \theta \frac{\sin(\theta)}{\cos(\theta)} \\
+        \end{align*}
+        This is the the force of constraint working on $m$, and thus is equal to the to the normal force of $M$ on $m$.
 
 \end{document}
 
