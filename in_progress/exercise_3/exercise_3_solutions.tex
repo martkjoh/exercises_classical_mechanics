@@ -6,7 +6,7 @@
 \usepackage{mathtools} % The dcases environment, prettier than just cases
 \usepackage{tikz} % For drawing picures
 \usepackage{wrapfig} % Wrapping text around figures
-
+\usepackage{cancel}
 
 \title{Exercise 3 solutions - TFY4345 Classical Mechanics}
 \date{2020}
@@ -92,11 +92,64 @@
         \end{equation*}
         The potential energy is
         \begin{equation*}
-            U = - m_1 g x_1 - m_2 g x_2 = -m_1g(\ell -x_2) - m_2g(x_2).
+            V = - m_1 g x_1 - m_2 g x_2 = -m_1g(\ell -x_2) - m_2g(x_2),
+        \end{equation*}
+        so the Lagrangian is
+        \begin{equation*}
+            L = \frac{1}{2}\left(m_1 + m_2 + \frac{I}{a^2}\right) \dot x_2^2 + m_1g(\ell - x_2) + m_2 g x_2.
+        \end{equation*}
+        The canonical momentum is
+        \begin{equation*}
+            p_{2} = \pdv{L}{\dot x^2} = \left(m_1 + m_2 + \frac{I}{a^2}\right) \dot x_ 2
+        \end{equation*}
+        The conditions are met so that we can write the Hamiltonian as
+        \begin{equation*}
+            H = T + v = \frac{1}{2}\frac{p_2^2}{m_1 + m_2 + I/a^2} -m_1g(\ell - x_2) - m_2 g x_2.
+        \end{equation*}
+        Hamilton's equations then become
+        \begin{align*}
+            & \dot x_2 = \pdv{H}{p_2} = \frac{p_2}{m_1 + m_2 + I/a^2} \\
+            & \dot p_2 = - \pdv{H}{x_2} = (m_2 - m_1)g.
+        \end{align*}
+        Lastly, $H$ is conserved as
+        \begin{equation*}
+            \dv{H}{t} = -\pdv{L}{t} = 0.
         \end{equation*}
 
-    \section{Particle on a moving wedge}
 
+    \section{Particle on a moving wedge}
+        (FIGUR) \\ \\
+        The position of the mass $m$ in a coordinate system moving with the wedge is
+        \begin{equation*}
+            \mathbf{r}' = r \cos(\theta) \hat e_x + r \sin(\theta) \hat e_y.
+        \end{equation*}
+        In the laboratory coordinates, which does not move with the wedge, the wedge has position $x \hat e_x$, so the position of the mass $m$ is 
+        \begin{equation*}
+            \mathbf{r} = (x + r \cos(\theta)) \hat e_x + \sin(\theta) \hat e_y.
+        \end{equation*}
+        The velocity is
+        \begin{equation*}
+            \mathbf{\dot r}
+            = (\dot x  + \dot r \sin(\theta) - r \dot \theta \sin(\theta)) \hat e_x
+            + (\dot r \sin(\theta) + r \dot \theta \cos(\theta)) \hat e_y,
+        \end{equation*}
+        while the square velocity becomes
+        \begin{align*}
+            \dot r^2 = & \left(\dot x  + \dot r \cos(\theta) - r \dot \theta \sin(\theta)\right)^2 + \left(\dot r \sin(\theta) + r \dot \theta \cos(\theta)\right)^2 = \\
+            & \dot x^2 + 2 \dot x \left(\dot r \cos(\theta) - r \dot \theta \sin(\theta)\right) + \left(\dot r \cos(\theta) - r \dot \theta \sin(\theta)\right)^2 
+            + (\dot r \cos(\theta))^2 + 2r \dot r \dot \theta \cos(\theta) \sin(\theta) + (r \dot \theta \sin(\theta))^2\\
+            & = \dot x^2 + \underline{(\dot r\cos(\theta))^2} + \underline{(r \dot \theta \sin(\theta))^2} + 2 \dot x \dot r \cos(\theta) - 2 \dot x r \dot \theta \sin(\theta) - \cancel{2 r \dot r \dot \theta \cos(\theta) \sin(\theta)} \\
+            & + \underline{(\dot r \sin(\theta))^2} + \cancel{2r \dot r \dot \theta \cos(\theta) \sin(\theta)} + \underline{(r \dot \theta \cos(\theta))^2}\\
+            & = \dot x^2 + \dot r^2 + (r \dot \theta)^2+ 2 \dot x \dot r \cos(\theta) - 2 \dot x r \dot \theta \sin(\theta). 
+        \end{align*}
+        The potential energy is given by
+        \begin{equation*}
+            V = -m g r \sin(\theta).
+        \end{equation*}
+        The restriction of the little mass to stay on the wedge is given by $r - R = 0$, so the total Lagrangian, including the undetermined multiplier becomes
+        \begin{equation*}
+            L = \frac{1}{2}m \left(\dot x^2 + \dot r^2 + (r \dot \theta)^2+ 2 \dot x \dot r \cos(\theta) - 2 \dot x r \dot \theta \sin(\theta) \right) + \frac{1}{2}M \dot x^2 + mgr^2\sin(\theta) + \lambda(r - R).
+        \end{equation*}
 
 \end{document}
 
