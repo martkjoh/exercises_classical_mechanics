@@ -13,7 +13,59 @@
 
 \begin{document}
     \maketitle
-    \section{exercise name}
+    \section{Mathematical pendulum}
+        The position of the mass is
+        \begin{align*}
+            x = \ell \sin(\theta), \quad y = \frac{1}{2} a t^2  - \ell \cos(\theta) \\
+            \dot x = \ell \dot \theta \cos(\theta) \quad y = a t + \ell \dot \theta \sin(\theta),
+        \end{align*}
+        so the kinetic energy is given by
+        \begin{equation*}
+            T = \frac{1}{2}m \left(\dot x^2 + \dot y^2\right) = \frac{1}{2}m \left( (\ell \dot \theta)^2  + (a t)^2 + 2 a t \ell \dot \theta \sin(\theta)\right),
+        \end{equation*}
+        and the potential energy is 
+        \begin{equation*}
+            V = mgy = mg \left(\frac{1}{2}a t^2 - \ell \cos(\theta)\right).
+        \end{equation*}
+        The Lagrangian is
+        \begin{equation*}
+            L = \frac{1}{2}m \left( (\ell \dot \theta)^2  + (a t)^2 + 2 a t \ell \dot \theta \sin(\theta)\right) - mg \left(\frac{1}{2}a t^2 - \ell \cos(\theta)\right),
+        \end{equation*}
+        so the canonical momentum is
+        \begin{equation*}
+            p_\theta = \pdv{L}{\dot \theta} = m\left( \ell^2 \dot \theta + a t \ell\sin(\theta)\right) \implies 
+            \dot \theta  = \frac{p_\theta - m t a \ell\sin(\theta)}{m \ell^2}.
+        \end{equation*} 
+        This gives the Hamiltonian
+        \begin{align*}
+            H &= \dot \theta p_\theta - L \\
+            & = p_\theta \frac{p_\theta - m t a \ell \sin(\theta)}{m \ell^2} - 
+            \frac{1}{2}m \left[ \ell^2 \left(\frac{p_\theta - m t a \ell\sin(\theta)}{m \ell^2}\right)^2  + (\ell at)^2 + 2 a t \ell \sin(\theta) \left(\frac{p_\theta - m t a \ell \sin(\theta)}{m \ell^2}\right) \right] \\
+            & +  mg \left(\frac{1}{2}a t^2 - \ell \cos(\theta)\right) \\
+        \end{align*}
+        \begin{align*}
+            & = \frac{1}{m \ell^2} \left(p_\theta^2 - p_\theta m t a \ell \sin(\theta)\right) - \\
+            & \frac{1}{2 m \ell^2} \left[ p_\theta^2 - 2 p_\theta mta\ell \sin(\theta) + (mta\ell \sin(\theta))^2 + (m\ell ta)^2 + 2 p_\theta m a t \ell \sin(\theta) - 2 (m t a \ell \sin(\theta))^2 \right] \\
+            & +  mg \left(\frac{1}{2}a t^2 - \ell \cos(\theta)\right) \\
+            & = \frac{1}{2 m \ell^2} \left(p_\theta - m t a \ell \sin(\theta)\right)^2 - \frac{1}{2} m a^2 t^2 + \frac{1}{2}m a g t^2 - mg \ell \cos(\theta).
+        \end{align*}
+        The Hamiltonian equations of motion
+        \begin{align*}
+            & \dot \theta = \pdv{H}{p_\theta} = \frac{p_\theta - m t a \ell\sin(\theta)}{m \ell^2} \\
+            & \dot p_\theta = - \pdv{H}{\theta} = \frac{a t \cos(\theta)}{\ell} \left[ p_\theta - m a t \ell \sin(\theta) \right] - m g \ell \sin(\theta).
+        \end{align*}
+        Furthermore, we see that $H \neq T + V$, so the Hamiltonian function is not the total energy of the system. Furthermore, 
+        \begin{equation*}
+            \dv{H}{t} = - \pdv{L}{t} \implies \dv{H}{t} \neq 0,
+        \end{equation*}
+        as the Lagrangian has an explicit time dependence. The pendulum is in an accelerating motion with the respect to the inertial frame of reference. This mean that $H$ will not be conserved.
+
+    \section{Spherically symmetrical potential}
+
+    \section{Earth's orbit}
+
+    \section{Einsteins correction}
+
 
 \end{document}
 
