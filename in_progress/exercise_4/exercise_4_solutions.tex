@@ -6,7 +6,8 @@
 \usepackage{mathtools} % The dcases environment, prettier than just cases
 \usepackage{tikz} % For drawing picures
 \usepackage{wrapfig} % Wrapping text around figures
-
+\usepackage[normalem]{ulem} % Dotted / dashed underline
+\usepackage{cancel}
 
 \title{Exercise 4 solutions - TFY4345 Classical Mechanics}
 \date{2020}
@@ -61,6 +62,51 @@
         as the Lagrangian has an explicit time dependence. The pendulum is in an accelerating motion with the respect to the inertial frame of reference. This mean that $H$ will not be conserved.
 
     \section{Spherically symmetrical potential}
+        Spherical coordinates defined by 
+        \begin{equation*}
+            x = r \sin(\theta) \cos(\varphi), \quad y = r \sin(\theta) \cos(\varphi), \quad z = r \cos(\theta)
+        \end{equation*}
+        This mean that the square velocity is 
+        \begin{align*}
+            &v^2 = \dot x^2 + \dot y^2 + \dot z^2 \\
+            & = (\dot \sin(\theta) \cos(\vartheta) + r \dot \theta \cos(\theta) \cos(\vartheta) - r \dot \varphi \sin(\theta) \sin(\varphi))^2 \\
+            & +  (\dot r \sin(\theta) \sin(\varphi) + r \dot \theta \cos(\theta) \sin(\varphi) + r \dot \varphi \sin(\theta)\cos(\varphi))^2 
+            + (r \cos(\theta) - r \dot \theta \sin(\theta))^2 \\
+            & = \underline{\dot r^2 \sin^2(\theta) \cos^2(\varphi)} + \dashuline{r^2 \dot \theta^2 \cos(\theta) \cos^2(\varphi)} + \dotuline{r^2 \dot \varphi^2 \sin^2(\theta) \sin^2(\varphi)} + \uuline{2 \dot r r \dot \theta \sin(\theta)\cos(\theta) \cos^2(\varphi)} \\
+            & - \cancel{2 \dot r r \dot \varphi \sin^2(\theta) \cos(\varphi) \sin(\varphi)} - \cancel{2 r^2\dot \theta \dot \varphi \sin(\theta)\cos(\theta)\sin(\varphi)\cos(\varphi)} +  \underline{\dot r^2 \sin^2(\theta) \sin^2(\varphi)}  \\
+            & + \dashuline{r^2 \dot \theta^2 \cos^2(\theta) \sin^2(\varphi)} + \dotuline{r^2 \dot \varphi^2 \sin^2(\theta) \cos^2(\varphi)} + \uuline{2 \dot r r \dot \theta \sin(\theta) \cos(\theta) \sin^2(\varphi)}\\
+            &  + \cancel{2 \dot r r \dot \varphi \sin^2(\theta) \sin(\varphi) \cos(\varphi)}  + \cancel{2 r^2\dot \theta \dot \varphi \sin(\theta)\cos(\theta)\sin(\varphi)\cos(\varphi)}  + \dot r^2 \cos^2(\theta) + r^2 \dot \theta^2 \sin^2(\theta) \\
+            & - 2 \dot r r \dot \theta \sin(\theta) \cos(\theta) \\
+            & = \dot r^2 \sin^2(\theta) + r^2 \dot \theta^2 \cos^2(\theta) + r^2 \dot \varphi^2 \sin^2(\theta) + \cancel{2 \dot r r \dot \theta \sin(\theta)\cos(\theta)} \\
+            &  + \dot r^2 \cos^2(\theta) + r^2 \dot \theta^2 \sin^2(\theta) - \cancel{2 \dot r r \dot \theta \sin(\theta) \cos(\theta) }\\
+            & = \dot r^2 + (r \dot \theta)^2 + (r \dot \varphi \sin(\theta))^2
+        \end{align*}
+        The Lagrangian is 
+        \begin{equation*}
+            L = T - V = \frac{1}{2}m \left[\dot r^2 + (r \dot \theta)^2 + (r \dot \varphi \sin(\theta))^2\right] - \frac{k}{r},
+        \end{equation*}
+        so the canonical momenta are
+        \begin{equation*}
+            p_r = \pdv{L}{r} = m \dot r, \quad p_\theta = \pdv{L}{\theta} = m r^2 \dot \theta, \quad p_\vartheta = \pdv{L}{\varphi} = m r^2 \sin^2(\varphi) \dot \varphi.
+        \end{equation*}
+        This means we can rewrite the kinetic energy in terms of the momenta:
+        \begin{equation*}
+            T = \frac{1}{2m} \left[p_r^2 +\frac{p_\theta}{r^2} + \frac{p_\varphi}{r^2 \sin^2(\theta)}\right].
+        \end{equation*}
+        The Hamiltonian becomes
+        \begin{equation*}
+            H = T + V = \frac{1}{2m} \left[p_r^2 +\frac{p_\theta}{r^2} + \frac{p_\varphi}{r^2 \sin^2(\theta)}\right] - \frac{k}{r}.
+        \end{equation*}
+        Hamilton's equation of motion
+        \begin{align*}
+            & \dot r = \pdv{H}{p_r} = \frac{p_r}{m} \\
+            & \dot \theta = \pdv{H}{p_\theta} = \frac{p_\theta}{m r^2} \\
+            & \dot \varphi = \pdv{H}{p_\varphi} = \frac{p_\varphi}{m r^2 \sin^2(\theta)} \\
+            & \dot p_r = - \pdv{H}{r} = \frac{p_\theta}{m r^3} + \frac{p_\varphi}{m r^3 \sin^2(\theta)} + \frac{k}{r^2} \\
+            & \dot p_\theta = - \pdv{H}{\theta} = \frac{p_\varphi \cos(\theta)}{m r^2 \sin^3(\theta)} \\
+            & \dot \varphi = - \pdv{H}{\varphi} = 0.
+        \end{align*}
+
 
     \section{Earth's orbit}
 
@@ -68,4 +114,3 @@
 
 
 \end{document}
-
