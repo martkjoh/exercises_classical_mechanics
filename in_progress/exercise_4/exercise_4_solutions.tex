@@ -109,8 +109,85 @@
 
 
     \section{Earth's orbit}
+        (Se compendium, chapter 4) \\ \\
+        The eccentricity of a circle is $1$, so using the formula for the for the eccentricity of an orbit we get that
+        \begin{equation*}
+            \varepsilon = 0 = \sqrt{1 + \frac{2 E \ell^2}{m k^2}} \implies 1 + \frac{2 E \ell^2}{m k^2} = 0 \implies E = - \frac{m k^2}{2 \ell^2}.
+        \end{equation*}
+        On the other hand, for a circular orbit $E = V_{min}$. Using the effective 1D potential 
+        \begin{equation*}
+            E(r) = \frac{1}{2}m \dot r^2 + \frac{1}{2} \frac{\ell^2}{m r^2} - \frac{k}{r}.
+        \end{equation*}
+        If the mass of the sun is halved, then as the constant in the potential $k = GMm$ is proportional to the mass of the sun, it is halved, $k \rightarrow k/2$. This means the energy is change to
+        \begin{equation*}
+            E \rightarrow E' = \frac{1}{2}m \dot r^2 + \frac{1}{2} \frac{\ell^2}{m r^2} - \frac{k}{2r} = V_{min} + \frac{k}{2r} = - \frac{m k^2}{2 \ell^2} + \frac{k}{2 r}.
+        \end{equation*}
+        The original radius of the original orbit is given by the minimum of the effective potential,
+        \begin{equation*}
+            V(r) =  \frac{1}{2} \frac{\ell^2}{m r^2} - \frac{k}{r},
+        \end{equation*}
+        so
+        \begin{equation*}
+            V'(r) = -\frac{\ell^2}{m r^3} + \frac{k}{r^2} = 0 \implies r = \frac{\ell^2}{k m}.
+        \end{equation*}
+        This means the new energy is 
+        \begin{equation*}
+            E' = -\frac{m k^2 }{2 \ell^2} + \frac{mk^2}{2 \ell^2} = 0,
+        \end{equation*}
+        The new eccentricity is therefore 
+        \begin{equation*}
+            \varepsilon = \sqrt{1 + 0} = 1,
+        \end{equation*}
+        which means the new orbit is a parabola, and thus unbounded. The earth just escapes to infinity.
+
 
     \section{Einsteins correction}
+        As the central force is given by
+        \begin{equation*}
+            - \frac{k}{r^2} + \frac{\beta}{r^3},
+        \end{equation*}
+        the potential is (up to a constant)
+        \begin{equation*}
+            V(r) = - \frac{k}{r} + \frac{\beta}{2 r^2}.
+        \end{equation*}
+        In the compendium, we can find that the angle of an object in a central potential is
+        \begin{equation*}
+            \theta(r) = \int_{r_0}^r \frac{1 / r^2 \, \dd r}{\sqrt{\frac{2 m E}{\ell^2} - \frac{2 m V(r)}{\ell^2} - \frac{1}{r^2}}}.
+        \end{equation*}
+        Inserting our potential, setting $u = 1/r$, and using $\gamma = 1 + \beta m / \ell^2$, this becomes
+        \begin{equation*}
+            \theta(r) = \int_{u_0}^u \frac{\dd u}{\sqrt{\frac{2 m E}{\ell^2} - \frac{2 m u}{\ell^2} - \gamma^2 u^2}}.
+        \end{equation*}
+        By introducing the constants
+        \begin{equation*}
+            a = \frac{2mE}{\ell^2}\quad b = \frac{2 m K}{\ell^2} \quad c^2 = -\gamma^2,
+        \end{equation*}
+        We get the integral on a known form which can be found in tables:
+        \begin{equation*}
+            \theta(r) = \int_{u_0}^u \frac{\dd u}{\sqrt{a + b u + c u^2}} = \frac{1}{\sqrt{-c}} \arccos \left(-\frac{b + 2c u}{\sqrt{b^2 - 4 a c}}\right).
+        \end{equation*}
+        Now,
+        \begin{equation*}
+            -\frac{b + 2c u}{\sqrt{b^2 - 4 a c}} = \frac{2\gamma^2u - 2mk/\ell^2}{\sqrt{\left(2 mk/\ell^2\right)^2 + 4\left(2mE/\ell^2\right)\gamma^2}} 
+            = \frac{\frac{\ell^2 \gamma^2}{mk}u - 1}{\sqrt{1 + \frac{2E\gamma^2 \ell^2}{mk}}} = \frac{p / r - 1}{\sqrt{1 + \varepsilon}},
+        \end{equation*}
+        where
+        \begin{equation*}
+            p = \frac{\ell^2 \gamma^2}{mk}, \quad  \varepsilon = \frac{2E\gamma^2 \ell^2}{mk}.
+        \end{equation*}
+        This means the angle of the object is given by
+        \begin{equation*}
+            \theta(r) = \frac{1}{\gamma} \arccos\left(\frac{p/r - 1}{\sqrt{1 +\varepsilon}}\right).
+        \end{equation*}
+        Turning this around,
+        \begin{equation*}
+            \frac{p}{r} = 1 + \varepsilon\cos(\gamma \theta), \quad \mathrm{where}  \,\, \gamma = \sqrt{1 + \frac{m \beta}{\ell^2}} \approx 1 + \frac{m \beta}{2 \ell^2}, \, \, \frac{m \beta}{\ell} \ll 1.
+        \end{equation*}
+        If $E<0$, then this is an ellipse with slow precession. The semi-major axis for $\gamma = 1$ is
+        \begin{equation*}
+            a = \frac{p}{1 - \varepsilon^2} = \frac{\gamma^2 \ell^2 / m k}{1 - \left(1 + 2 E \gamma^2 \ell^2/ m k^2\right)} = \frac{k}{2 |E|}.
+        \end{equation*}
+        This, then, is a perturbation to this, with the smallness parameter $\eta = \beta/k a$, so $\gamma = 1 + m \eta k a / (2 \ell^2)$. For Mercury, $\eta = 1.42 \cdot 10^{-7}$, which is the perihelion precession of $43''$ per century.
 
 
 \end{document}
