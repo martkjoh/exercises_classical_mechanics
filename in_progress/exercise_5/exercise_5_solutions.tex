@@ -136,8 +136,10 @@
         \begin{align*}
             \expval{T} & = \frac{m}{2 t_p}   \int_0^{t_p} \dd t \, \left(\dv{\mathbf{r}}{t}\right)^2 
             = \frac{m}{2 t_p} \left(\cancel{\mathbf{r} \cdot \dv{\mathbf{r}}{t}\bigg|_0^{t_p} } -   \int_0^{t_p} \dd t \, \mathbf{r} \cdot\dv[2]{\mathbf{r}}{t}\right) \\
-            &  = - \frac{1}{2 t_p} \int_0^{t_p} \dd t \, \mathbf{r} \cdot \nabla \left(- \frac{k}{r} \right)
+            &  = - \frac{1}{2 t_p} \int_0^{t_p} \dd t \, \mathbf{r} \cdot \left(- \frac{k}{r^3} \mathbf{r}\right) = \frac{1}{2 t_p} \int_0^{t_p} \dd t \, \frac{k}{r} = - \frac{1}{2} \expval{V} = \frac{k}{2p}(1 - \varepsilon^2).
         \end{align*}
+        This agrees with the result from the viral theorem.
+
 
 \end{document}
 
