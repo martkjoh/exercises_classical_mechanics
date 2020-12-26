@@ -13,7 +13,66 @@
 
 \begin{document}
     \maketitle
-    \section{exercise name}
+    \section{Effective potential and scattering center}
+        The total energy, as given by equation 4.14 in the compendium, is
+        \begin{equation*}
+            E = \frac{1}{2}m\left( \dot r^2 + (r\dot \theta)^2 \right) + V(r).
+        \end{equation*}
+        In a central potential, we have that $mr^2 \dot \theta = \ell$  is a conserved quantity, so we get 
+        \begin{equation*}
+            E = \frac{1}{2} m \dot r^2 + \left(\frac{\ell^2}{2 m r^2} + V(r) \right) = \frac{1}{2}m \dot r^2 + V_{\mathrm{eff}}(r).
+        \end{equation*}
+        This is an effective 1D problem, with an effective potential 
+        \begin{equation*}
+            V_{\mathrm{eff}}(r) = V(r) + \frac{\ell^2}{2 m r^2}
+        \end{equation*}
+        In order for the particle to reach the center, it need to have sufficiently high energy to overcome the potential barrier, i.e. $E > V_{\mathrm{eff}}(r \rightarrow 0)$. This can be written as
+        \begin{equation*}
+            E r^2 > r^2 V(r) + \frac{\ell^2}{2 m}, \quad r \leftarrow 0.
+        \end{equation*}
+        The l.h.s. goes to zero, so that the condition becomes 
+        \begin{equation*}
+            (r^2V(r))_{r \rightarrow 0} < - \frac{\ell^2}{2m}.
+        \end{equation*}
+        This can be fulfilled wither with $- k / r^2$, where $k > \ell^2 / 2m$, or if $V(r) = - A/r^n$, with $n > 2$ and $A$ a positive constant.
+
+    \section{Scattering from a spherical obstacle}
+        (FIGUR) \\ \\
+        The scattering angle $\theta$ satisfies $2 \Psi + \theta = \pi$. From the figure, we see that the impact parameter is given by $s = a \sin(\pi/2 - \theta /2 ) = a \cos(\theta / 2)$, so that 
+        \begin{equation*}
+            \left| \dv{s}{\theta} \right| = \frac{a}{2} \sin\left(\frac{\theta}{2}\right)
+        \end{equation*}
+        Using the formula for the differential cross section, as given in equation 4.40 in the compendium, we get
+        \begin{equation*}
+            \sigma(\theta) = \frac{s}{\sin(\theta)} \left| \frac{s}{\theta} \right| = \frac{a^2}{4}.
+        \end{equation*}
+        The total cross section is therefore
+        \begin{equation*}
+            \sigma = 2 \pi \int_0^{\pi} \sin(\theta) \sin(\theta) \dd \theta = \pi a^2.
+        \end{equation*}
+        This is physically sensible, since it is the actual cross-sectinoal area of the sphere.
+
+
+
+    \section{Scattering by an attractive hard sphere}
+        (FIGURE) \\ \\
+        The larges impact parameter $s_max$ will send the particle just gracing the surface at $r=a$. Due to conservation of energy, we have that 
+        \begin{equation*}
+            E = \frac{1}{2} m v_0^2 = \frac{1}{2}mv^2 - \frac{k}{a}.
+        \end{equation*}
+        Furthermore, conservation of angular momentum means that $\ell$ infinitely far away is the same as when the particle touches the surface, so
+        \begin{equation*}
+            \ell = m v_0 s_\mathrm{max} = mva.
+        \end{equation*}
+        Combining thes two equations, we get
+        \begin{equation*}
+            s_\mathrm{max} = \frac{v}{v_0}a = a \sqrt{1 + \frac{2 k}{m a v_0^2}}.
+        \end{equation*}
+        All particles with impact parameter $s < s_\mathrm{max}$ will hit the surface, so that $\sigma_\mathrm{eff} = \pi s_\mathrm{max}^2$.
+
+
+    \section{Average energies in the Kepler problem}
+    
 
 \end{document}
 
