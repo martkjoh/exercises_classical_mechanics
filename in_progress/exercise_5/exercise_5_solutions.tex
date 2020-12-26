@@ -6,7 +6,7 @@
 \usepackage{mathtools} % The dcases environment, prettier than just cases
 \usepackage{tikz} % For drawing picures
 \usepackage{wrapfig} % Wrapping text around figures
-
+\usepackage{cancel}
 
 \title{Exercise 5 solutions - TFY4345 Classical Mechanics}
 \date{2020}
@@ -72,7 +72,72 @@
 
 
     \section{Average energies in the Kepler problem}
-    
+        (a) From the compendium, part 4 E, we have 
+        \begin{equation*}
+            p = \frac{\ell^2}{m k}\, \quad \varepsilon^2 = 1 + \frac{2 E \ell^2}{m ^2}.
+        \end{equation*}
+        Eliminating $\ell$ gives us 
+        \begin{equation*}
+            E = - \frac{k}{2 p} \left(1 - \varepsilon^2\right).
+        \end{equation*}
+        The total energy is constant. This means that the average total energy also is constant:
+        \begin{equation*}
+            \expval{T} + \expval{V} = \expval{E} = E.
+        \end{equation*}
+        The viral theorem for a gravitational potential, example 12 in part 4 D of the compendium, gives
+        \begin{equation*}
+            \expval{T} = - \frac{1}{2} \expval{V}.
+        \end{equation*}
+        Combining this gives
+        \begin{align*}
+            \expval{T} = \frac{k}{2 p} \left(1 - \varepsilon^2\right) \\
+            \expval{V} = - \frac{k}{p} \left(1 - \varepsilon^2\right)
+        \end{align*}
+
+        (b) The solution to the Kepler problem in polar coordinates (found in the compendium) is 
+        \begin{equation*}
+            r = \frac{p}{1 + \varepsilon \cos(\theta)}.
+        \end{equation*}
+        The average potential energy over one period it
+        \begin{equation*}
+            \expval{V} = \frac{1}{t_p} \int_0^{t_p} \dd t V = -\frac{1}{t_p} \int_0^{t_p} \dd t \frac{k}{r}.
+        \end{equation*}
+        Combining these equations give
+        \begin{align*}
+            \expval{V} &= - \frac{1}{t_p}  \int_0^{t_p} \dd t \frac{k}{p} \left(1 + \varepsilon \cos(\theta)\right) = - \frac{k}{p t_p} \left(\int_0^{t_p} \dd t + \varepsilon \int_0^{t_p} \dd t\cos(\theta)\right) \\
+            & = \frac{k}{p} \left(1 + \varepsilon\expval{\cos(\theta)}\right).
+        \end{align*}
+        We can find the the last integral by using $\ell = m r^2 \dot \theta$ and a change of variable
+        \begin{align*}
+            \expval{\cos(\theta)} & = \frac{1}{t_p}  \int_0^{t_p} \dd t \cos(\theta) 
+            = \frac{1}{t_p}  \int_0^{2 \pi} \dd \theta \frac{1}{\dot \theta} \cos(\theta) = \frac{m }{\ell t_p} \int_0^{2 \pi} \dd \theta r(\theta)^2 \cos(\theta) \\
+            &= \frac{m p^2}{\ell t_p} \int_0^{2 \pi} \dd \theta \frac{\cos(\theta) }{(1 + \varepsilon \cos(\theta))^2}.
+        \end{align*}
+        Using hint 2 and 3 we get
+        \begin{align*}
+            \expval{\cos(\theta)} & = \frac{m p^2}{\ell t_p} \int_0^{2 \pi} \dd \theta \frac{\cos(\theta) }{(1 + \varepsilon \cos(\theta))^2} =    
+            \frac{m p^2}{\ell t_p} \int_0^{2\pi} \frac{\dd \theta \cos(\theta)}{(1 + \varepsilon \cos(\theta))^2} = 
+            - \frac{m p^2}{\ell t_p} \dv{\varepsilon} \int_0^{2\pi} \frac{\dd \theta}{1 + \varepsilon \cos(\theta)} \\
+                & = - \frac{m p^2}{\ell t_p}\dv{\varepsilon} \frac{2 \pi}{\sqrt{1 - \varepsilon^2}} = - \frac{2 \pi m}{\ell t_p}  \frac{ p^2 \varepsilon}{\ell t_p(1 - \varepsilon^2)^{3/2}}.
+        \end{align*}
+        Then, using 
+        \begin{equation*}
+            t_p =  \frac{2 \pi m}{\ell^2} \frac{p^2}{(1 - \varepsilon^2)^{3/2}},
+        \end{equation*}
+        we get
+        \begin{equation*}
+            \expval{\cos(\theta)} = - \varepsilon,
+        \end{equation*}
+        so
+        \begin{equation*}
+            \expval{V} = \frac{k}{p}(1 - \varepsilon^2).
+        \end{equation*}
+        (c) Integrating the  kinetic energy by parts gives 
+        \begin{align*}
+            \expval{T} & = \frac{m}{2 t_p}   \int_0^{t_p} \dd t \, \left(\dv{\mathbf{r}}{t}\right)^2 
+            = \frac{m}{2 t_p} \left(\cancel{\mathbf{r} \cdot \dv{\mathbf{r}}{t}\bigg|_0^{t_p} } -   \int_0^{t_p} \dd t \, \mathbf{r} \cdot\dv[2]{\mathbf{r}}{t}\right) \\
+            &  = - \frac{1}{2 t_p} \int_0^{t_p} \dd t \, \mathbf{r} \cdot \nabla \left(- \frac{k}{r} \right)
+        \end{align*}
 
 \end{document}
 
