@@ -15,7 +15,7 @@
 \begin{document}
     \maketitle
     \section{Halley's comet}
-        a) The gravitational force on the comet is
+        (a) The gravitational force on the comet is
         \begin{equation*}
             \vec F = - \frac{GmM}{r^2} \vec e_r,
         \end{equation*}
@@ -23,9 +23,9 @@
         \begin{equation*}
             \vec N = \vec r \times \vec F = - r \vec e_r \times \frac{GmM}{r^2} \vec e_r = \frac{GmM}{r} \vec e_r \times \vec e_r = 0. 
         \end{equation*}
-         b) The angular momentum of the comet when the comet is closest to and farthest from the sun is, respectively $\vec L_e = \vec r_e \times \vec p_e$ and $\vec L_f = \vec r_f \times \vec p_f$. Conservation of angular momentum implies that $\vec L_e = \vec L_f$, and in turn that $\vec |L_e| = |\vec L_f|$. At both the point the comet is closest to and farthest from the sun, the position vector $\vec r$ and the momentum vector $\vec p$ are perpendicular. This means that
+        (b) The angular momentum of the comet when the comet is closest to and farthest from the sun is, respectively $\vec L_e = \vec r_e \times \vec p_e$ and $\vec L_f = \vec r_f \times \vec p_f$. Conservation of angular momentum implies that $\vec L_e = \vec L_f$, and in turn that $\vec |L_e| = |\vec L_f|$. At both the point the comet is closest to and farthest from the sun, the position vector $\vec r$ and the momentum vector $\vec p$ are perpendicular. This means that
         \begin{equation*}
-            \vec |L_e| = |\vec L_f| \implies |\vec r_e || \vec p_e| = |\vec r_f || \vec p_f| \implies r_e m v_e = r_f m v_f.
+            |\vec L_e| = |\vec L_f| \implies |\vec r_e || \vec p_e| = |\vec r_f || \vec p_f| \implies r_e m v_e = r_f m v_f.
         \end{equation*}
         The velocity of the comet farthest from the sun is therefore
         \begin{equation*}
@@ -33,29 +33,28 @@
         \end{equation*}
 
     \section{Simple pendulum}
-        a) By a trigonometric consideration,
+        (a) By a trigonometric consideration,
         \begin{equation*}
             \vec R = \ell \sin(\beta) \vec e_x - \ell \cos(\beta) \vec e_y
         \end{equation*}
-
-        b) Potential energy for a mass $m$ in a uniform gravitational field is $V = mgh$, where $h$ is the height of the mass (in an arbitrary reference frame). In our case, $\ell \cos(\beta)$, and hence
+        (b) Potential energy for a mass $m$ in a uniform gravitational field is $V = mgh$, where $h$ is the height of the mass (in an arbitrary reference frame). In our case, $h = - \ell \cos(\beta)$, and hence
         \begin{equation*}
             V = - m g \ell \cos(\beta).
         \end{equation*}
         A different choice of reference frame will only add a constant to $V$, which will not affect the equations of motion. \\ \\
-        c) The velocity of the mass $m$ is given by
+        (c) The velocity of the mass $m$ is given by
         \begin{equation*}
             \vec v = \dv{\vec R}{t} = \ell \cos(\beta) \dot \beta \vec e_x + \ell \sin(\beta) \dot \beta \vec e_y.
         \end{equation*}
         The square of the velocity is then given by
         \begin{equation*}
-            v^2 = \vec v \cdot \vec v = (\ell \dot \beta)^2 (\cos^2(\beta) \vec e_x \cdot \vec e_x + \sin^2(\beta) \vec e_y \cdot \vec e_y ) = (\ell \dot \beta)^2.
+            v^2 = \vec v \cdot \vec v = (\ell \dot \beta)^2 \cos^2(\beta) \vec e_x \cdot \vec e_x + (\ell \dot \beta)^2 \sin^2(\beta) \vec e_y \cdot \vec e_y  = (\ell \dot \beta)^2.
         \end{equation*}
         The kinetic energy is therefore 
         \begin{equation*}
             T = \frac{1}{2} m v^2 = \frac{1}{2}m (\ell \dot \beta)^2  
         \end{equation*}
-        d) The Lagrangian of the pendulum is 
+        (d) The Lagrangian of the pendulum is 
         \begin{equation*}
             L = T - V = \frac{1}{2}m (\ell \dot \beta)^2  + m g \ell \cos(\beta).
         \end{equation*}
@@ -91,7 +90,7 @@
         \end{align*}
         The velocity and square velocity of $m_1$ is also just as in exercise 2:
         \begin{equation*}
-            \vec v_1 = \dv{R_1}{t}, \quad v_1^2 = (\ell_1 \dot \beta_1)^2.
+            \vec v_1 = \dv{\vec R_1}{t}, \quad v_1^2 = (\ell_1 \dot \beta_1)^2.
         \end{equation*}
         The velocity  and velocity square of $m_2$ is
         \begin{align*}
@@ -109,13 +108,13 @@
         \begin{align*}            
             T &= \frac{1}{2}m_1 v_1^2 + \frac{1}{2}m_2 v_2^2 = \frac{1}{2}m_1 (\ell_1 \dot \beta_1)^2 + \frac{1}{2}m_2 \left[ (\ell_1 \dot \beta_1)^2+  (\ell \dot \beta_2)^2 + \ell_1 \ell_2 \dot \beta_1 \dot \beta_2 \cos(\beta_1 - \beta_2)\right],
         \end{align*}
-        so the Lagrangian is, after gathering some terms, 
+        so the Lagrangian is, after gathering some terms, is
         \begin{align*}
             L &= T - V  \\
             &= (m_1 + m_2) \left[\frac{1}{2}(\ell_1 \dot \beta_1)^2 + g \ell_1 \cos(\beta_1)  \right] 
             + m_2 \left[\frac{1}{2} (\ell \dot \beta_2)^2 + \ell_1 \ell_2 \dot \beta_1 \dot \beta_2 \cos(\beta_1 - \beta_2) + g \ell_2 \cos(\beta_2)\right].
         \end{align*}
-        b) The Lagrange equations for this problem are
+        (b) The Lagrange equations for this problem are
         \begin{align*}
             & \dv{t} \pdv{L}{\dot \beta_1} - \pdv{L}{\beta_1} = 0, \\
             & \dv{t} \pdv{L}{\dot \beta_2} - \pdv{L}{\beta_2} = 0.
