@@ -22,7 +22,7 @@
         \end{equation*}
         The work done by friction is force times distance, so the work per unit time is
         \begin{equation*}
-            \dot W_f = - F_f v = \pdv{\mathcal{F}}{\dot x} \dot x \implies \mathcal{F} = C \dot x ^2.
+            \dot W_f = - F_f \dot x = \pdv{\mathcal{F}}{\dot x} \dot x \implies \mathcal{F} = C \dot x ^2.
         \end{equation*}
         (As $\mathcal{F}$ is a (velocity) potential, we can dismiss any constants, just as with regular potentials.) This means
         \begin{equation*}
@@ -38,8 +38,8 @@
         \end{equation*}
         and the given velocity potential $\Eff = 3 \pi \mu a \dot x^2$, we get
         \begin{align*}
-            \dv{t} \pdv{L}{\dot x} = m \ddot x, \, \pdv{L}{x} = -k x, \, \pdv{\Eff}{\dot x} = 6 \pi \mu a \dot x, \\
-            \implies m \ddot x + 6 \pi \mu a + k x = 0,
+            &\dv{t} \pdv{L}{\dot x} = m \ddot x, \, \pdv{L}{x} = -k x, \, \pdv{\Eff}{\dot x} = 6 \pi \mu a \dot x, \\
+            &\implies m \ddot x + 6 \pi \mu a + k x = 0,
         \end{align*}
         or
         \begin{equation*}
@@ -56,23 +56,23 @@
         \end{equation*}
         so
         \begin{equation*}
-            \omega_{a/b} = -\lambda \pm \sqrt{\lambda^2 - \omega_0^2}
+            \omega_{a/b} = -\lambda \pm \sqrt{\lambda^2 - \omega_0^2}.
         \end{equation*}
-        this gives us
+        This gives us
         \begin{equation*}
-            x(t) = e^{-\lambda t} \left( A \exp \left[\omega t \sqrt{(\lambda / \omega)^2 - 1} \right] + B \exp \left[- \omega t \sqrt{(\lambda / \omega)^2 - 1} \right] \right).
+            x(t) = e^{-\lambda t} \left( A \exp \left[\omega_0 t \sqrt{(\lambda / \omega_0)^2 - 1} \right] + B \exp \left[- \omega_0 t \sqrt{(\lambda / \omega_0)^2 - 1} \right] \right).
         \end{equation*}
-        Now, as $\lambda/\omega \ll 1$, we get that $\sqrt{(\lambda / \omega) - 1} \approx i$. This means that, after applying the initial conditions, we get the solution
+        Now, as $\lambda/\omega_0 \ll 1$, we get that $\sqrt{(\lambda / \omega_0) - 1} \approx i$. This means that, after applying the initial conditions, we get the solution
         \begin{equation*}
-            x(t) = x_0 e^{-\lambda t} \cos(\omega t).
+            x(t) = x_0 e^{-\lambda t} \cos(\omega_0 t).
         \end{equation*}
         The instantaneous energy dissipation is therefore 
         \begin{equation*}
-            \dot W_f = F_f \dot x = 2 \lambda m \dot x^2 = 2 \lambda m x_0^2 e^{-\lambda t} \cos^2(\omega t).
+            \dot W_f = F_f \dot x = 2 \lambda m \dot x^2 = 2 \lambda m (\omega_0x_0)^2 e^{-2\lambda t} \cos^2(\omega_0 t).
         \end{equation*}
-        If we then take the average over a period $2 \pi / \omega_0$, we can assume the exponential is more or less constant (as $\lambda << \omega_0$), so the time averaged dissipation is 
+        If we then take the average over a period $2 \pi / \omega_0$, we can assume the exponential is more or less constant (as $\lambda \ll \omega_0$), so the time averaged dissipation is 
         \begin{equation*}
-            \overline{\dot W_f} = m \lambda (\omega_0 \dot x)^2 e^{-\lambda t}.
+            \overline{\dot W_f} = \frac{\omega_0}{2 \pi} \int_0^{2 \pi} \dd t \, 2 \lambda m (\omega_0x_0)^2 e^{-2\lambda t} \cos^2(\omega_0 t) \approx \frac{\lambda m (\omega_0x_0)^2}{\pi} e^{-2 \lambda t} \int_0^{2 \pi} \dd x \, \cos^2(x) =  m \lambda (\omega_0 x_0)^2 e^{-2\lambda t}.
         \end{equation*}
 
     \section{Operator identities}
@@ -82,36 +82,35 @@
         \end{equation*}
         Using the fact that $\varepsilon_{ijk} = \varepsilon_{kij}$, and the identity $\varepsilon_{ijk}\varepsilon_{imn} = \delta_{jm} \delta_{kn} - \delta_{jn}\delta_{km}$, this becomes
         \begin{equation*}
-            [\nabla \times (\nabla \times \mathbf{A})]_i = (\delta_{il}\delta_{jm} - \delta_{im}\delta_{jl}) \partial_j \partial_l A_m = \partial_j \partial_i A_j - \partial_j \partial_j A_i = \nabla \cdot (\nabla_i \mathrm{A}) - (\nabla \cdot \nabla) A_i,
+            [\nabla \times (\nabla \times \mathbf{A})]_i = (\delta_{il}\delta_{jm} - \delta_{im}\delta_{jl}) \partial_j \partial_l A_m = \partial_j \partial_i A_j - \partial_j \partial_j A_i = \nabla \cdot (\nabla_i \mathbf{A}) - (\nabla \cdot \nabla) A_i,
         \end{equation*}
         or
         \begin{equation*}
-            \nabla \times (\nabla \times \mathbf{A}) = \nabla \cdot (\nabla \mathrm{A}) - \nabla^2 \mathrm{A}.
+            \nabla \times (\nabla \times \mathbf{A}) = \nabla \cdot (\nabla \mathbf{A}) - \nabla^2 \mathbf{A}.
         \end{equation*}
 
     \section{Shortest path in polar coordinates}
-        (FIGUR) \\
         A distance element in polar coordinates are given by
         \begin{equation*}
-            \dd s = \sqrt{\dd r^2 + r^2 \dd \varphi ^2} = \sqrt{1 - r^2 \varphi'^2} \dd r.
+            \dd s = \sqrt{\dd r^2 + r^2 \dd \varphi ^2} = \sqrt{1 + r^2 \varphi'^2} \dd r.
         \end{equation*}
         This means the distance along a curve $\Ce$ is
         \begin{equation*}
-            s = \int_\Ce \dd s = \int_\Ce \sqrt{1 - r^2 \varphi'^2} \dd r.
+            s = \int_\Ce \dd s = \int_\Ce \sqrt{1 + r^2 \varphi'^2} \dd r.
         \end{equation*}
         With $r$ as our parameter, the Euler equation reads
         \begin{equation*}
             \dv{r} \pdv{f}{\varphi'} - \pdv{f}{\varphi} = 0,
         \end{equation*}
-        where $f(\varphi', r) = \sqrt{1 - r^2 \varphi'^2}$ is what we are trying to minimize. We see that
+        where $f(\varphi', r) = \sqrt{1 + r^2 \varphi'^2}$ is what we are trying to minimize. We see that
         \begin{equation*}
             \pdv{f}{\varphi} = 0 \implies \dv{r} \pdv{f}{\varphi'} = 0,
         \end{equation*}
         so 
         \begin{align*}
-            &\pdv{\varphi'} \sqrt{1 - r^2 \varphi'^2} = \frac{- r^2 \varphi'}{\sqrt{1 - r^2 \varphi'^2} } = a \\
-            &\implies \frac{\varphi^2 r^2}{a} = \sqrt{1 - r^2 \varphi'^2} \\
-            &\implies \frac{\varphi^4 r^4}{a^2} = 1 - r^2 \varphi'^2 \\
+            &\pdv{\varphi'} \sqrt{1 + r^2 \varphi'^2} = \frac{- r^2 \varphi'}{\sqrt{1 + r^2 \varphi'^2} } = a \\
+            &\implies \frac{\varphi^2 r^2}{a} = \sqrt{1 + r^2 \varphi'^2} \\
+            &\implies \frac{\varphi^4 r^4}{a^2} = 1 + r^2 \varphi'^2 \\
             &\implies \left( \frac{r^2}{a^2} - 1 \right)r^2 \varphi'^2 = 1.
         \end{align*}
         Defining $b^2 = 1 / a^2$, we get 
