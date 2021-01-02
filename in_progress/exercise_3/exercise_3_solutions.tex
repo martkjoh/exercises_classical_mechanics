@@ -16,18 +16,18 @@
     \section{Pendulum on spinning a wheel}
         With the origin of our coordinate system in the center of the rotating rim, the Cartesian components of the mass $m$ become
         \begin{align*}
-            x = a \cos(\omega t) + b \sin(\theta) \\
-            y = a \sin(\omega t) - b \cos(\theta).
+            &x = a \cos(\omega t) + b \sin(\theta) \\
+            &y = a \sin(\omega t) - b \cos(\theta).
         \end{align*}
         The velocities are
         \begin{align*}
-            \dot x = - a \omega \sin(\omega t) + b \dot \theta \cos(\theta) \\
-            \dot y = a \omega \cos(\omega t) + b \dot \theta \sin(\theta).
+            &\dot x = - a \omega \sin(\omega t) + b \dot \theta \cos(\theta) \\
+            &\dot y = a \omega \cos(\omega t) + b \dot \theta \sin(\theta).
         \end{align*}
         Taking the time derivative once again gives the acceleration:
         \begin{align*}
-            \ddot x = -a \omega^2 \cos(\omega t) + b(\ddot \theta \cos(\theta) - \dot \theta^2 \sin(\theta)) \\
-            \ddot y = - a \omega^2 \sin(\omega t) + b(\ddot \theta \sin(\theta) + \dot \theta^2 \cos(\theta)).
+            &\ddot x = -a \omega^2 \cos(\omega t) + b(\ddot \theta \cos(\theta) - \dot \theta^2 \sin(\theta)) \\
+            &\ddot y = - a \omega^2 \sin(\omega t) + b(\ddot \theta \sin(\theta) + \dot \theta^2 \cos(\theta)).
         \end{align*}
         It should be clear that the single generalize coordinate is $\theta$. The kinetic and potential energies are 
         \begin{equation*}
@@ -39,8 +39,8 @@
         \end{equation*}
         The derivatives needed for the equation of motion are
         \begin{align*}
-            \dv{t}\pdv{L}{\dot \theta} = mb^2 \ddot \theta + m b a \omega (\dot \theta - \omega) \cos(\theta - \omega t), \\
-            \pdv{L}{\theta} = mba \dot \theta \omega \cos(\theta - \omega t) - m g b \sin(\theta).
+            &\dv{t}\pdv{L}{\dot \theta} = mb^2 \ddot \theta + m b a \omega (\dot \theta - \omega) \cos(\theta - \omega t), \\
+            &\pdv{L}{\theta} = mba \dot \theta \omega \cos(\theta - \omega t) - m g b \sin(\theta).
         \end{align*}
         Inserting this into Euler's equation, and solving for $\ddot \theta$ gives
         \begin{equation*}
@@ -49,29 +49,27 @@
         Notice that, for $\omega = 0$, this reduces to the equation for the simple pendulum.
 
     \section{Bead on a ring}
-        (FIGUR) \\ \\
         The potential energy is given by
         \begin{equation*}
             U = mgh = mgR(1 - \cos(\theta)),
         \end{equation*}
-        while the kinteic energy is
+        while the kinetic energy is
         \begin{equation*}
             T = \frac{1}{2}m v^2 = \frac{1}{2}m \left((r \dot \varphi)^2 + (R \dot \theta)\right) = \frac{1}{2}m R^2\left(\sin^2(\theta) \dot \varphi^2 + \dot\theta^2\right).
         \end{equation*}
         The Euler equation for $\varphi$ is given by
         \begin{equation*}
-            \pdv{L}{\varphi} = 0 \implies \dv{t}\pdv{L}{\dot \varphi} = \dv{t}\left(m \sin(\theta)R^2 \dot \varphi\right) = 0 \implies \dot \varphi = \omega = \mathrm{const.}
+            \pdv{L}{\varphi} = 0 \implies \dv{t}\pdv{L}{\dot \varphi} = \dv{t}\left(m \sin(\theta)R^2 \dot \varphi\right) = 0
         \end{equation*}
-        The equation for $\theta$ is given by
+        The shafts is driven with a constant speed, so $\dot \varphi = \omega = \mathrm{const.}$ The equation for $\theta$ is given by
         \begin{align*}
             &\pdv{L}{\theta} = m R^2 \cos(\theta) \sin(\theta) \dot \varphi^2 - mgR \sin(\theta), \, \dv{t} \pdv{L}{\dot \theta} = m R^2 \ddot \theta, \\
-            & \implies \ddot \theta = R \cos(\theta) \sin(\theta) \dot \varphi^2  - g \sin(\theta)
+            & \implies \ddot \theta = \cos(\theta) \sin(\theta) \dot \varphi^2  - \frac{g}{R}\sin(\theta) 
         \end{align*}
         In the equilibrium position, we have that $\ddot \theta = 0$. This means
         \begin{equation*}
             \cos(\theta) = \frac{g }{R\dot \varphi^2} = \frac{g }{R\omega^2}.
         \end{equation*}
-        Note: we could have set $\dot \varphi = 0$ right at the beginning, and treat $\theta$ as the sole generalized variable.
 
     \section{Atwood's machine}
         The angular velocity of the pulley is 
@@ -88,7 +86,7 @@
         \end{equation*}
         Inserting this into the kinetic energy gives 
         \begin{equation*}
-            T = \frac{1}{2}(m_2-m_1)\dot x_1^2+\frac{1}{2}m_2\dot x_2^2 + \frac{1}{2}I \left(\frac{\dot x}{a}\right)^2.
+            T = \frac{1}{2}(m_2-m_1)\dot x_2^2 + \frac{1}{2}I \left(\frac{\dot x_2}{a}\right)^2.
         \end{equation*}
         The potential energy is
         \begin{equation*}
@@ -100,11 +98,11 @@
         \end{equation*}
         The canonical momentum is
         \begin{equation*}
-            p_{2} = \pdv{L}{\dot x^2} = \left(m_1 + m_2 + \frac{I}{a^2}\right) \dot x_ 2
+            p_{2} = \pdv{L}{\dot x_2} = \left(m_1 + m_2 + \frac{I}{a^2}\right) \dot x_ 2
         \end{equation*}
         The conditions are met so that we can write the Hamiltonian as
         \begin{equation*}
-            H = T + v = \frac{1}{2}\frac{p_2^2}{m_1 + m_2 + I/a^2} -m_1g(\ell - x_2) - m_2 g x_2.
+            H = T + V = \frac{1}{2}\frac{p_2^2}{m_1 + m_2 + I/a^2} -m_1g(\ell - x_2) - m_2 g x_2.
         \end{equation*}
         Hamilton's equations then become
         \begin{align*}
@@ -158,7 +156,7 @@
         With respect to $\theta$:
         \begin{align*}
             & \pdv{L}{\theta} = - m \dot x \dot r \sin(\theta) - m \dot x r \dot \theta \cos(\theta) + m g r \cos(\theta), \quad  \pdv{L}{\dot \theta} = m r^2 \dot \theta -  \dot x r \sin(\theta), \\
-            &\dv{t} \pdv{L}{\dot \theta} = m r^2 \ddot \theta + m r \dot r \dot \theta - m \sin(\theta)( \ddot x r + \dot x \dot r) -  m \cos(\theta) \dot \theta \dot x r,
+            &\dv{t} \pdv{L}{\dot \theta} = m r^2 \ddot \theta + 2m r \dot r \dot \theta - m \sin(\theta)( \ddot x r + \dot x \dot r) -  m \cos(\theta) \dot \theta \dot x r,
         \end{align*}
         And finally r:
         \begin{align*}
@@ -169,22 +167,22 @@
         We can then use the restriction $r = R$, which implies $\dot r = \ddot r = 0$, so we get the equations of motion
         \begin{align*}
             & \ddot x(m + M) - m R \ddot \theta \sin(\theta) - m R \dot \theta^2 \cos(\theta) = 0 \\
-            & mR^2 \ddot \theta - mR (\ddot x \cos(\theta) + g\sin(\theta)) = 0 \\
+            & mR^2 \ddot \theta - mR (\ddot x \sin(\theta) + g\cos(\theta)) = 0 \\
             & m \ddot x \cos(\theta) - m R \dot \theta^2 - m g \sin(\theta) - \lambda = 0.
         \end{align*}
         Cleaning up gives
         \begin{align*}
             &\ddot x = \frac{mR}{m + M} \left(\ddot \theta \sin(\theta) + \dot \theta^ 2 \cos(\theta)\right),\\
-            & \ddot \theta =\frac{\ddot x \cos(\theta) + g \sin(\theta)}{R}, \\
+            & \ddot \theta =\frac{\ddot x \sin(\theta) + g \cos(\theta)}{R}, \\
             & \lambda = m\left(\ddot x \cos(\theta)- R \dot \theta^2 - g \sin(\theta)\right).
         \end{align*}
         (b) Exploiting a common factor, 
         \begin{align*}
-            m R \theta^2 = \frac{1}{\cos(\theta)}\left[(m + M) \ddot x - m R \ddot \theta \sin(\theta) \right],
+            m R \dot \theta^2 = \frac{1}{\cos(\theta)}\left[(m + M) \ddot x - m R \ddot \theta \sin(\theta) \right],
         \end{align*}
         we can insert this into the expression for $\lambda$:
         \begin{align*}
-            & \lambda = \ddot x \cos(\theta) - g m \sin(\theta)
+            & \lambda = m \ddot x \cos(\theta) - g m \sin(\theta)
             - \frac{1}{\cos(\theta)}\left[(m + M) \ddot x - m R \ddot \theta \sin(\theta) \right] \\
             & = \ddot x \left[ m \cos(\theta) - \frac{m + M}{\cos(\theta)} \right] - g m \sin\theta - m R \ddot \theta \frac{\sin(\theta)}{\cos(\theta)} \\
             & = \frac{mR}{m + M} \left(\ddot \theta \sin(\theta) + \dot \theta^ 2 \cos(\theta)\right)\left[ m \cos(\theta) - \frac{m + M}{\cos(\theta)} \right] - g m \sin\theta - m R \ddot \theta \frac{\sin(\theta)}{\cos(\theta)} \\
