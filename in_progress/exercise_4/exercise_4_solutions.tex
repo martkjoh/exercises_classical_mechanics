@@ -14,11 +14,11 @@
 
 \begin{document}
     \maketitle
-    \section{Mathematical pendulum}
-        The position of the mass is
+    \section{Mathematical pendulum in accelerated motion}
+        The position and velocity of the mass is
         \begin{align*}
-            x = \ell \sin(\theta), \quad y = \frac{1}{2} a t^2  - \ell \cos(\theta) \\
-            \dot x = \ell \dot \theta \cos(\theta) \quad y = a t + \ell \dot \theta \sin(\theta),
+            & x = \ell \sin(\theta), \quad y = \frac{1}{2} a t^2  - \ell \cos(\theta), \\
+            & \dot x = \ell \dot \theta \cos(\theta), \quad y = a t + \ell \dot \theta \sin(\theta),
         \end{align*}
         so the kinetic energy is given by
         \begin{equation*}
@@ -66,13 +66,13 @@
         \begin{equation*}
             x = r \sin(\theta) \cos(\varphi), \quad y = r \sin(\theta) \cos(\varphi), \quad z = r \cos(\theta)
         \end{equation*}
-        This mean that the square velocity is 
+        This mean that the square velocity is (take a deep breath)
         \begin{align*}
             &v^2 = \dot x^2 + \dot y^2 + \dot z^2 \\
-            & = (\dot \sin(\theta) \cos(\vartheta) + r \dot \theta \cos(\theta) \cos(\vartheta) - r \dot \varphi \sin(\theta) \sin(\varphi))^2 \\
+            & = (\dot r \sin(\theta) \cos(\varphi) + r \dot \theta \cos(\theta) \cos(\varphi) - r \dot \varphi \sin(\theta) \sin(\varphi))^2 \\
             & +  (\dot r \sin(\theta) \sin(\varphi) + r \dot \theta \cos(\theta) \sin(\varphi) + r \dot \varphi \sin(\theta)\cos(\varphi))^2 
-            + (r \cos(\theta) - r \dot \theta \sin(\theta))^2 \\
-            & = \underline{\dot r^2 \sin^2(\theta) \cos^2(\varphi)} + \dashuline{r^2 \dot \theta^2 \cos(\theta) \cos^2(\varphi)} + \dotuline{r^2 \dot \varphi^2 \sin^2(\theta) \sin^2(\varphi)} + \uuline{2 \dot r r \dot \theta \sin(\theta)\cos(\theta) \cos^2(\varphi)} \\
+            + (\dot r \cos(\theta) - r \dot \theta \sin(\theta))^2 \\
+            & = \underline{\dot r^2 \sin^2(\theta) \cos^2(\varphi)} + \dashuline{r^2 \dot \theta^2 \cos^2(\theta) \cos^2(\varphi)} + \dotuline{r^2 \dot \varphi^2 \sin^2(\theta) \sin^2(\varphi)} + \uuline{2 \dot r r \dot \theta \sin(\theta)\cos(\theta) \cos^2(\varphi)} \\
             & - \cancel{2 \dot r r \dot \varphi \sin^2(\theta) \cos(\varphi) \sin(\varphi)} - \cancel{2 r^2\dot \theta \dot \varphi \sin(\theta)\cos(\theta)\sin(\varphi)\cos(\varphi)} +  \underline{\dot r^2 \sin^2(\theta) \sin^2(\varphi)}  \\
             & + \dashuline{r^2 \dot \theta^2 \cos^2(\theta) \sin^2(\varphi)} + \dotuline{r^2 \dot \varphi^2 \sin^2(\theta) \cos^2(\varphi)} + \uuline{2 \dot r r \dot \theta \sin(\theta) \cos(\theta) \sin^2(\varphi)}\\
             &  + \cancel{2 \dot r r \dot \varphi \sin^2(\theta) \sin(\varphi) \cos(\varphi)}  + \cancel{2 r^2\dot \theta \dot \varphi \sin(\theta)\cos(\theta)\sin(\varphi)\cos(\varphi)}  + \dot r^2 \cos^2(\theta) + r^2 \dot \theta^2 \sin^2(\theta) \\
@@ -87,36 +87,36 @@
         \end{equation*}
         so the canonical momenta are
         \begin{equation*}
-            p_r = \pdv{L}{r} = m \dot r, \quad p_\theta = \pdv{L}{\theta} = m r^2 \dot \theta, \quad p_\vartheta = \pdv{L}{\varphi} = m r^2 \sin^2(\varphi) \dot \varphi.
+            p_r = \pdv{L}{r} = m \dot r, \quad p_\theta = \pdv{L}{\theta} = m r^2 \dot \theta, \quad p_\varphi = \pdv{L}{\varphi} = m r^2 \sin^2(\varphi) \dot \varphi.
         \end{equation*}
         This means we can rewrite the kinetic energy in terms of the momenta:
         \begin{equation*}
-            T = \frac{1}{2m} \left[p_r^2 +\frac{p_\theta}{r^2} + \frac{p_\varphi}{r^2 \sin^2(\theta)}\right].
+            T = \frac{1}{2m} \left[p_r^2 +\frac{p^2_\theta}{r^2} + \frac{p^2_\varphi}{r^2 \sin^2(\theta)}\right].
         \end{equation*}
         The Hamiltonian becomes
         \begin{equation*}
-            H = T + V = \frac{1}{2m} \left[p_r^2 +\frac{p_\theta}{r^2} + \frac{p_\varphi}{r^2 \sin^2(\theta)}\right] - \frac{k}{r}.
+            H = T + V = \frac{1}{2m} \left[p_r^2 +\frac{p^2_\theta}{r^2} + \frac{p^2_\varphi}{r^2 \sin^2(\theta)}\right] - \frac{k}{r}.
         \end{equation*}
         Hamilton's equation of motion
         \begin{align*}
             & \dot r = \pdv{H}{p_r} = \frac{p_r}{m} \\
             & \dot \theta = \pdv{H}{p_\theta} = \frac{p_\theta}{m r^2} \\
             & \dot \varphi = \pdv{H}{p_\varphi} = \frac{p_\varphi}{m r^2 \sin^2(\theta)} \\
-            & \dot p_r = - \pdv{H}{r} = \frac{p_\theta}{m r^3} + \frac{p_\varphi}{m r^3 \sin^2(\theta)} + \frac{k}{r^2} \\
-            & \dot p_\theta = - \pdv{H}{\theta} = \frac{p_\varphi \cos(\theta)}{m r^2 \sin^3(\theta)} \\
-            & \dot \varphi = - \pdv{H}{\varphi} = 0.
+            & \dot p_r = - \pdv{H}{r} = \frac{p^2_\theta}{m r^3} + \frac{p^2_\varphi}{m r^3 \sin^2(\theta)} + \frac{k}{r^2} \\
+            & \dot p_\theta = - \pdv{H}{\theta} = \frac{p^2_\varphi \cos(\theta)}{m r^2 \sin^3(\theta)} \\
+            & \dot p_\varphi = - \pdv{H}{\varphi} = 0.
         \end{align*}
 
 
     \section{Earth's orbit}
-        (Se compendium, chapter 4) \\ \\
+        (Se compendium, chapter 4) \\
         The eccentricity of a circle is $1$, so using the formula for the for the eccentricity of an orbit we get that
         \begin{equation*}
             \varepsilon = 0 = \sqrt{1 + \frac{2 E \ell^2}{m k^2}} \implies 1 + \frac{2 E \ell^2}{m k^2} = 0 \implies E = - \frac{m k^2}{2 \ell^2}.
         \end{equation*}
         On the other hand, for a circular orbit $E = V_{min}$. Using the effective 1D potential 
         \begin{equation*}
-            E(r) = \frac{1}{2}m \dot r^2 + \frac{1}{2} \frac{\ell^2}{m r^2} - \frac{k}{r}.
+            E(r) = \frac{1}{2}m \dot r^2 + \frac{1}{2} \frac{\ell^2}{m r^2} - \frac{k}{r} = V_\mathrm{min}.
         \end{equation*}
         If the mass of the sun is halved, then as the constant in the potential $k = GMm$ is proportional to the mass of the sun, it is halved, $k \rightarrow k/2$. This means the energy is change to
         \begin{equation*}
@@ -144,7 +144,7 @@
     \section{Einsteins correction}
         As the central force is given by
         \begin{equation*}
-            - \frac{k}{r^2} + \frac{\beta}{r^3},
+            f(r) = - \frac{k}{r^2} + \frac{\beta}{r^3},
         \end{equation*}
         the potential is (up to a constant)
         \begin{equation*}
@@ -156,7 +156,7 @@
         \end{equation*}
         Inserting our potential, setting $u = 1/r$, and using $\gamma = 1 + \beta m / \ell^2$, this becomes
         \begin{equation*}
-            \theta(r) = \int_{u_0}^u \frac{\dd u}{\sqrt{\frac{2 m E}{\ell^2} - \frac{2 m u}{\ell^2} - \gamma^2 u^2}}.
+            \theta(r) = -\int_{u_0}^u \frac{\dd u}{\sqrt{\frac{2 m E}{\ell^2} - \frac{2 m u}{\ell^2} - \gamma^2 u^2}}.
         \end{equation*}
         By introducing the constants
         \begin{equation*}
@@ -164,20 +164,21 @@
         \end{equation*}
         We get the integral on a known form which can be found in tables:
         \begin{equation*}
-            \theta(r) = \int_{u_0}^u \frac{\dd u}{\sqrt{a + b u + c u^2}} = \frac{1}{\sqrt{-c}} \arccos \left(-\frac{b + 2c u}{\sqrt{b^2 - 4 a c}}\right).
+            \theta(r) = -\int_{u_0}^u \frac{\dd u}{\sqrt{a + b u + c u^2}} 
+            = -\frac{1}{\sqrt{-c}} \arccos \left(-\frac{b + 2c u}{\sqrt{b^2 - 4 a c}}\right).
         \end{equation*}
         Now,
         \begin{equation*}
             -\frac{b + 2c u}{\sqrt{b^2 - 4 a c}} = \frac{2\gamma^2u - 2mk/\ell^2}{\sqrt{\left(2 mk/\ell^2\right)^2 + 4\left(2mE/\ell^2\right)\gamma^2}} 
-            = \frac{\frac{\ell^2 \gamma^2}{mk}u - 1}{\sqrt{1 + \frac{2E\gamma^2 \ell^2}{mk}}} = \frac{p / r - 1}{\sqrt{1 + \varepsilon}},
+            = \frac{\frac{\ell^2 \gamma^2}{mk}u - 1}{\sqrt{1 + \frac{2E\gamma^2 \ell^2}{mk}}} = \frac{p / r - 1}{\varepsilon},
         \end{equation*}
         where
         \begin{equation*}
-            p = \frac{\ell^2 \gamma^2}{mk}, \quad  \varepsilon = \frac{2E\gamma^2 \ell^2}{mk}.
+            p = \frac{\ell^2 \gamma^2}{mk}, \quad  \varepsilon = \sqrt{1 + \frac{2E\gamma^2 \ell^2}{mk}}.
         \end{equation*}
         This means the angle of the object is given by
         \begin{equation*}
-            \theta(r) = \frac{1}{\gamma} \arccos\left(\frac{p/r - 1}{\sqrt{1 +\varepsilon}}\right).
+            \theta(r) = \frac{-1}{\gamma} \arccos\left(\frac{p/r - 1}{\varepsilon}\right).
         \end{equation*}
         Turning this around,
         \begin{equation*}
