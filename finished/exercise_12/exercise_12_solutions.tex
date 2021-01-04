@@ -144,38 +144,39 @@
         \end{equation*}
         which is independent of time, as $H$ is independent of time. This means we can write Hamilton's principal function in the from
         \begin{equation*}
-            S(q, E, t) = W(q, E) - Et,
+            S(q, \alpha, t) = W(q, \alpha) - \alpha t,
         \end{equation*}
         where $W$ is Hamilton's characteristic function. This means the equation for $S$ becomes
         \begin{equation*}
-            -\pdv{S}{t} = E = \frac{1}{2m} \left(\pdv{W}{q}\right)^2 \implies \pdv{W}{q} = \sqrt{2 m E} \implies W(q, E) = \sqrt{2mE} \, q + C,
+            -\pdv{S}{t} = \alpha = \frac{1}{2m} \left(\pdv{W}{q}\right)^2 \implies \pdv{W}{q} = \sqrt{2 m \alpha} \implies W(q, \alpha) = \sqrt{2m\alpha} \, q + C,
         \end{equation*}
         so
         \begin{equation*}
-            S(q, E, t) = \sqrt{2mE} \, q - Et + C.
+            S(q, \alpha, t) = \sqrt{2m\alpha} \, q - \alpha t + C.
         \end{equation*}
         The integration constant $C$ does not affect the dynamics, so we are free to set $C=0$. The transformed Hamiltonian becomes
         \begin{equation*}
-            K(q, P) = H + \pdv{S}{t} = \frac{p^2}{2m} - E = 0 \, \implies p = \sqrt{2mE} = \mathrm{const.}
+            K(q, P) = H + \pdv{S}{t} = \frac{p^2}{2m} - \alpha = 0 \, \implies p = \sqrt{2m\alpha} = \mathrm{const.}
         \end{equation*}
-        This means the transformation for the momentum coordinate becomes the trivial $P = \sqrt{2mE} = p$. This means
+        We recognize $\alpha = p^2 /2m = E$ as the energy. This means the transformation for the momentum coordinate becomes the trivial $P = \sqrt{2mE}$, a constant. We set $P = p_0$, so
         \begin{equation*}
-            S(q, P, t) = P q - \frac{P^2}{2m} t.
+            S(q, p_0 t) = p_0q - \frac{p_0^2}{2m} t.
         \end{equation*}
-        The new (constant) canonical variables are given 
+        Hamilton's equation for this generating function is 
         \begin{equation*}
             \begin{dcases}
-                P = p \\
-                Q = \pdv{S}{P} = q - \frac{P}{m}t,
+                p = \pdv{S}{q} = p_0 \\
+                Q = \pdv{S}{P} = q - \frac{p_0}{m}t := q_0,
             \end{dcases}
         \end{equation*}
         (What does this look like in phase space?) The solution of equation of motion in the original coordinates is then
         \begin{equation*}
         \begin{dcases*}
-            q = Q + \frac{P}{m}t \\
-            p = P.
+            q = q_0 + \frac{p_0}{m}t \\
+            p = p_0.
         \end{dcases*}
         \end{equation*}
+        The new canonical variables are just the initial position and initial momentum.
 
     
 \end{document}
