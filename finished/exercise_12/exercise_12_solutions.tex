@@ -15,167 +15,167 @@
 \begin{document}
     \maketitle
     \section{Generating function $F_4$}
-    The generating function $F$ is given by
-    \begin{equation*}
-        F = q_ip_i - Q_iP_i + F_4(p, P, t).
-    \end{equation*}
-    This means the time derivative can be written as
-    \begin{equation*}
-        \dv{F}{t} = \dot p_i q_i + p_i \dot q_i - \dot P_i Q_i - P_i \dot Q_i + \dv{F_4(p, P, t)}{t}.
-    \end{equation*}
-    Inserting this into the relation between the original Hamiltonian $H$ and the new one, $K$
-    \begin{equation*}
-        p_i \dot q_i - H(q, p, t) = P_i \dot Q_i - K(Q, P, t) + \dv{F}{t}
-    \end{equation*}
-    gives
-    \begin{align*}
-        \cancel{p_i \dot q_i} - H(q, p, t) = \cancel{P_i \dot Q_i} - K(Q, P, t) + \dot p_i q_i + \cancel{p_i \dot q_i} - \dot P_i Q_i - \cancel{P_i \dot Q_i} + \dv{F_4(p, P, t)}{t} \\
-        \dot p_i q_i  + H(q, p, t) =  \dot P_i Q_i + K(Q, P, t) - \dv{F_4(p, P, t)}{t} 
-    \end{align*}
-    We can expand 
-    \begin{equation*}
-        \dv{F_4(p, P, t)}{t} = \pdv{F_4}{t} + \pdv{F_4}{p_i} \dot p_i +  \pdv{F_4}{P_i} \dot P_i,
-    \end{equation*}
-    which gives
-    \begin{equation*}
-        \dot p_i q_i  + H(q, p, t) =  \dot P_i Q_i + K(Q, P, t) - \left(\pdv{F_4}{t} + \pdv{F_4}{p_i} \dot p_i +  \pdv{F_4}{P_i} \dot P_i\right).
-    \end{equation*}
-    This only holds if
-    \begin{equation*}
-        K = H + \pdv{F_4}{t}, \quad q_i = - \pdv{F_4}{p_i}, \quad Q_i = \pdv{F_4}{P_i},
-    \end{equation*}
-    which are the equations we were looking for.
-        
+        The generating function $F$ is given by
+        \begin{equation*}
+            F = q_ip_i - Q_iP_i + F_4(p, P, t).
+        \end{equation*}
+        This means the time derivative can be written as
+        \begin{equation*}
+            \dv{F}{t} = \dot p_i q_i + p_i \dot q_i - \dot P_i Q_i - P_i \dot Q_i + \dv{F_4(p, P, t)}{t}.
+        \end{equation*}
+        Inserting this into the relation between the original Hamiltonian $H$ and the new one, $K$
+        \begin{equation*}
+            p_i \dot q_i - H(q, p, t) = P_i \dot Q_i - K(Q, P, t) + \dv{F}{t}
+        \end{equation*}
+        gives
+        \begin{align*}
+            \cancel{p_i \dot q_i} - H(q, p, t) = \cancel{P_i \dot Q_i} - K(Q, P, t) + \dot p_i q_i + \cancel{p_i \dot q_i} - \dot P_i Q_i - \cancel{P_i \dot Q_i} + \dv{F_4(p, P, t)}{t} \\
+            \dot p_i q_i  + H(q, p, t) =  \dot P_i Q_i + K(Q, P, t) - \dv{F_4(p, P, t)}{t} 
+        \end{align*}
+        We can expand 
+        \begin{equation*}
+            \dv{F_4(p, P, t)}{t} = \pdv{F_4}{t} + \pdv{F_4}{p_i} \dot p_i +  \pdv{F_4}{P_i} \dot P_i,
+        \end{equation*}
+        which gives
+        \begin{equation*}
+            \dot p_i q_i  + H(q, p, t) =  \dot P_i Q_i + K(Q, P, t) - \left(\pdv{F_4}{t} + \pdv{F_4}{p_i} \dot p_i +  \pdv{F_4}{P_i} \dot P_i\right).
+        \end{equation*}
+        This only holds if
+        \begin{equation*}
+            K = H + \pdv{F_4}{t}, \quad q_i = - \pdv{F_4}{p_i}, \quad Q_i = \pdv{F_4}{P_i},
+        \end{equation*}
+        which are the equations we were looking for.
+            
     \section{The Poisson bracket}
-    The Hamiltonian for the harmonic oscillator is
-    \begin{equation*}
-        H = \frac{1}{2m} \left(p^2 + m^2 \omega^2 q^2\right),
-    \end{equation*}
-    and we have the canonical transformations
-    \begin{equation*}
-        q = \sqrt{\frac{2P}{m \omega}} \sin(Q), \quad p = \sqrt{2 P m \omega} \cos(Q), \quad H = \omega P.
-    \end{equation*}
-    The Poisson bracket in the original is
-    \begin{equation*}
-        [q, H]_{q, p} = \underbrace{\pdv{q}{q}}_{=1}\pdv{H}{p} - \underbrace{\pdv{q}{p}}_{=0}\pdv{H}{q} = \pdv{H}{p} = \frac{p}{m}.
-    \end{equation*} 
-    In the new coordinates the bracket is
-    \begin{equation*}
-        [q, H]_{Q, P} = \pdv{q}{Q}\pdv{H}{P} - \pdv{q}{P} \underbrace{\pdv{H}{Q}}_{= 0} = \pdv{q}{Q}\pdv{H}{P},
-    \end{equation*}
-    where
-    \begin{align*}
-        & \pdv{q}{Q} = \pdv{Q}\left(\sqrt{\frac{2P}{m \omega}} \sin(Q)\right) = \sqrt{\frac{2P}{m \omega}} \cos(Q) \cdot \frac{\sin(Q)}{\sin(Q)} = q \cot(Q), \\
-        & \pdv{H}{P} = \omega, \quad \cot(Q) = \frac{\cos(Q)}{\sin(Q)} = m \omega \frac{p}{q}.
-    \end{align*}
-    This gives 
-    \begin{equation*}
-        [q, H]_{Q, P} = \omega q \cot{Q} = \frac{p}{m} = [q, H]_{q, p}.
-    \end{equation*}
-    The fact that $[q, H] \neq 0$ means that $q$ is not a constant of motion.
+        The Hamiltonian for the harmonic oscillator is
+        \begin{equation*}
+            H = \frac{1}{2m} \left(p^2 + m^2 \omega^2 q^2\right),
+        \end{equation*}
+        and we have the canonical transformations
+        \begin{equation*}
+            q = \sqrt{\frac{2P}{m \omega}} \sin(Q), \quad p = \sqrt{2 P m \omega} \cos(Q), \quad H = \omega P.
+        \end{equation*}
+        The Poisson bracket in the original is
+        \begin{equation*}
+            [q, H]_{q, p} = \underbrace{\pdv{q}{q}}_{=1}\pdv{H}{p} - \underbrace{\pdv{q}{p}}_{=0}\pdv{H}{q} = \pdv{H}{p} = \frac{p}{m}.
+        \end{equation*} 
+        In the new coordinates the bracket is
+        \begin{equation*}
+            [q, H]_{Q, P} = \pdv{q}{Q}\pdv{H}{P} - \pdv{q}{P} \underbrace{\pdv{H}{Q}}_{= 0} = \pdv{q}{Q}\pdv{H}{P},
+        \end{equation*}
+        where
+        \begin{align*}
+            & \pdv{q}{Q} = \pdv{Q}\left(\sqrt{\frac{2P}{m \omega}} \sin(Q)\right) = \sqrt{\frac{2P}{m \omega}} \cos(Q) \cdot \frac{\sin(Q)}{\sin(Q)} = q \cot(Q), \\
+            & \pdv{H}{P} = \omega, \quad \cot(Q) = \frac{\cos(Q)}{\sin(Q)} = m \omega \frac{p}{q}.
+        \end{align*}
+        This gives 
+        \begin{equation*}
+            [q, H]_{Q, P} = \omega q \cot{Q} = \frac{p}{m} = [q, H]_{q, p}.
+        \end{equation*}
+        The fact that $[q, H] \neq 0$ means that $q$ is not a constant of motion.
 
     \section{The symplectic condition}
-    See the appendix at the bottom of the exercise or Goldstein 9.4, 3rd. ed. for explanation of the symplectic condition. The calculations can be done using computer software and will not be shown here. Look at the Jupyter notebook for an example of how this calculation can be done with Python and Sympy. \\ \\
-    a) The transformations are
-    \begin{equation*}
-        \begin{cases}
-            Q = \log(1 + \sqrt q \cos(p)) \\
-            P = 2\sqrt q (1 + \sqrt q \cos(p)) \sin(p).
-        \end{cases}    
-    \end{equation*}
-    The Jacobian $M_{ij} = \pdv*{\xi_i}{\eta_j}$ is
-    \begin{equation*}
-        M =  \left(
-            \begin{matrix}
-                \frac{\cos{\left(p \right)}}{2 \left(\sqrt{q} + q \cos{\left(p \right)}\right)} 
-                & - \frac{\sqrt{q} \sin{\left(p \right)}}{\sqrt{q} \cos{\left(p \right)} + 1}\\
-                \sin{\left(2 p \right)} + \frac{\sin{\left(p \right)}}{\sqrt{q}} 
-                & 2 \sqrt{q} \cos{\left(p \right)} - 4 q \sin^{2}{\left(p \right)} + 2 q
-            \end{matrix}\right)
-    \end{equation*}
-    The symplectic condition is then 
-    \begin{equation*}
-        M J M^T = J,
-    \end{equation*}
-    where 
-    \begin{equation*}
-        J = 
-        \begin{pmatrix*}
-            0 & I_2 \\
-            -I_2 & 0
-        \end{pmatrix*}.
-    \end{equation*}
-    As shown in the notebook, this condition is met by the transformation in question, which means it is a canonical transformation. If $q, p$ are canonical coordinates, then so are $Q, P$. \\ \\
-    b) Type 3 generating functions obey
-    \begin{equation*}
-        q = - \pdv{F_3(p, Q, t)}{p}, \quad P = - \pdv{F_3(p, Q, t)}{Q}.
-    \end{equation*}
-    We have
-    \begin{equation*}
-        F_3(p, Q, t) = -(e^Q - 1)^2 \tan(p).
-    \end{equation*}
-    This means
-    \begin{equation*}
-        \begin{dcases*}
-            q = - \pdv{F_3}{p} = (e^Q - 1)^2 \frac{1}{\cos^2(p)} \implies Q = \log(1 + \sqrt q \cos(p))\\
-            P = - \pdv{F_3}{Q} = 2 e^Q(e^Q - 1) \tan(p).
-        \end{dcases*}
-    \end{equation*}
-    Inserting the solution for $Q$ into P gives
-    \begin{align*}
-        P&= 2 \exp\left[\log(1 + \sqrt q \cos(p))\right]\Big(\exp\left[\log(1 + \sqrt q \cos(p))\right]  -1\Big)\tan(p)  \\
-        & = 2(1 + \sqrt{q} \cos(p))\Big( 1 + \sqrt q \cos(p) - 1\Big)\tan(p) \\
-        & = 2 \sqrt q (1 + \sqrt q \cos(p)) \sin(q),
-    \end{align*}
-    which is the transformation we were looking for.
+        See the appendix at the bottom of the exercise or Goldstein 9.4, 3rd. ed. for explanation of the symplectic condition. The calculations can be done using computer software and will not be shown here. Look at the Jupyter notebook for an example of how this calculation can be done with Python and Sympy. \\ \\
+        (a) The transformations are
+        \begin{equation*}
+            \begin{cases}
+                Q = \log(1 + \sqrt q \cos(p)) \\
+                P = 2\sqrt q (1 + \sqrt q \cos(p)) \sin(p).
+            \end{cases}    
+        \end{equation*}
+        The Jacobian $M_{ij} = \pdv*{\xi_i}{\eta_j}$ is
+        \begin{equation*}
+            M =  \left(
+                \begin{matrix}
+                    \frac{\cos{\left(p \right)}}{2 \left(\sqrt{q} + q \cos{\left(p \right)}\right)} 
+                    & - \frac{\sqrt{q} \sin{\left(p \right)}}{\sqrt{q} \cos{\left(p \right)} + 1}\\
+                    \sin{\left(2 p \right)} + \frac{\sin{\left(p \right)}}{\sqrt{q}} 
+                    & 2 \sqrt{q} \cos{\left(p \right)} - 4 q \sin^{2}{\left(p \right)} + 2 q
+                \end{matrix}\right)
+        \end{equation*}
+        The symplectic condition is then 
+        \begin{equation*}
+            M J M^T = J,
+        \end{equation*}
+        where 
+        \begin{equation*}
+            J = 
+            \begin{pmatrix*}
+                0 & I_2 \\
+                -I_2 & 0
+            \end{pmatrix*}.
+        \end{equation*}
+        As shown in the notebook, this condition is met by the transformation in question, which means it is a canonical transformation. If $q, p$ are canonical coordinates, then so are $Q, P$. \\ \\
+        (b) Type 3 generating functions obey
+        \begin{equation*}
+            q = - \pdv{F_3(p, Q, t)}{p}, \quad P = - \pdv{F_3(p, Q, t)}{Q}.
+        \end{equation*}
+        We have
+        \begin{equation*}
+            F_3(p, Q, t) = -(e^Q - 1)^2 \tan(p).
+        \end{equation*}
+        This means
+        \begin{equation*}
+            \begin{dcases*}
+                q = - \pdv{F_3}{p} = (e^Q - 1)^2 \frac{1}{\cos^2(p)} \implies Q = \log(1 + \sqrt q \cos(p))\\
+                P = - \pdv{F_3}{Q} = 2 e^Q(e^Q - 1) \tan(p).
+            \end{dcases*}
+        \end{equation*}
+        Inserting the solution for $Q$ into P gives
+        \begin{align*}
+            P&= 2 \exp\left[\log(1 + \sqrt q \cos(p))\right]\Big(\exp\left[\log(1 + \sqrt q \cos(p))\right]  -1\Big)\tan(p)  \\
+            & = 2(1 + \sqrt{q} \cos(p))\Big( 1 + \sqrt q \cos(p) - 1\Big)\tan(p) \\
+            & = 2 \sqrt q (1 + \sqrt q \cos(p)) \sin(q),
+        \end{align*}
+        which is the transformation we were looking for.
 
     \section{Free particle and Hamilton Jacobi theory}
-    In Hamiltonian Jacobi theory, we seek that the new Hamiltonian we get from the canonical transformation is identically zero, i.e. that
-    \begin{equation*}
-        K = H(q, p, t) + \pdv{F_2}{t} = 0
-    \end{equation*} 
-    In the language of generating functions, we choose $S = F_2$, so that
-    \begin{equation*}
-        p_i = \pdv{F_2}{q_i} = \pdv{S}{q_i}. 
-    \end{equation*}
-    This, and the fact that the free particle is independent of $q$ means that the equation for the free particle becomes
-    \begin{equation*}
-        H(p) = H\left(\pdv{S}{q}\right) = \frac{1}{2m} \left(\pdv{S}{q}\right)^2 + \pdv{S}{t} = 0,
-    \end{equation*}
-    which is independent of time, as $H$ is independent of time. This means we can write Hamilton's principal function in the from
-    \begin{equation*}
-        S(q, E, t) = W(q, E) - Et,
-    \end{equation*}
-    where $W$ is Hamilton's characteristic function. This means the equation for $S$ becomes
-    \begin{equation*}
-        -\pdv{S}{t} = E = \frac{1}{2m} \left(\pdv{W}{q}\right)^2 \implies \pdv{W}{q} = \sqrt{2 m E} \implies W(q, E) = \sqrt{2mE} \, q + C,
-    \end{equation*}
-    so
-    \begin{equation*}
-        S(q, E, t) = \sqrt{2mE} \, q - Et + C.
-    \end{equation*}
-    The integration constant $C$ does not affect the dynamics, so we are free to set $C=0$. The transformed Hamiltonian becomes
-    \begin{equation*}
-        K(q, P) = H + \pdv{S}{t} = \frac{p^2}{2m} - E = 0 \, \implies p = \sqrt{2mE} = \mathrm{const.}
-    \end{equation*}
-    This means the transformation for the momentum coordinate becomes the trivial $P = \sqrt{2mE} = p$. This means
-    \begin{equation*}
-        S(q, P, t) = P q - \frac{P^2}{2m} t.
-    \end{equation*}
-    The new (constant) canonical variables are given 
-    \begin{equation*}
-        \begin{dcases}
-            P = p \\
-            Q = \pdv{S}{P} = q - \frac{P}{m}t,
-        \end{dcases}
-    \end{equation*}
-    (What does this look like in phase space?) The solution of equation of motion in the original coordinates is then
-    \begin{equation*}
-    \begin{dcases*}
-        q = Q + \frac{P}{m}t \\
-        p = P.
-    \end{dcases*}
-    \end{equation*}
+        In Hamiltonian Jacobi theory, we seek that the new Hamiltonian we get from the canonical transformation is identically zero, i.e. that
+        \begin{equation*}
+            K = H + \pdv{F_2}{t} = 0
+        \end{equation*} 
+        In the language of generating functions, we choose $S = F_2$, so that
+        \begin{equation*}
+            p_i = \pdv{F_2}{q_i} = \pdv{S}{q_i}. 
+        \end{equation*}
+        This, and the fact that the free particle is independent of $q$ means that the equation for the free particle becomes
+        \begin{equation*}
+            H(p) = H\left(\pdv{S}{q}\right) = \frac{1}{2m} \left(\pdv{S}{q}\right)^2 + \pdv{S}{t} = 0,
+        \end{equation*}
+        which is independent of time, as $H$ is independent of time. This means we can write Hamilton's principal function in the from
+        \begin{equation*}
+            S(q, E, t) = W(q, E) - Et,
+        \end{equation*}
+        where $W$ is Hamilton's characteristic function. This means the equation for $S$ becomes
+        \begin{equation*}
+            -\pdv{S}{t} = E = \frac{1}{2m} \left(\pdv{W}{q}\right)^2 \implies \pdv{W}{q} = \sqrt{2 m E} \implies W(q, E) = \sqrt{2mE} \, q + C,
+        \end{equation*}
+        so
+        \begin{equation*}
+            S(q, E, t) = \sqrt{2mE} \, q - Et + C.
+        \end{equation*}
+        The integration constant $C$ does not affect the dynamics, so we are free to set $C=0$. The transformed Hamiltonian becomes
+        \begin{equation*}
+            K(q, P) = H + \pdv{S}{t} = \frac{p^2}{2m} - E = 0 \, \implies p = \sqrt{2mE} = \mathrm{const.}
+        \end{equation*}
+        This means the transformation for the momentum coordinate becomes the trivial $P = \sqrt{2mE} = p$. This means
+        \begin{equation*}
+            S(q, P, t) = P q - \frac{P^2}{2m} t.
+        \end{equation*}
+        The new (constant) canonical variables are given 
+        \begin{equation*}
+            \begin{dcases}
+                P = p \\
+                Q = \pdv{S}{P} = q - \frac{P}{m}t,
+            \end{dcases}
+        \end{equation*}
+        (What does this look like in phase space?) The solution of equation of motion in the original coordinates is then
+        \begin{equation*}
+        \begin{dcases*}
+            q = Q + \frac{P}{m}t \\
+            p = P.
+        \end{dcases*}
+        \end{equation*}
 
     
 \end{document}
