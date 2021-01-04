@@ -1,7 +1,7 @@
 \documentclass{article}
 
 \usepackage{physics} % Handy shortcuts like \pdv, \dd and much more
-\usepackage{geometry} % smaller margins, can be adjusted if given arguments
+\usepackage[top=3cm]{geometry} % smaller margins, can be adjusted if given arguments
 \usepackage{siunitx} % the \si environment for units
 \usepackage{mathtools} % The dcases environment, prettier than just cases
 \usepackage{tikz} % For drawing picures
@@ -14,7 +14,11 @@
 \begin{document}
     \maketitle
     \section{Mathematical pendulum in accelerated motion} 
-        (FIGUR) \\ \\
+        \begin{wrapfigure}{2}{0.2\textwidth}
+            \vspace{-1cm}
+            \includegraphics[width=0.2\textwidth]{figures/figure_1.pdf}
+            \vspace{-2cm}
+        \end{wrapfigure}
         The pendulum is lifted with a constant acceleration $a$. Derive the Hameltonian and Hamilton's equations of motion. Does the relation $H = E$ hold, and is $H$ a constant of motion?
 
     \section{Spherically symmetrical potential}
