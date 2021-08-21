@@ -46,21 +46,21 @@
         \begin{align*}
             &u_x' = \dv{x'}{t'} = \dv{x}{t'} = \dv{x}{t} \frac{1}{\dv*{t'}{t}}, \quad
             \dv{t'}{t} = \dv{t} \bigg( \gamma \left(t - \frac{v z}{c^2}\right)\bigg) = \gamma \left(1 - \frac{v u_z}{c^2}\right) \\
-            &\implies u_x' = \frac{u_x}{\gamma (t - v u_z/c^2)}.
+            &\implies u_x' = \frac{u_x}{\gamma (1 - v u_z/c^2)}.
         \end{align*}
         In the same way,
         \begin{equation*}
-            u_y' = \frac{u_y}{\gamma (t - v u_z/c^2)}.
+            u_y' = \frac{u_y}{\gamma (1 - v u_z/c^2)}.
         \end{equation*}
         The $z$ component is given by
         \begin{align*}
             &u_z' = \dv{z'}{t'} = \dv{z'}{t} \frac{1}{\dv*{t'}{t}}, \quad \dv{z'}{t} = \dv{t} \left(\gamma (z - vt) \right) = \gamma (u_z - v) \\
-            & \implies u_z' = \frac{u_z - v}{t - v u_z /c^2}
+            & \implies u_z' = \frac{u_z - v}{1 - v u_z /c^2}
         \end{align*}
         This is the general version of Einstein's velocity addition, where the $S''$ system (the particle) is not necessarily moving in the $z$-direction. A quick, less formal way of deriving these formula is taking the differential:
         \begin{align*}
-            & \dv{x'}{t'} = \frac{\dd z}{\gamma(\dd t - v (\dd z)/c^2)} = \frac{\dv*{x}{t}}{\gamma (\dv*{t}{t} - v \dv*{z}{t}/c^2)} = \frac{u_x}{\gamma (t - v u_z/c^2)} \\
-            & \dv{z'}{t'} = \frac{\gamma(\dd z - v \dd t)}{\gamma (\dd t - v \dd z/c^2)} = \frac{\gamma(\dv*{z}{t} - v \dv*{t}{t})}{\gamma (\dv*{t}{t} - v (\dv*{z}{t})/c^2)} = \frac{u_z - v}{t - v u_z /c^2}
+            & \dv{x'}{t'} = \frac{\dd z}{\gamma(\dd t - v (\dd z)/c^2)} = \frac{\dv*{x}{t}}{\gamma (\dv*{t}{t} - v \dv*{z}{t}/c^2)} = \frac{u_x}{\gamma (1 - v u_z/c^2)} \\
+            & \dv{z'}{t'} = \frac{\gamma(\dd z - v \dd t)}{\gamma (\dd t - v \dd z/c^2)} = \frac{\gamma(\dv*{z}{t} - v \dv*{t}{t})}{\gamma (\dv*{t}{t} - v (\dv*{z}{t})/c^2)} = \frac{u_z - v}{1 - v u_z /c^2}
         \end{align*}
 
     \section{Lorentz transformation of energy and momentum}

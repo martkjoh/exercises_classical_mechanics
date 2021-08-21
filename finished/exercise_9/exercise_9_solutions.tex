@@ -26,11 +26,11 @@
         \end{equation*}
         Using the small angle approximation, we get $\sin(\theta) \approx \theta$, $1 - \cos(\theta) \approx \frac{1}{2} \theta^2$, so the potential energy becomes
         \begin{equation*}
-            \frac{1}{2} mgb (\theta_1^2 + \theta_2^2) - \frac{1}{2}kb^2(\theta_1 - \theta_2) = \frac{1}{2}\left((mgb + kb^2)(\theta_1^2 + \theta_2^2) - 2kb^2 \theta_1 \theta_2\right)
+            \frac{1}{2} mgb (\theta_1^2 + \theta_2^2) + \frac{1}{2}kb^2(\theta_1 - \theta_2)^2 = \frac{1}{2}\left((mgb + kb^2)(\theta_1^2 + \theta_2^2) - 2kb^2 \theta_1 \theta_2\right)
         \end{equation*}
         The lagrangian is then
         \begin{equation*}
-            L = \frac{1}{2}m\left[(b \dot \theta_1)^2 + (b \dot \theta_2)^2\right] + \frac{1}{2} (mgb + kb^2) (\theta_1^2 + \theta_2^2) - \frac{1}{2}kb^2(\theta_1 - \theta_2)  = \frac{1}{2}\left(m_{ij}\theta_i \theta_i + A_{ij}\theta_i \theta_j\right),
+            L = \frac{1}{2}m\left[(b \dot \theta_1)^2 + (b \dot \theta_2)^2\right] + \frac{1}{2} (mgb + kb^2) (\theta_1^2 + \theta_2^2) - \frac{1}{2}kb^2(\theta_1 - \theta_2)  = \frac{1}{2}\left(m_{ij}\theta_i \theta_j + A_{ij}\theta_i \theta_j\right),
         \end{equation*}
         where
         \begin{equation*}
@@ -55,7 +55,7 @@
                 mgb + kb^2 - \omega^2 mb^2 & -kb^2 \\
                 kb^2 & mgb + kb^2 - \omega^2 mb^2
             \end{vmatrix}
-            = (mgb + kb^2 - \omega^2 mb^2)^2 - (mb^2)^2 = 0,
+            = (mgb + kb^2 - \omega^2 mb^2)^2 - (kb^2)^2 = 0,
         \end{equation*}
         or
         \begin{equation*}
@@ -121,7 +121,7 @@
         If we introduce $\omega_0^2 = k/m$. This means the equation for the eigenfrequencies is
         \begin{align*} & \det(A - \omega^2m) = 
             \begin{vmatrix}
-                2\omega_0^2 - \omega& -\omega_0^2 \\
+                2\omega_0^2 - \omega^2& -\omega_0^2 \\
                 -\omega_0^2 & \omega_0^2 - \omega^2
             \end{vmatrix}
             = (2\omega_0^2 - \omega^2)(\omega_0^2 - \omega^2) - \omega_0^4 = 2\omega_0^4 - 3 \omega_0^2\omega^2 + \omega^4 - \omega_0^4 \\
