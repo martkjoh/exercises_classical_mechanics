@@ -35,12 +35,16 @@
         \end{equation*}
         Inserting what we found earlier, the Lagrangian becomes
         \begin{equation*}
-            L = \frac{1}{2}m[a^2 \omega^2 + b \dot \theta^2 + 2 b \theta^2 a \omega \sin(\theta - \omega t)] - mg[a \sin(\omega t) - b \cos(\theta)].
+            L = \frac{1}{2}m[a^2 \omega^2 
+            + b \dot \theta^2 + 2 b \dot \theta a \omega \sin(\theta - \omega t)] 
+            - mg[a \sin(\omega t) - b \cos(\theta)].
         \end{equation*}
         The derivatives needed for the equation of motion are
         \begin{align*}
-            &\dv{t}\pdv{L}{\dot \theta} = mb^2 \ddot \theta + m b a \omega (\dot \theta - \omega) \cos(\theta - \omega t), \\
-            &\pdv{L}{\theta} = mba \dot \theta \omega \cos(\theta - \omega t) - m g b \sin(\theta).
+            &\dv{t}\pdv{L}{\dot \theta} 
+            = mb^2 \ddot \theta + m b a \omega (\dot \theta - \omega) \cos(\theta - \omega t), \\
+            &\pdv{L}{\theta} 
+            = mba \dot \theta \omega \cos(\theta - \omega t) - m g b \sin(\theta).
         \end{align*}
         Inserting this into Euler's equation, and solving for $\ddot \theta$ gives
         \begin{equation*}
